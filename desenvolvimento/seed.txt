@@ -1,0 +1,26 @@
+y' = xy, y(0) = 1
+xy'' - y' = 2
+derivate[x^2y +2yx]
+2ydy =(x^2+1)dx
+sin(y)dy = -cos(x)dx
+d^2y/dx^2 - dy/dx = 2
+xy'' - y' = 2
+xdy - ydx = 0
+y' + y = e^x
+d^2y/dx^2 + dy/dx + y = 0
+(dx/dt)^10 - 2t^2 + 2cos(t)d^3x/dt^3=0
+(d^2y/dx^2)^3 + x(dy/dx)^4 = e^x
+d^2u(x,y)/dx^2 + d^2u(x,y)/dy^2 = 0
+dy/dx = 2x
+y''+y=0, y(0)=2, y'(0) =1
+d^2y/dx^2 - dy/dx -6y=0,y(0)=0,y'(0)=-10
+y'+4y=0,y(pi/4)=-3,y'(pi/4)=-5
+y'+2y=0
+y'' + y=0
+y'' -y = x
+y' = 2x
+y' = 2y/x
+y' + 2xy = 0
+y'= -(x/y)
+y' -y = e^(2x)
+y' = cos(x)
