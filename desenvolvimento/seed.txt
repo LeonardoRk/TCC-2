@@ -1,6 +1,5 @@
 y' = xy, y(0) = 1
 xy'' - y' = 2
-derivate[x^2y +2yx]
 2ydy =(x^2+1)dx
 sin(y)dy = -cos(x)dx
 d^2y/dx^2 - dy/dx = 2
@@ -41,7 +40,6 @@ x*d^2y/dx^2 - dy/dx = 0, y(1)= -8, y'(1) = 4
 d^2y/dx^2 + y = 0
 d^2y/dx^2 + y = 0, y(3pi/2)= a/2, y'(3pi/2) = sqrt(3)
 (y^2 -1)dx - (2y + xy)dy = 0
-(x^2 -1)sqrt(1 - y^2)dx - x^2dy = 0
 tg(x)sec(y)dx - tg(y)sec(x)dy = 0
 ydx - xdy = 0
 dy/dx = 3x -1

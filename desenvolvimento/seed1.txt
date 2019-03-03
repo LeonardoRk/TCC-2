@@ -4,7 +4,6 @@ y''' = 2y/x
 y'' = 2
 d^4y/dx^4 + dy/dt + 2y[x,t] = cos^2(t)
 du/dt - d^4u/dx^4
-derivate[x^2y +2yx]
 dx/dy + dx/dt = 2x
 (2x + y^2)dx + (2xy + y)dy = 0
 dy/dx = (x^2 + y^2) / (yx)
