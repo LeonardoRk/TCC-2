@@ -1,3 +1,41 @@
+const fs = require('fs');
+var fileName = "./seed.txt";
+var lines = [];
+fs.readFile(fileName, (err, data) => { 
+	if (err) throw err; 
+    lines = data.toString().split('\n');
+	start(lines);
+});
+
+const start = async function pegaOutput(lines){
+	console.log("Qtd de equações:" + lines.length + "\n");
+
+	var equacao = [];
+	var nmr_equacao = 1;
+	var dados_salvos_com_sucesso = 0;
+	for(i = 0; i < lines.length; i++){
+		try{
+			console.log("a linha: " + lines[i]);
+			output = await waApi.getFull(lines[i]);
+		}catch(error){
+			throw console.error(error);
+		}
+
+		equacao = pegaDados(output);
+		if(Object.keys(equacao).length >= 1){
+			console.log(equacao);
+			console.log("\n");
+			var infos_prontas = trataEquacao(equacao);
+			dados_salvos_com_sucesso = await salvaDados(equacao, infos_prontas, nmr_equacao);
+			nmr_equacao++;
+			equacao = [];
+		}else{
+			throw console.log("equações não retornou nada");
+		}
+	}
+
+}
+
 podRestante = function(idPodAtual, traducaoPod, podsRestantes){
 	var existe = false;
 	var posicaoARemover = -1;
@@ -126,7 +164,8 @@ function pegaDados(output){
 		var pods = dados["pods"];
 		metadado = extraiPods(pods);
 	}else{
-		console.log("Erro para esta query");
+		console.log("Erro para esta query: ");
+		console.log(dados);
     }
     return metadado;
 }
@@ -305,8 +344,6 @@ downloadImg = function(tipo, url, outputName){
 	    });
 };
 
-const fs = require('fs');
-
 function salva_img_pergunta(eq_pergunta, nmr_equacao){
 	var mapa_img_pergunta = {};
 	if(eq_pergunta != undefined){
@@ -360,7 +397,7 @@ function preparaInfos(infos_semi_prontas, mapa_img_pergunta, mapa_img_resposta, 
 	return string;
 }
 
-function salvaDados(equacao, infos_semi_prontas, nmr_equacao){
+async function salvaDados(equacao, infos_semi_prontas, nmr_equacao){
 
 	var mapa_img_pergunta = salva_img_pergunta(equacao["Pergunta"], nmr_equacao);
 
@@ -370,43 +407,6 @@ function salvaDados(equacao, infos_semi_prontas, nmr_equacao){
 	const INFO_FOLDER = "./info/";
 	const FILE_NAME = "info" + nmr_equacao + ".txt";
 	var stringPreparada = preparaInfos(infos_semi_prontas, mapa_img_pergunta, mapa_img_resposta, nmr_equacao);
-	fs.writeFile(INFO_FOLDER + FILE_NAME, stringPreparada, function (err) {
-	  if (err) throw err;
-	  console.log('Foi registrada info ' + nmr_equacao + '!');
-	});
+	var retorno = await fs.writeFileSync(INFO_FOLDER + FILE_NAME, stringPreparada);
+	console.log('Foi registrada info ' + nmr_equacao + '!\n\n');
 }
-
-const start = async function pegaOutput(lines){
-	console.log("Qtd de equações:" + lines.length);
-
-	var equacao = [];
-	var nmr_equacao = 1;
-	for(i = 0; i < lines.length; i++){
-		try{
-			output = await waApi.getFull(lines[i]);
-		}catch(error){
-			console.error(error);
-		}
-
-		equacao = pegaDados(output);
-		if(Object.keys(equacao).length >= 1){
-			console.log(equacao);
-			console.log("\n\n");
-			var infos_prontas = trataEquacao(equacao);
-			salvaDados(equacao, infos_prontas, nmr_equacao);
-			nmr_equacao++;
-			equacao = [];
-		}else{
-			console.log("equações não retornou nada");
-		}
-	}
-
-}
-
-var fileName = "./seed1.txt";
-var lines = [];
-fs.readFile(fileName, (err, data) => { 
-	if (err) throw err; 
-    lines = data.toString().split('\n');
-	start(lines);
-});
