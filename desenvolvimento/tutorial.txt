@@ -1,1 +1,2 @@
-para usar o arquivo equacoes utilize o comando 'node equacoes.js' no terminal
+para usar o arquivo equacoes utilize o comando 'node equacoes.js' no terminal na pasta desenvolvimento
+para usar o arquivo estatisticas utilize o comando 'node estatisticas.js' no terminal na pasta desenvolvimento
