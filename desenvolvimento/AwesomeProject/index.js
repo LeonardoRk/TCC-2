@@ -42,3 +42,11 @@ Navigation.events().registerAppLaunchedListener(() => {
         }
       })
 });
+
+Navigation.setDefaultOptions({
+  topBar: {
+    visible: false,
+    drawBehind: true,
+    animate: false,
+  }
+});
