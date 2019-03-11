@@ -49,40 +49,42 @@ const goResolucao = (id) => {
 };
 
 export default class ModoDeJogo extends Component {
-  static get options(){
-    return {
-      topBar: {
-        title: {
-          text: 'Modo de jogo'
-        },
-      }
-    };
-  }
   render() {
     return (
-        <View style={styles.containerPai}>
-         
-          <TouchableOpacity onPress={() => {
-              goClassificacao("App");
-            }}
-              style={styles.container}>
-            <Text style={styles.textButton}>Classificação</Text>
-          </TouchableOpacity>
-         
-          <TouchableOpacity onPress={() => {goResolucao("App")} }
-              style={[styles.container, styles.overrideColor]}>
-            <Text style={styles.textButton}>Resolução</Text>
-          </TouchableOpacity>
+        <View>
+          <Text style={styles.welcome}>Seja bem vindo, jogador(a)!</Text>
+          <Text style={styles.sub_welcome}>O que deseja resolver?</Text>
+          <View style={styles.containerPai}>
+            <TouchableOpacity onPress={() => {
+                goClassificacao("App");
+              }}
+                style={styles.container}>
+              <Text style={styles.textButton}>Classificação</Text>
+            </TouchableOpacity>
           
+            <TouchableOpacity onPress={() => {goResolucao("App")} }
+                style={[styles.container, styles.overrideColor]}>
+              <Text style={styles.textButton}>Resolução</Text>
+            </TouchableOpacity>
+          </View>
         </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  welcome:{
+    fontSize:30,
+    textAlign:'center',
+    padding:20
+  },
+  sub_welcome:{
+    fontSize:20,
+    textAlign:'center',
+    padding:30
+  },
   containerPai:{
     flexDirection:"row",
-    alignItems: 'center',
     flex:1
   },
   container:{
