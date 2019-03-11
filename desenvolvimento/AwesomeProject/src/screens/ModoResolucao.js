@@ -6,15 +6,6 @@ const width = Dimensions.get('screen').width;
 const height = Dimensions.get('screen').height;
 
 export default class ModoResolucao extends Component{
-    static get options(){
-        return {
-          topBar: {
-            title: {
-              text: 'Modo de Resolução'
-            },
-          }
-        };
-    }
 
     render(){
         return(
