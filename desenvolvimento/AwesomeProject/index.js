@@ -37,7 +37,7 @@ Navigation.events().registerAppLaunchedListener(() => {
                     id:'App'
                 }
               }
-          ],
+            ],
           }
         }
       })

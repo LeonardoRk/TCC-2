@@ -1,0 +1,21 @@
+Para o ambiente de desenvolvimento é necessário ter um emulador ligado e disponível.
+
+Para listar o nome dos emuladores digite no terminal 
+emulator -list-avds
+
+Escolha um emulador e para iniciá-lo digite:
+emulator -avd <nome_emulador>
+
+Para saber se o emulador está disponível é necessário estar escrito device do lado do seu nome, para isso digite
+adb devices
+
+Após o emulador estar pronto é necessário usar o servidor para se comunicar com o emulador, para isso digite no terminal aberto nesta pasta o comando
+sudo react-native start
+
+Assim que o servidor estiver de pé, faça a build do aplicativo no celular com o comando
+sudo npm run android
+
+Para estar atento aos logs do terminal digite no terminal
+react-native log-android
+
+Assim o ambiente estará pronto para ser desenvolvido e debugado.
