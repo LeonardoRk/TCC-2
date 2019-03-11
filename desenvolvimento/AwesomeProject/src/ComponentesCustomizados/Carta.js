@@ -18,27 +18,42 @@ export default class Carta extends Component {
         this.animatedValue = new Animated.Value(0);
         this.value = 0;
         this.animatedValue.addListener(({ value }) => {
-        this.value = value;
+            this.value = value;
         })
         this.frontInterpolate = this.animatedValue.interpolate({
-        inputRange: [0, 180],
-        outputRange: ['0deg', '180deg'],
+            inputRange: [0, 180],
+            outputRange: ['0deg', '180deg'],
         })
         this.backInterpolate = this.animatedValue.interpolate({
-        inputRange: [0, 180],
-        outputRange: ['180deg', '360deg']
+            inputRange: [0, 180],
+            outputRange: ['180deg', '360deg']
         })
         this.frontOpacity = this.animatedValue.interpolate({
-        inputRange: [89, 90],
-        outputRange: [1, 0]
+            inputRange: [89, 90],
+            outputRange: [1, 0]
         })
         this.backOpacity = this.animatedValue.interpolate({
-        inputRange: [89, 90],
-        outputRange: [0, 1]
+            inputRange: [89, 90],
+            outputRange: [0, 1]
         })
     }
 
+    state = {
+        deixarInvisivel: true,
+        mostrar:false
+    }
+    componentDidMount(){
+        if(this.state.mostrar){
+            this.mostra();
+        }else if(this.state.mostrar == false){
+            this.esconde();
+        }else{
+            throw new Error("Caso indefinido");
+        }
+    }
+
     esconde(){
+        this.setState({mostrar: !this.state.mostrar}, ()=>{console.log("mostrar:" + this.state.mostrar)});
         Animated.spring(this.animatedValue,{
             toValue: 0,
             friction: 8,
@@ -47,6 +62,7 @@ export default class Carta extends Component {
     }
 
     mostra(){
+        this.setState({mostrar: !this.state.mostrar}, ()=>{console.log("mostrar:" + this.state.mostrar)});
         Animated.spring(this.animatedValue,{
             toValue: 180,
             friction: 8,
@@ -54,21 +70,27 @@ export default class Carta extends Component {
         }).start();
     }
 
-    flipCard() {
-        if (this.value >= 90) {
+    viraCarta() {
+        if(this.state.mostrar){
+            this.mostra();
+        }else if(this.state.mostrar == false){
+            this.esconde();
+        }else{
+            throw new Error("Caso indesejado");
+        }  
+        this.props.handle(this, this.state.mostrar);
+           
+
+        /*if (this.value >= 90) {
             this.props.handle(this.props.imgSrc, "esconde");
             this.esconde();      
         } else {
             this.props.handle(this.props.imgSrc, "mostra");
             this.mostra();
-        }
+        }*/
 
     }
 
-    state = {
-        deixarInvisivel: true,
-        mostrar:false
-    }
 
     render() {
         const frontAnimatedStyle = {
@@ -83,9 +105,9 @@ export default class Carta extends Component {
         }
 
         return (
-        <View style={styles.carta, this.conditionalStyle.cartaOver}>
+        <View style={[styles.carta, this.conditionalStyle.cartaOver]}>
             
-            <TouchableOpacity  onPress={() => this.flipCard()}>
+            <TouchableOpacity  onPress={() => this.viraCarta()}>
                     <View>
                     <Animated.View style={[styles.flipCard, frontAnimatedStyle, {opacity: this.frontOpacity}]}>
                     </Animated.View>
