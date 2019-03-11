@@ -56,28 +56,58 @@ function mostraArquivosInfo(){
 			}
 		}
 		if(qtd_metadados_validados(arquivos_validos, qtd_total_arquivos, metadados_equacao)){
-			console.log("Quantidade total de arquivos lidos: " + qtd_total_arquivos);
-			console.log("Quantidade de ED COM resposta: " + metadados_equacao["eds_com_resposta"].length);
-			console.log("Quantidade de ED SEM resposta: " + metadados_equacao["eds_sem_resposta"].length);
-			console.log("Quantidade de EDs: " + metadados_equacao["eds"].length);
-			console.log("Quantidade de ED ordinaria: " + metadados_equacao["eds_ordinarias"].length);
-			console.log("Quantidade de ED parcial: " + metadados_equacao["eds_parciais"].length);
-			console.log("Quantidade de ED ordem 1: " + metadados_equacao["eds_ordem_1"].length);
-			console.log("Quantidade de ED ordem 2: " + metadados_equacao["eds_ordem_2"].length);
-			console.log("Quantidade de ED ordem 3: " + metadados_equacao["eds_ordem_3"].length);
-			console.log("Quantidade de ED ordem sup.: " + metadados_equacao["eds_ordem_superior"].length);
-			console.log("Quantidade de ED linear: " + metadados_equacao["eds_lineares"].length);
-			console.log("Quantidade de ED não linear: " + metadados_equacao["eds_nao_lineares"].length);
-			console.log("Quantidade de ED separável: " + metadados_equacao["eds_separaveis"].length);
-			console.log("Quantidade de ED exata: " + metadados_equacao["eds_exatas"].length);
-			console.log("Quantidade de ED homogênea: " + metadados_equacao["eds_homogêneas"].length);
-
+			mostrarEstatisticas(qtd_total_arquivos, metadados_equacao);
 		}else{
 			console.log("Incompatibilidade de quantidade de arquivos lidos");
 		}
 
     });
 };
+
+function mostrarEstatisticas(qtd_total_arquivos, metadados_equacao){
+	console.log("Quantidade total de arquivos lidos: " + qtd_total_arquivos);
+	console.log("Quantidade de ED COM resposta: " + metadados_equacao["eds_com_resposta"].length
+		+ " => [" + metadados_equacao["eds_com_resposta"] + "]");
+
+	console.log("Quantidade de ED SEM resposta: " + metadados_equacao["eds_sem_resposta"].length
+		+ " => [" + metadados_equacao["eds_sem_resposta"] + "]");
+
+	console.log("Quantidade de EDs: " + metadados_equacao["eds"].length
+		+ " => [" + metadados_equacao["eds"] + "]");
+
+	console.log("Quantidade de ED ordinaria: " + metadados_equacao["eds_ordinarias"].length
+		+ " => [" + metadados_equacao["eds_ordinarias"] + "]");
+
+	console.log("Quantidade de ED parcial: " + metadados_equacao["eds_parciais"].length
+		+ " => [" + metadados_equacao["eds_parciais"] + "]");
+
+	console.log("Quantidade de ED ordem 1: " + metadados_equacao["eds_ordem_1"].length
+		+ " => [" + metadados_equacao["eds_ordem_1"] + "]");
+
+	console.log("Quantidade de ED ordem 2: " + metadados_equacao["eds_ordem_2"].length
+		+ " => [" + metadados_equacao["eds_ordem_2"] + "]");
+
+	console.log("Quantidade de ED ordem 3: " + metadados_equacao["eds_ordem_3"].length
+		+ " => [" + metadados_equacao["eds_ordem_3"] + "]");
+
+	console.log("Quantidade de ED ordem sup.: " + metadados_equacao["eds_ordem_superior"].length
+		+ " => [" + metadados_equacao["eds_ordem_superior"] + "]");
+
+	console.log("Quantidade de ED linear: " + metadados_equacao["eds_lineares"].length
+		+ " => [" + metadados_equacao["eds_lineares"] + "]");
+
+	console.log("Quantidade de ED não linear: " + metadados_equacao["eds_nao_lineares"].length
+		+ " => [" + metadados_equacao["eds_nao_lineares"] + "]");
+
+	console.log("Quantidade de ED separável: " + metadados_equacao["eds_separaveis"].length
+		+ " => [" + metadados_equacao["eds_separaveis"] + "]");
+
+	console.log("Quantidade de ED exata: " + metadados_equacao["eds_exatas"].length
+		+ " => [" + metadados_equacao["eds_exatas"] + "]");
+
+	console.log("Quantidade de ED homogênea: " + metadados_equacao["eds_homogêneas"].length
+		+ " => [" + metadados_equacao["eds_homogêneas"] + "]");
+}
 
 function qtd_metadados_validados(arquivos_validos, qtd_total_arquivos, metadados_equacao){
 	var validado = null;
