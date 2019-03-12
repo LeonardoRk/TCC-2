@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import DadosGerais from '../../../resource/DADOS_GERAIS.json'
 
 export default class ClassGeral extends Component { 
 
@@ -10,6 +11,7 @@ export default class ClassGeral extends Component {
         }
         super();
         this.classificacao = nomeClassificacao;
+        console.log(DadosGerais);
         console.log("criando classificação: " + nomeClassificacao);
     }
 }

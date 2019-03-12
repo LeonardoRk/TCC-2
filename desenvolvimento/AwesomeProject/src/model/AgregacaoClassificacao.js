@@ -41,12 +41,13 @@ selecionaTodasPerguntas = (nomeAgregacao) => {
             throw new Error("Opção inexistente");
     }
 
-    this.perguntasAleatorias = [];
+    let perguntasAleatorias = [];
     for(let i = 0 ; i < QTD_TOTAL_PERGUNTA ; i++){
-         this.perguntasAleatorias.push(service.itemAleatorio(objetoConcretoClassificacao.perguntas));
+        perguntasAleatorias.push(service.itemAleatorio(objetoConcretoClassificacao.perguntas));
     }
     console.log("Todas as perguntas aleatorias");
-    console.log(this.perguntasAleatorias);
+    console.log(perguntasAleatorias);
+    return perguntasAleatorias;
 }
 
 export default class AgregacaoClassificacao extends Component{
@@ -57,7 +58,7 @@ export default class AgregacaoClassificacao extends Component{
         if(nomeAgregacao == TIPO || nomeAgregacao == ORDEM || nomeAgregacao == HOMOGENEIDADE ||
             nomeAgregacao == LINEARIDADE || nomeAgregacao == SEPARAVEL || nomeAgregacao == EXATA){
                 
-            selecionaTodasPerguntas(nomeAgregacao);
+            this.perguntasAleatorias = selecionaTodasPerguntas(nomeAgregacao);
 
         }else{
             console.log("criação de agregação inválido");

@@ -52,13 +52,6 @@ export default class App extends Component {
           />
           
         </View>
-        <View style={{marginTop:70, marginHorizontal:30}}>
-          <Button 
-            title="Sair"
-            color="#141584"
-            accessibilityLabel="Learn more about this purple button"
-          />
-        </View>
       </View>
     );
   }
