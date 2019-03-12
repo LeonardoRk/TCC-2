@@ -39,9 +39,10 @@ export default class Carta extends Component {
     }
 
     state = {
-        deixarInvisivel: true,
+        deixarDesabilitado: false,
         mostrar:false
     }
+
     componentDidMount(){
         if(this.state.mostrar){
             this.mostra();
@@ -53,7 +54,7 @@ export default class Carta extends Component {
     }
 
     esconde(){
-        this.setState({mostrar: !this.state.mostrar}, ()=>{console.log("mostrar:" + this.state.mostrar)});
+        this.setState({mostrar: !this.state.mostrar});
         Animated.spring(this.animatedValue,{
             toValue: 0,
             friction: 8,
@@ -62,7 +63,7 @@ export default class Carta extends Component {
     }
 
     mostra(){
-        this.setState({mostrar: !this.state.mostrar}, ()=>{console.log("mostrar:" + this.state.mostrar)});
+        this.setState({mostrar: !this.state.mostrar});
         Animated.spring(this.animatedValue,{
             toValue: 180,
             friction: 8,
@@ -79,18 +80,12 @@ export default class Carta extends Component {
             throw new Error("Caso indesejado");
         }  
         this.props.handle(this, this.state.mostrar);
-           
-
-        /*if (this.value >= 90) {
-            this.props.handle(this.props.imgSrc, "esconde");
-            this.esconde();      
-        } else {
-            this.props.handle(this.props.imgSrc, "mostra");
-            this.mostra();
-        }*/
-
     }
 
+    desabilita = () => {
+        this.setState({deixarDesabilitado: !this.state.deixarDesabilitado}, () => {
+        });
+    }
 
     render() {
         const frontAnimatedStyle = {
@@ -105,9 +100,9 @@ export default class Carta extends Component {
         }
 
         return (
-        <View style={[styles.carta, this.conditionalStyle.cartaOver]}>
+        <View style={styles.carta}>
             
-            <TouchableOpacity  onPress={() => this.viraCarta()}>
+            <TouchableOpacity disabled={this.state.deixarDesabilitado}  onPress={() => this.viraCarta()}>
                     <View>
                     <Animated.View style={[styles.flipCard, frontAnimatedStyle, {opacity: this.frontOpacity}]}>
                     </Animated.View>
@@ -119,15 +114,6 @@ export default class Carta extends Component {
         </View>
         );
     }
-
-  conditionalStyle = StyleSheet.create({
-    cartaOver:{
-        display: this.state.deixarInvisivel ? 'flex' : 'none',
-        width: comprimentoCarta,
-        flex:1,
-        margin:2,
-    }
-  });
 }
 
 const styles = StyleSheet.create({
@@ -136,13 +122,12 @@ const styles = StyleSheet.create({
         flex:1,
         margin:2,
     },
-    verso:{
-        backgroundColor:'powderblue',
-        height:'100%'
-    },
-    frente:{
-        backgroundColor:'red',
-        height:'100%'
+    desabilitado: {
+        borderWidth:5,
+        borderColor:'gray', 
+        backgroundColor:'gray',
+        height:'100%',
+        backfaceVisibility: 'hidden',
     },
     flipCard: {
         borderWidth:5,

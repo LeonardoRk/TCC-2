@@ -70,38 +70,36 @@ export default class Campo extends Component {
     }
 
     validarJogo = () => {
+        console.log("Validar jogo");
+        console.log(this.state.cartasVirada[0].props.imgSrc + "  ;  " + this.state.cartasVirada[1].props.imgSrc);
         let ehChave = false;
-        let posicao = null;
         let par = false;
         Object.keys(this.mapeado).map((key, index) => {
             if(this.state.cartasVirada[0].props.imgSrc == key){
                 ehChave = true;
-                posicao = index;
             }
         });
-
+        console.log("eh chave: " + ehChave);
 
         if(ehChave){
-            if(this.state.cartasVirada[1].props.imgSrc == this.mapeado[posicao]){
+            if(this.state.cartasVirada[1].props.imgSrc == this.mapeado[this.state.cartasVirada[0].props.imgSrc]){
                 par = true;
             }
         }else if(!ehChave){
             let ehValor = false;
-            let indice = null;
-            for(let j = 0 ; j < this.mapeado.length; j++){
-                if(this.state.cartasVirada[0].props.imgSrc == this.mapeado[j]){
+            let numeroChave = null;
+            Object.keys(this.mapeado).map((key, index) => {
+                if(this.state.cartasVirada[0].props.imgSrc == this.mapeado[key]){
                     ehValor = true;
-                    indice = j;
+                    numeroChave = key;
                 }
-            }
+            });
+            
+            console.log("é valor: " + ehValor);
             if(ehValor){
-                Object.keys(this.mapeado).map((key, index) => {
-                    if(index == indice){
-                        if(this.state.cartasVirada[1].props.imgSrc == key){
-                            par = true;
-                        }
-                    }
-                });
+                if(numeroChave == this.state.cartasVirada[1].props.imgSrc){
+                    par = true;
+                }
             }
         }else{
             throw new Error("Sem outra opção");
@@ -119,40 +117,53 @@ export default class Campo extends Component {
                     }else if(this.state.qtdCartasViradas == 2){
                         //Alert.alert("validar");
                         this.props.img2(carta.props.imgSrc);
+                        
                         this.setState({cartasVirada:[this.state.cartasVirada[0], carta]}, ()=>{
-                            let validado = this.validarJogo();
-                            console.log("validado: " + validado);
-                            if(validado){
-                                this.state.cartasVirada[0].esconde();
-                                this.state.cartasVirada[1].esconde();
-                            }else{
-                                this.state.cartasVirada[0].esconde();
-                                this.state.cartasVirada[1].esconde();
-                            }
-                            this.props.img1(null);
-                            this.props.img2(null);
-                            this.setState({cartasVirada:[null,null]});
-                            this.setState({qtdCartasViradas:0});
+                            let paresGemeos = this.validarJogo();
+                            console.log("paresGemeos: " + paresGemeos);
+                            this.lidaComPares(paresGemeos);
+                            this.resetaCampo();
                         });
+                       
                     }
                 }
             );
         }else if(!estadoMostrar){
             console.log("esconder");
-            this.setState({qtdCartasViradas: this.state.qtdCartasViradas - 1}, () => {
-                if(this.state.cartasVirada[0].props.imgSrc == carta.props.imgSrc){
-                    this.props.img1(null);
-                }else if(this.state.cartasVirada[0].props.imgSrc == carta.props.imgSrc){
-                    this.props.img2(null);
-                }else{
-                    throw new Error("Caso inexistente");
-                }
-            });
+            this.escondeCartaDoTelao(carta.props.imgSrc);
         }else{
             throw new Error("Caso imprevisto");
         }
+    }
 
-     
+    lidaComPares = (paresGemeos) => {
+        if(!paresGemeos){
+            this.state.cartasVirada[0].esconde();
+            this.state.cartasVirada[1].esconde();
+        }else{
+            console.log("desabiitar cartas");
+            this.state.cartasVirada[0].desabilita();
+            this.state.cartasVirada[1].desabilita();
+        }
+    }
+
+    resetaCampo = () => {
+        this.props.img1(null);
+        this.props.img2(null);
+        this.setState({cartasVirada:[null,null]});
+        this.setState({qtdCartasViradas:0});
+    }
+
+    escondeCartaDoTelao = (imageSource) => {
+        this.setState({qtdCartasViradas: this.state.qtdCartasViradas - 1}, () => {
+            if(this.state.cartasVirada[0].props.imgSrc == imageSource){
+                this.props.img1(null);
+            }else if(this.state.cartasVirada[1].props.imgSrc == imageSource){
+                this.props.img2(null);
+            }else{
+                throw new Error("Caso não estava virada");
+            }
+        });
     }
 
     render(){
