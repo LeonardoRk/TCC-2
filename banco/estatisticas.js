@@ -58,12 +58,29 @@ function mostraArquivosInfo(){
 		if(qtd_metadados_validados(arquivos_validos, qtd_total_arquivos, metadados_equacao)){
 			mostrarEstatisticas(qtd_total_arquivos, metadados_equacao);
 			salvarDadosGerais(qtd_total_arquivos, metadados_equacao);
+			criarIndexImagensPergunta(qtd_total_arquivos);
 		}else{
 			console.log("Incompatibilidade de quantidade de arquivos lidos");
 		}
 
     });
 };
+
+async function criarIndexImagensPergunta(qtd_total_arquivos){
+	const FILE_NAME = "./pergunta/index.js";
+	var stringPreparada = preparaDadosIndex(qtd_total_arquivos);
+	var retorno = await fs.writeFileSync(FILE_NAME, stringPreparada);
+	console.log('\nIndex de perguntas criados com sucesso\n\n');
+}
+
+function preparaDadosIndex(qtd_total_arquivos){
+	var stringPreparada = "const images = {\n";
+	for(var i = 0 ; i < qtd_total_arquivos; i++){
+		stringPreparada = stringPreparada + "    " + (i+1) + ": " +"require('./pergunta" + (i+1) + ".gif'),\n";
+	}
+	stringPreparada = stringPreparada + "};\n\nexport default images;";
+	return stringPreparada;
+}
 
 async function salvarDadosGerais(qtd_total_arquivos, metadados_equacao){
 	const FILE_NAME = "./DADOS_GERAIS.json";
