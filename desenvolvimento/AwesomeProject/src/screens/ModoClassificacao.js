@@ -17,7 +17,7 @@ const carregaMundo = async (nomeMundo) =>{
                 perguntas: agregacaoClassificacao.perguntasAleatorias,
                 respostasCorretas: agregacaoClassificacao.respostasCorretas,
                 faseEmbaralhada: agregacaoClassificacao.faseEmbaralhada,
-                image: require('../../resource/img/pergunta/pergunta1.gif')
+                perguntaAtual:1
             }
         },
     });

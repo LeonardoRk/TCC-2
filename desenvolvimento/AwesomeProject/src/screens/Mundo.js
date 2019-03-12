@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image, Button, Alert} from 'react-native';
-import IMAGES from '../../resource/img/pergunta/index'
+import IMAGES from '../../resource/img/pergunta/index';
 
 export default class Mundo extends Component {
 
@@ -9,38 +9,30 @@ export default class Mundo extends Component {
         console.log('params aleatorio: ' + this.props.perguntas);
         console.log('Respostas corretas: ' + this.props.respostasCorretas);
         console.log('Fase embaralhada: ' + this.props.faseEmbaralhada);
-
-        this.state = {
-            perguntaAtual: 1,
-        }
-        console.log("Pergunta inicial: " + this.state.perguntaAtual);
+        
+        console.log("Pergunta inicial: " + this.props.perguntaAtual);
     }
 
     render(){
         return(
             <View style={styles.container}>
-                <Button title="oi" 
-                    onPress={() => {
-                        Alert.alert(this.state.perguntaAtual.toString());
-                        this.setState({perguntaAtual:this.state.perguntaAtual + 1});
-                    }}
-                />
+                
                 <Text style={styles.pergunta}>Escolha a ED: {this.props.perguntas[0]} </Text>
 
                 <Image style={[styles.equacao, styles.esquerda]} 
-                        source={IMAGES[this.props.faseEmbaralhada[this.state.perguntaAtual-1][0]]}
+                        source={IMAGES[this.props.faseEmbaralhada[this.props.perguntaAtual-1][0]]}
                 ></Image>
 
                 <Image style={[styles.equacao, styles.direita]} 
-                        source={IMAGES[this.props.faseEmbaralhada[this.state.perguntaAtual-1][1]]}
+                        source={IMAGES[this.props.faseEmbaralhada[this.props.perguntaAtual-1][1]]}
                 ></Image>
 
                 <Image style={[styles.equacao, styles.esquerda]} 
-                        source={IMAGES[this.props.faseEmbaralhada[this.state.perguntaAtual-1][2]]}
+                        source={IMAGES[this.props.faseEmbaralhada[this.props.perguntaAtual-1][2]]}
                 ></Image>
 
                 <Image style={[styles.equacao, styles.direita]} 
-                        source={IMAGES[this.props.faseEmbaralhada[this.state.perguntaAtual-1][3]]}
+                        source={IMAGES[this.props.faseEmbaralhada[this.props.perguntaAtual-1][3]]}
                 ></Image>
 
             </View>
