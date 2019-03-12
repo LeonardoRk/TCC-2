@@ -10,8 +10,10 @@ export default class ClassGeral extends Component {
             //nothing to do in here
         }
         super();
-        this.classificacao = nomeClassificacao;
-        console.log(DadosGerais);
-        console.log("criando classificação: " + nomeClassificacao);
+        this.props = {  'dadosGerais': DadosGerais, 
+                        'classificacao':nomeClassificacao,
+        };
+        console.log("Dados gerais: " + this.props.dadosGerais);
+        console.log("criando classificação: " + this.props.classificacao);
     }
 }

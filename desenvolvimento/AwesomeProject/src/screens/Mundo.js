@@ -5,21 +5,24 @@ export default class Mundo extends Component {
 
     componentDidMount(){
         console.log("O MUNDO ESTÁ MONTADO- Parâmetros enviados");
-        console.log('param: ' + this.props.perguntas);
-        
+        console.log('params aleatorio: ' + this.props.perguntas);
+        console.log('Respostas corretas: ' + this.props.respostasCorretas);
+        console.log('Fase embaralhada: ' + this.props.faseEmbaralhada);
+
         this.state = {
-            perguntaAtual: 1
+            perguntaAtual: 1,
         }
         console.log("Pergunta inicial: " + this.state.perguntaAtual);
     }
 
     render(){
+        icon = require('../../resource/img/pergunta/pergunta7.gif');
         return(
             <View style={styles.container}>
-                <Text style={styles.pergunta}>Escolha a ED: {this.props.perguntas[0]}</Text>
+                <Text style={styles.pergunta}>Escolha a ED: {this.props.perguntas[this.state.perguntaAtual-1]} </Text>
 
                 <Image style={[styles.equacao, styles.esquerda]} 
-                        source={require('../../resource/img/pergunta/pergunta8.gif')}
+                        source={this.props.image}
                 ></Image>
 
                 <Image style={[styles.equacao, styles.direita]} 

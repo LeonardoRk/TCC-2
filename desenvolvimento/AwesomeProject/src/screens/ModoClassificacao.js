@@ -14,7 +14,10 @@ const carregaMundo = async (nomeMundo) =>{
         component: {
             name: 'Mundo',
             passProps:{
-                perguntas: agregacaoClassificacao.perguntasAleatorias
+                perguntas: agregacaoClassificacao.perguntasAleatorias,
+                respostasCorretas: agregacaoClassificacao.respostasCorretas,
+                faseEmbaralhada: agregacaoClassificacao.faseEmbaralhada,
+                image:require('../../resource/img/pergunta/pergunta71.gif')
             }
         },
     });
