@@ -82,19 +82,30 @@ classificacaoQuatroTipos = () => {
 
 selecionaCorretas = (faseInteira) => {
     let respostasCorretas = [];
+    let path = "";
+    let itemPreparado = "";
     for (let j = 0 ; j < QTD_TOTAL_PERGUNTA ; j++){
+        //path = require('../../resource/img/pergunta/pergunta' + faseInteira[j]['correto'] + '.gif');
+        console.log(path);
+        //itemPreparado = require(path);
+        console.log("Item preparado: " + itemPreparado);
         respostasCorretas.push(faseInteira[j]['correto']);
     }
-    console.log("Figuras corretas: " + respostasCorretas);
+    console.log("Figuras correctas: " + respostasCorretas);
     return respostasCorretas;
 }
 
 juntaCorretoErrado = (object) => {
     let juntos = [];
-    juntos.push(object['correto']);
-    juntos.push(object['errado'][0]);
-    juntos.push(object['errado'][1]);
-    juntos.push(object['errado'][2]);
+    let path1 = '../resource/img/pergunta/pergunta' + object['correto'] + '.gif';
+    let path2 = '../resource/img/pergunta/pergunta' + object['errado'][0] + '.gif';
+    let path3 = '../resource/img/pergunta/pergunta' + object['errado'][1] + '.gif';
+    let path4 = '../resource/img/pergunta/pergunta' + object['errado'][2] + '.gif';
+    
+    juntos.push(path1);
+    juntos.push(path2);
+    juntos.push(path3);
+    juntos.push(path4);
    
     return juntos;
 }

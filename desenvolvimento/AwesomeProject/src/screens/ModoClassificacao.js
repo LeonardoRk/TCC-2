@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, ScrollView, Dimensions,
     TouchableOpacity, Alert} from 'react-native';
-import AgregacaoClassificacao from '../model/AgregacaoClassificacao'
+import AgregacaoClassificacao from '../model/AgregacaoClassificacao';
 import {Navigation} from 'react-native-navigation';
 
 const width = Dimensions.get('screen').width;
@@ -17,7 +17,7 @@ const carregaMundo = async (nomeMundo) =>{
                 perguntas: agregacaoClassificacao.perguntasAleatorias,
                 respostasCorretas: agregacaoClassificacao.respostasCorretas,
                 faseEmbaralhada: agregacaoClassificacao.faseEmbaralhada,
-                image:require('../../resource/img/pergunta/pergunta71.gif')
+                image: require('../../resource/img/pergunta/pergunta1.gif')
             }
         },
     });

@@ -16,25 +16,30 @@ export default class Mundo extends Component {
     }
 
     render(){
-        icon = require('../../resource/img/pergunta/pergunta7.gif');
         return(
             <View style={styles.container}>
-                <Text style={styles.pergunta}>Escolha a ED: {this.props.perguntas[this.state.perguntaAtual-1]} </Text>
+                <Button title="oi" 
+                    onPress={() => {
+                        Alert.alert(this.state.perguntaAtual.toString());
+                        this.setState({perguntaAtual:this.state.perguntaAtual + 1});
+                    }}
+                />
+                <Text style={styles.pergunta}>Escolha a ED: {this.props.perguntas[0]} </Text>
 
                 <Image style={[styles.equacao, styles.esquerda]} 
                         source={this.props.image}
                 ></Image>
 
                 <Image style={[styles.equacao, styles.direita]} 
-                        source={require('../../resource/img/pergunta/pergunta7.gif')}
+                        source={this.props.faseEmbaralhada[1][1]}
                 ></Image>
 
                 <Image style={[styles.equacao, styles.esquerda]} 
-                        source={require('../../resource/img/pergunta/pergunta32.gif')}
+                        //source={this.props.faseEmbaralhada[i-1][2]}
                 ></Image>
 
                 <Image style={[styles.equacao, styles.direita]} 
-                        source={require('../../resource/img/pergunta/pergunta11.gif')}
+                        //source={this.props.faseEmbaralhada[i-1][3]}
                 ></Image>
 
             </View>
