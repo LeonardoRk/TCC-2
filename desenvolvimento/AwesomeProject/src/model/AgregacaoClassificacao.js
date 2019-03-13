@@ -74,10 +74,47 @@ classificacaoDoisTipos = (perguntasAleatorias) => {
     return faseInteira;
 };
 
-classificacaoQuatroTipos = () => {
+classificacaoQuatroTipos = (perguntasAleatorias) => {
+    console.log(objetoConcretoClassificacao.props.classificacao);
+    let faseInteira = [];
     for(let i = 0 ; i < QTD_TOTAL_PERGUNTA ; i++){
-        console.log("classificacao 4 tipos");
+        if(objetoConcretoClassificacao.props.classificacao == ORDEM){
+            console.log(i);
+            console.log(perguntasAleatorias[i]);
+            let conjuntoDeOrdens = [];
+            if(perguntasAleatorias[i] == "de ordem 1"){
+                conjuntoDeOrdens = objetoConcretoClassificacao.conjuntoDeOrdens(objetoConcretoClassificacao.props.ordem1,
+                                                                                objetoConcretoClassificacao.props.ordem2,
+                                                                                objetoConcretoClassificacao.props.ordem3,
+                                                                                objetoConcretoClassificacao.props.ordemSuperior);
+                faseInteira.push(conjuntoDeOrdens);
+            }else if(perguntasAleatorias[i] == "de ordem 2"){
+                conjuntoDeOrdens = objetoConcretoClassificacao.conjuntoDeOrdens(objetoConcretoClassificacao.props.ordem2,
+                                                                                objetoConcretoClassificacao.props.ordem1,
+                                                                                objetoConcretoClassificacao.props.ordem3,
+                                                                                objetoConcretoClassificacao.props.ordemSuperior);
+                faseInteira.push(conjuntoDeOrdens);
+            }else if(perguntasAleatorias[i] == "de ordem 3"){
+                conjuntoDeOrdens = objetoConcretoClassificacao.conjuntoDeOrdens(objetoConcretoClassificacao.props.ordem3,
+                                                                                objetoConcretoClassificacao.props.ordem1,
+                                                                                objetoConcretoClassificacao.props.ordem2,
+                                                                                objetoConcretoClassificacao.props.ordemSuperior);
+                faseInteira.push(conjuntoDeOrdens);
+            }else if(perguntasAleatorias[i] == "de ordem superior"){
+                conjuntoDeOrdens = objetoConcretoClassificacao.conjuntoDeOrdens(objetoConcretoClassificacao.props.ordemSuperior,
+                                                                                objetoConcretoClassificacao.props.ordem1,
+                                                                                objetoConcretoClassificacao.props.ordem2,
+                                                                                objetoConcretoClassificacao.props.ordem3);
+                faseInteira.push(conjuntoDeOrdens);
+            }else{
+                throw new Error("Caso inexistente");
+            }
+        }else{
+            throw new Error("Caso inexistente");
+        }
     }
+    console.log(faseInteira);
+    return faseInteira;
 }
 
 selecionaCorretas = (faseInteira) => {
@@ -140,7 +177,9 @@ export default class AgregacaoClassificacao extends Component{
 
             }else if(objetoConcretoClassificacao.perguntas.length == 4){
                 console.log("Variação de 4 itens -ORDEM-");
-                classificacaoQuatroTipos();
+                let faseInteira = classificacaoQuatroTipos(this.perguntasAleatorias);
+                this.respostasCorretas = selecionaCorretas(faseInteira);
+                this.faseEmbaralhada = juntaEmbaralhado(faseInteira);
             }else{
                 throw new Error("Quantidade indefinida de perguntas");
             }

@@ -16,36 +16,16 @@ export default class ClassTipo extends ClasGeral{
         console.log("imagens parciais: " + this.props.parciais);
     }
 
-    escolheOrdinaria(ordinariasRestantes){
-        let value = service.itemAleatorio(ordinariasRestantes);
-        let index = ordinariasRestantes.indexOf(value);
- 
-        if (index > -1) {
-            ordinariasRestantes.splice(index, 1);
-        }
-        return value;
-    }
-
-    escolheParcial(parciaisRestantes){
-        console.log(parciaisRestantes);
-        let value = service.itemAleatorio(parciaisRestantes);
-        let index = parciaisRestantes.indexOf(value);
-
-        if (index > -1) {
-            parciaisRestantes.splice(index, 1);
-        }
-        return value;
-    }
-
+    
     conjuntoOrdinaria(){
         let parciaisRestantes = service.copiarArrayValor(this.props.parciais);
         
         let conjuntoOrdinaria = {
-            correto:this.escolheOrdinaria(this.props.ordinarias), 
+            correto:this.escolheEquacao(this.props.ordinarias), 
             errado:[
-                this.escolheParcial(parciaisRestantes),
-                this.escolheParcial(parciaisRestantes),
-                this.escolheParcial(parciaisRestantes)
+                this.escolheEquacao(parciaisRestantes),
+                this.escolheEquacao(parciaisRestantes),
+                this.escolheEquacao(parciaisRestantes)
             ]
         };
 
@@ -56,11 +36,11 @@ export default class ClassTipo extends ClasGeral{
         let ordinariasRestantes = service.copiarArrayValor(this.props.ordinarias);
        
         let conjuntoParcial = {
-            correto:this.escolheParcial(this.props.parciais), 
+            correto:this.escolheEquacao(this.props.parciais), 
             errado:[
-                this.escolheOrdinaria(ordinariasRestantes),
-                this.escolheOrdinaria(ordinariasRestantes),
-                this.escolheOrdinaria(ordinariasRestantes)
+                this.escolheEquacao(ordinariasRestantes),
+                this.escolheEquacao(ordinariasRestantes),
+                this.escolheEquacao(ordinariasRestantes)
             ]
         };
        
