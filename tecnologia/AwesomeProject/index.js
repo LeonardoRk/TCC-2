@@ -5,17 +5,35 @@
 
 import {Navigation} from 'react-native-navigation';
 import App from './src/App';
-//import {name as appName} from './app.json';
+import ModoDeJogo from './src/screens/ModoDeJogo';
+import ModoClassificacao from './src/screens/ModoClassificacao';
+import ModoResolucao from './src/screens/ModoResolucao';
 
 //AppRegistry.registerComponent(appName, () => App);
-Navigation.registerComponent(`App`, () => App);
+Navigation.registerComponent('App', () => App);
+Navigation.registerComponent('ModoDeJogo', () => ModoDeJogo);
+Navigation.registerComponent('ModoClassificacao', () => ModoClassificacao);
+Navigation.registerComponent('ModoResolucao', () => ModoResolucao);
 
 Navigation.events().registerAppLaunchedListener(() => {
-  Navigation.setRoot({
-    root: {
-      component: {
-        name: "App"
-      }
-    }
-  });
+    Navigation.setRoot({
+        root: {
+          stack: {
+            id: 'App',
+            children: [
+              {
+                component: {
+                  name: 'ModoDeJogo',
+                },
+                component: {
+                    name: 'ModoClassificacao',
+                },
+                component: {
+                    name: 'ModoResolucao',
+                }
+              }
+          ],
+          }
+        }
+      })
 });
