@@ -56,13 +56,53 @@ classificacaoDoisTipos = (perguntasAleatorias) => {
 
     let faseInteira = [];
     for(let i = 0 ; i < QTD_TOTAL_PERGUNTA ; i++){
+        console.log(i);
+        console.log(perguntasAleatorias[i]);
         if(objetoConcretoClassificacao.props.classificacao == TIPO){
-            console.log(i);
-            console.log(perguntasAleatorias[i]);
             if(perguntasAleatorias[i] == "ordinaria"){
                 faseInteira.push(objetoConcretoClassificacao.conjuntoOrdinaria());
             }else if(perguntasAleatorias[i] == "parcial"){
                 faseInteira.push(objetoConcretoClassificacao.conjuntoParcial());
+            }else{
+                throw new Error("Caso inexistente");
+            }
+        }else if(objetoConcretoClassificacao.props.classificacao == HOMOGENEIDADE){
+            if(perguntasAleatorias[i] == "homogênea"){
+                faseInteira.push(objetoConcretoClassificacao.conjuntoDeHomogeneidade(objetoConcretoClassificacao.props.homogenea,
+                                                                                    objetoConcretoClassificacao.edsNaoHomogena));
+            }else if(perguntasAleatorias[i] == "NÃO homogênea"){
+                faseInteira.push(objetoConcretoClassificacao.conjuntoDeHomogeneidade(objetoConcretoClassificacao.edsNaoHomogena,
+                                                                                    objetoConcretoClassificacao.props.homogenea));
+            }else{
+                throw new Error("Caso inexistente");
+            }
+        }else if(objetoConcretoClassificacao.props.classificacao == LINEARIDADE){
+            if(perguntasAleatorias[i] == "linear"){
+                faseInteira.push(objetoConcretoClassificacao.conjuntoLinearidade(objetoConcretoClassificacao.props.linear,
+                                                                                objetoConcretoClassificacao.props.naoLinear));
+            }else if(perguntasAleatorias[i] == "NÃO linear"){
+                faseInteira.push(objetoConcretoClassificacao.conjuntoLinearidade(objetoConcretoClassificacao.props.naoLinear,
+                                                                                objetoConcretoClassificacao.props.linear));
+            }else{
+                throw new Error("Caso inexistente");
+            }
+        }else if(objetoConcretoClassificacao.props.classificacao == SEPARAVEL){
+            if(perguntasAleatorias[i] == "separável"){
+                faseInteira.push(objetoConcretoClassificacao.conjuntoDeSeparavel(objetoConcretoClassificacao.props.separavel,
+                                                                                objetoConcretoClassificacao.edsNaoSeparavel));
+            }else if(perguntasAleatorias[i] == "NÃO separável"){
+                faseInteira.push(objetoConcretoClassificacao.conjuntoDeSeparavel(objetoConcretoClassificacao.edsNaoSeparavel,
+                                                                                objetoConcretoClassificacao.props.separavel));
+            }else{
+                throw new Error("Caso inexistente");
+            }
+        }else if(objetoConcretoClassificacao.props.classificacao == EXATA){
+            if(perguntasAleatorias[i] == "exata"){
+                faseInteira.push(objetoConcretoClassificacao.conjuntoDeExatas(objetoConcretoClassificacao.props.exatas,
+                                                                                objetoConcretoClassificacao.naoExatas));
+            }else if(perguntasAleatorias[i] == "NÃO exata"){
+                faseInteira.push(objetoConcretoClassificacao.conjuntoDeExatas(objetoConcretoClassificacao.naoExatas,
+                                                                            objetoConcretoClassificacao.props.exatas));
             }else{
                 throw new Error("Caso inexistente");
             }
@@ -187,5 +227,33 @@ export default class AgregacaoClassificacao extends Component{
             console.log("criação de agregação inválido");
             throw new Error("Nome de Criação agregação inválido");
         }
+        objetoConcretoClassificacao.constructor(objetoConcretoClassificacao.props.classificacao);
     }
+}
+
+resetaObjetoClassificacao = (nomeAgregacao) => {
+    let novoObjeto = null;
+    switch(nomeAgregacao){
+        case TIPO:
+            novoObjeto = new ClassTipo(nomeAgregacao);
+            break;
+        case ORDEM:
+            novoObjeto = new ClassOrdem(nomeAgregacao);
+            break;
+        case HOMOGENEIDADE:
+            novoObjeto = new ClassHomog(nomeAgregacao);
+            break;
+        case LINEARIDADE:
+            novoObjeto = new ClassLinearidade(nomeAgregacao);
+            break;
+        case SEPARAVEL:
+            novoObjeto = new ClassSeparavel(nomeAgregacao);
+            break;
+        case EXATA:
+            novoObjeto = new ClassExata(nomeAgregacao);
+            break;
+        default:
+            throw new Error("Opção inexistente");
+    }
+    return novoObjeto;
 }

@@ -19,9 +19,9 @@ export default class ClassTipo extends ClasGeral{
     
     conjuntoOrdinaria(){
         let parciaisRestantes = service.copiarArrayValor(this.props.parciais);
-        
+        let ordinarias = service.copiarArrayValor(this.props.ordinarias);
         let conjuntoOrdinaria = {
-            correto:this.escolheEquacao(this.props.ordinarias), 
+            correto:this.escolheEquacao(ordinarias), 
             errado:[
                 this.escolheEquacao(parciaisRestantes),
                 this.escolheEquacao(parciaisRestantes),
@@ -34,9 +34,9 @@ export default class ClassTipo extends ClasGeral{
 
     conjuntoParcial(){
         let ordinariasRestantes = service.copiarArrayValor(this.props.ordinarias);
-       
+        let parciais = service.copiarArrayValor(this.props.parciais);
         let conjuntoParcial = {
-            correto:this.escolheEquacao(this.props.parciais), 
+            correto:this.escolheEquacao(parciais), 
             errado:[
                 this.escolheEquacao(ordinariasRestantes),
                 this.escolheEquacao(ordinariasRestantes),

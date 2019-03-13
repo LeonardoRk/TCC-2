@@ -22,9 +22,11 @@ export default class ClassOrdem extends ClasGeral{
         console.log("imagens ordem superior: " + this.props.ordemSuperior);
     }
 
-    conjuntoDeOrdens(arrayCorreto, arrayErrado1, arrayErrado2, arrayErrado3){
+    conjuntoDeOrdens(arrayCorretoOriginal, arrayErrado1, arrayErrado2, arrayErrado3){
         let temporario = arrayErrado1.concat(arrayErrado2);
-        let equacoesRestantes = temporario.concat(arrayErrado3);
+        let equacoesRestantesOriginal = temporario.concat(arrayErrado3);
+        let equacoesRestantes = service.copiarArrayValor(equacoesRestantesOriginal);
+        let arrayCorreto = service.copiarArrayValor(arrayCorretoOriginal);
         
         let conjuntoOrdens = {
             correto:this.escolheEquacao(arrayCorreto), 
