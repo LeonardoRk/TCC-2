@@ -16,6 +16,7 @@ import {
   View, 
   Dimensions,
   Alert} from 'react-native';
+import { Navigation } from 'react-native-navigation';
 
 const width = Dimensions.get('screen').width;
 const height = Dimensions.get('screen').height;
@@ -26,6 +27,17 @@ const instructions = Platform.select({
     'Double tap R on your keyboard to reload,\n' +
     'Shake or press menu button for dev menu',
 });
+
+const goModoDeJogo = (id) => {
+  Navigation.push(id, 
+    {
+      component: {
+        id: 'ModoDeJogo',
+        name: 'ModoDeJogo',
+      }
+    }
+  )
+};
 
 export default class App extends Component {
   render() {
@@ -38,9 +50,14 @@ export default class App extends Component {
             color="#841584"
             accessibilityLabel="Learn more about this purple button"
             onPress={() => {
-              Alert.alert('You tapped the Decrypt button!');
+              Navigation.push(this.props.componentId, {
+                component: {
+                  name: 'ModoDeJogo',
+                }
+              });
             }}
           />
+          
         </View>
         <View style={{marginTop:70, marginHorizontal:30}}>
           <Button 
@@ -56,8 +73,8 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   mainView:{
-    borderWidth: 4.0,
-    borderColor: '#000000',
+    /*borderWidth: 4.0,
+    borderColor: '#000000',*/
     flex:1
   },
   welcome:{
