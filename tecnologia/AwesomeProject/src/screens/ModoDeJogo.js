@@ -20,7 +20,7 @@ import {
   Alert,
   TouchableOpacity} from 'react-native';
 
-import Navigation from 'react-native-navigation';
+import { Navigation } from 'react-native-navigation';
 
 const width = Dimensions.get('screen').width;
 const height = Dimensions.get('screen').height;
@@ -31,6 +31,22 @@ const instructions = Platform.select({
     'Double tap R on your keyboard to reload,\n' +
     'Shake or press menu button for dev menu',
 });
+
+const goClassificacao = (id) => {
+  Navigation.push(id, {
+    component: {
+      name: 'ModoClassificacao',
+    }
+  });
+};
+
+const goResolucao = (id) => {
+  Navigation.push(id, {
+    component: {
+      name: 'ModoResolucao',
+    }
+  });
+};
 
 export default class ModoDeJogo extends Component {
   static get options(){
@@ -46,13 +62,14 @@ export default class ModoDeJogo extends Component {
     return (
         <View style={styles.containerPai}>
          
-          <TouchableOpacity onPress={() => {Alert.alert('clicou class')} }
+          <TouchableOpacity onPress={() => {
+              goClassificacao("App");
+            }}
               style={styles.container}>
             <Text style={styles.textButton}>Classificação</Text>
           </TouchableOpacity>
          
-        
-          <TouchableOpacity onPress={() => {Alert.alert('clicou')} }
+          <TouchableOpacity onPress={() => {goResolucao("App")} }
               style={[styles.container, styles.overrideColor]}>
             <Text style={styles.textButton}>Resolução</Text>
           </TouchableOpacity>

@@ -24,12 +24,17 @@ Navigation.events().registerAppLaunchedListener(() => {
               {
                 component: {
                   name: 'ModoDeJogo',
+                  id: 'ModoDeJogo'
                 },
                 component: {
                     name: 'ModoClassificacao',
                 },
                 component: {
                     name: 'ModoResolucao',
+                },
+                component: {
+                    name: 'App',
+                    id:'App'
                 }
               }
           ],

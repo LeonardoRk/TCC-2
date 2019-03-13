@@ -29,14 +29,11 @@ const instructions = Platform.select({
 });
 
 const goModoDeJogo = (id) => {
-  Navigation.push(id, 
-    {
-      component: {
-        id: 'ModoDeJogo',
-        name: 'ModoDeJogo',
-      }
+  Navigation.push(id, {
+    component: {
+      name: 'ModoDeJogo',
     }
-  )
+  });
 };
 
 export default class App extends Component {
@@ -50,11 +47,7 @@ export default class App extends Component {
             color="#841584"
             accessibilityLabel="Learn more about this purple button"
             onPress={() => {
-              Navigation.push(this.props.componentId, {
-                component: {
-                  name: 'ModoDeJogo',
-                }
-              });
+              goModoDeJogo(this.props.componentId);
             }}
           />
           
