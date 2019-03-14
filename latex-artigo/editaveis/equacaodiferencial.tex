@@ -65,14 +65,14 @@ $
 }
 \end{table}
 
-Na tabela \ref{tabelaEdo} é possível observar que a variável dependente y é derivada apenas em relação à variável independente x.
+Na tabela \ref{tabelaEdo} é possível observar que a variável dependente $y$ é derivada apenas em relação à variável independente $x$.
 
-Na tabela \ref{tabelaEDP} é possível observar que a variável dependente u é dependente das variáveis x e t independentes.
+Na tabela \ref{tabelaEDP} é possível observar que a variável dependente $u$ é dependente das variáveis $x$ e $t$ independentes.
 
 
 \subsection[Ordem]{Ordem}
 
-Uma EDO pode ser classificada de ordem 1 até n. A ordem é um número inteiro que representa o número máximo de derivadas de uma função. Abaixo seguem exemplos de diferente ordem das EDOs. 
+Uma EDO pode ser classificada de ordem 1 até $n$. A ordem é um número inteiro que representa o número máximo de derivadas de uma função. Abaixo seguem exemplos de diferente ordem das EDOs. 
 
 \begin{center}
 \begin{table}[h!]
@@ -102,7 +102,7 @@ $
 
 Na tabela \ref{tabelaOrdem} o primeiro exemplo é uma EDO de ordem 2, tendo em vista que $(10y')^4$ é uma derivada de primeira ordem elevado à quarta potência.
 O segundo exemplo é uma EDO de primeira ordem, pois a maior quantidade de derivadas presente é 1.
-No terceiro exemplo temos uma EDP, pois a variável dependente u está derivada 2 vezes em relação à variável independente x e derivada 1 vez em relação à independente y. Portanto como o maior número de derivadas é 2, nos dá uma derivada de segunda ordem.
+No terceiro exemplo temos uma EDP, pois a variável dependente $u$ está derivada 2 vezes em relação à variável independente $x$ e derivada 1 vez em relação à independente $y$. Portanto como o maior número de derivadas é 2, nos dá uma derivada de segunda ordem.
 
 \subsection[Linearidade]{Linearidade}
 As equações diferenciais podem ser classificadas em linear e não-linear.
@@ -115,8 +115,8 @@ Uma equação linear é aquela que possui apenas funções lineares no lado esqu
 
 Para ser linear, é necessário cumprir 2 condições. 
 \begin{itemize}
-	\item{}A variável dependente y e todas as suas derivadas devem ter grau 1 (elevado a 1)
-	\item{}Cada coeficiente é dependente apenas de 1 variável independente x.
+	\item{}A variável dependente $y$ e todas as suas derivadas devem ter grau 1 (elevado a 1)
+	\item{}Cada coeficiente é dependente apenas de 1 variável independente $x$.
 \end{itemize}
 
 \begin{center}
@@ -144,22 +144,22 @@ Para ser linear, é necessário cumprir 2 condições.
 \end{center}
 
 Na tabela \ref{tabelaLinearidade} é possível ver exemplos de ED lineares e não lineares.
-O primeiro e o segundo exemplo são ED lineares pois cumprem as 2 propriedades, já que o termo independente y e todas suas derivadas tem grau 1 e todos os seus coeficientes estão apenas em função da variável independente x.
+O primeiro e o segundo exemplo são ED lineares pois cumprem as 2 propriedades, já que o termo independente $y$ e todas suas derivadas tem grau 1 e todos os seus coeficientes estão apenas em função da variável independente $x$.
 
-O terceiro exemplo da tabela \ref{tabelaLinearidade} apesar de ter o termo independente y e todas suas derivadas de grau 1, apresenta um coeficiente em função da variável dependente y, no termo $ yy''$
+O terceiro exemplo da tabela \ref{tabelaLinearidade} apesar de ter o termo independente $y$ e todas suas derivadas de grau 1, apresenta um coeficiente em função da variável dependente $y$, no termo $ yy''$
 
 O quarto exemplo da tabela \ref{tabelaLinearidade} também é não-linear pois apresenta a derivada de ordem 2 elevado ao grau 2, descumprindo com a propriedade de ter apenas termos lineares.
 
 O quinto exemplo da tabela \ref{tabelaLinearidade}, apesar de não estar escrito na mesma forma de \ref{formaGeral} também é uma ED linear. A equação $ xdy + (y - xy - e^x)dx = 0 $ pode ser reescrita para a forma \ref{formaGeral}, quando dividida a equação por dx,
 \begin{center}
-$ x\frac{dy}{dx} + (y - xy - e^x) = 0 $ 
+$ x\frac{dy}{dx} + (y - xy - e^x) = 0, $ 
 \end{center}
-e colocando y em evidência e somando $e^x$ de ambos os lados:
+e colocando $y$ em evidência e somando $e^x$ de ambos os lados:
 \begin{center}
-$ x \frac{dy}{dx} + (1 - x)y =  e^x $
+$ x \frac{dy}{dx} + (1 - x)y =  e^x. $
 \end{center}
 
-Então é possível notar que a variável y dependente e todas suas derivadas tem grau 1 e os coeficientes estão função da variável independente x, caracterizando-a como linear.
+Então é possível notar que a variável $y$ dependente e todas suas derivadas tem grau 1 e os coeficientes estão função da variável independente x, caracterizando-a como linear.
 
 Para uma ED não ser linear basta que não cumpra 1 das duas propriedades citadas.
 
@@ -172,12 +172,12 @@ Para dizer que uma equação soluciona uma EDO, basta que qualquer função f de
 Por exemplo, considere a equação diferencial abaixo e a sua solução 
 \end{flushleft}
 
-\begin{equation} \label{edExemplo} y' = 25 + y^2 \end{equation}  \begin{equation} y = 5tg(5x) \end{equation} A equação y é considerada solução, pois ao se substituir y e sua derivada na ED \ref{edExemplo} é encontrada a identidade 0 = 0.
+\begin{equation} \label{edExemplo} y' = 25 + y^2 \end{equation}  \begin{equation} y = 5tg(5x) \end{equation} A equação $y$ é considerada solução, pois ao se substituir $y$ e sua derivada na ED \ref{edExemplo} é encontrada a identidade 0 = 0.
 
 \begin{center}
 
 \begin{flushleft}
-Como y = 5tg(5x), então \begin{equation}  y' = 5 * sec^2(5x) * 5,  \end{equation} 
+Como $y = 5tg(5x)$, então \begin{equation}  y' = 5sec^2(5x) * 5,  \end{equation} 
 \end{flushleft}
 
 \begin{flushleft}
@@ -185,7 +185,7 @@ que é igual a \begin{equation} y' = 25sec^2(5x).  \end{equation}
 \end{flushleft}
 
 \begin{flushleft}
-Substituindo y e y' na equação teremos: \begin{equation} 25sec^2(5x) = 25 + (5tg(5x))^2. \end{equation}
+Substituindo $y$ e $y'$ na equação teremos: \begin{equation} 25sec^2(5x) = 25 + (5tg(5x))^2. \end{equation}
 
 Utilizando uma propriedade da trigonometria a qual nos mostra que: \begin{equation} 1 + tg^2(t) = sec^2(t). \end{equation}
 Então podemos substituir \begin{equation} sec^2(5x) \quad  \textrm{por} \quad 1 + tg^2(5x). \end{equation}
@@ -233,11 +233,11 @@ Exemplo: É fornecido que
 	\end{equation}
 	é solução para a equação diferencial y' + 2y = 0 e a condição inicial (ou VI) é y(0) = 3 
 
-É possível ver que y realmente é solução da ED.
+É possível ver que $y$ realmente é solução da ED.
 		Derivando y, temos \begin{equation} y'= -2Ae^{-2x} \end{equation} Substituindo na ED, vemos que: 
 		\begin{equation} -2Ae^{-2x} + 2(Ae^{-2x}) = 0  \quad \textrm{ou} \quad 0 = 0\end{equation} sendo assim reduzimos a equação à uma identidade, solucionando a equação.
 
-		Tendo visto que y é solução da ED y'. Vamos agora descobrir a solução particular, substituindo o VI. 
+		Tendo visto que $y$ é solução da ED $y'$. Vamos agora descobrir a solução particular, substituindo o VI. 
 
 		\begin{equation}
 		y(0) = 3 \quad \textrm{e} \quad  y = Ae^{-2x} \newline 
@@ -325,7 +325,7 @@ A seguir um exemplo de EDO não separável e homogênea sendo transformada em um
 \begin{equation}
 f(x,y) = (2x - y )dx - (x + 4y)dy, 
 \end{equation}
-vamos substituir x por kx e y por ky para verificar que a equação é homogênea
+vamos substituir $x$ por $kx$ e $y$ por $ky$ para verificar que a equação é homogênea
 
 \begin{center}
 $ f(kx,ky) = (2kx - ky)dx  - (kx + 4ky)dy$ \\
@@ -338,9 +338,9 @@ f(kx,ky) = k^1 * f(x,y).
 
 É uma função homogênea de grau 2
 
-Agora que vimos que é uma função homogênea, podemos fazer uma troca de variável para transformar a função em uma equação de variáveis separáveis. Vamos dizer que y = ux, assumindo que u é uma função diferenciável de x e então $ dy/dx = u + \dfrac{xdu}{dx} $
+Agora que vimos que é uma função homogênea, podemos fazer uma troca de variável para transformar a função em uma equação de variáveis separáveis. Vamos dizer que y = ux, assumindo que $u$ é uma função diferenciável de $x$ e então $ dy/dx = u + \dfrac{xdu}{dx} $
 
-Então substituindo y e dy na solução e fazendo as manipulações necessárias, temos que: 
+Então substituindo $y$ e $dy$ na solução e fazendo as manipulações necessárias, temos que: 
 
 \begin{center}
 $
