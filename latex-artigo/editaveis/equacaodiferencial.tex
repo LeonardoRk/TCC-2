@@ -1,0 +1,464 @@
+\chapter[Equação diferencial]{Equação Diferencial}
+Na engenharia e na natureza existem problemas e fenômenos que envolvem tempo, distância, tamanho, velocidade, volume entre outros. É possível fazer modelagens desses casos e relacioná-los a equações. Em alguns casos essas equações incógnitas envolvem uma taxa de variação, quando isso ocorre dizemos que as equações estão relacionadas às chamadas equações diferenciais (ED).
+
+Equações diferenciais envolvem derivadas de uma ou mais variáveis dependentes em relação a uma ou mais variáveis independentes \cite{explicacaoEDO}.
+
+\section[Classificação de ED]{Classificação de ED}
+
+As ED podem ser classificadas por \textbf{tipo}, \textbf{ordem} e \textbf{linearidade}.
+
+\subsection[Tipo]{Tipo}
+
+Podem ser ED ordinárias ou parciais, depende do número de variáveis independentes. Quando a ED tem apenas uma variável independente, é chamada de \textbf{ED ordinária (EDO)}. Quando a ED tem mais que uma variável independente, é chamada de \textbf{ED parcial (EDP)}.
+Uma EDP é representada pelo símbolo $ \partial $, normalmente chamado de \textit{del}.
+
+Nas tabelas \ref{tabelaEdo} e \ref{tabelaEDP}  é possível ver exemplos de EDO e EDP.
+
+\begin{table}[h!]
+\parbox{.40\linewidth}{
+\centering
+\begin{tabular}{c}
+\hline 
+  $
+\dfrac{dy}{dx} = x^2y
+$
+  \\  \\
+  
+$
+\dfrac{dy}{dx} = sen(x)
+$
+
+ \\ \\
+  
+$
+\dfrac{d^2y}{dx^2} + x \dfrac{dy}{dx} + y = 0
+$  \\
+
+\hline
+\end{tabular}
+\caption{Exemplos de EDO}
+\label{tabelaEdo}
+}
+\hfill
+\parbox{.50\linewidth}{
+\centering
+\begin{tabular}{c}
+\toprule
+
+$
+\dfrac{\partial ^2u}{\partial x^2} + \dfrac{\partial ^2u}{\partial t^2} = 0  \quad \textrm{,} \quad  u = f(x,t)
+$
+
+ \\ \\
+$
+\dfrac{\partial^2u}{\partial x^2} + 5 \dfrac{\partial u}{\partial t} + 3u = 0 \quad \textrm{,} \quad   u = f(x,t)
+$
+
+ \\ \\ 
+ $ \dfrac{\partial u}{\partial t}(x,t) = 3 \dfrac{\partial^2u}{\partial x^2}(x,t) $  
+ \\
+
+\bottomrule
+\end{tabular}
+\caption{Exemplos de EDP}
+\label{tabelaEDP}
+}
+\end{table}
+
+Na tabela \ref{tabelaEdo} é possível observar que a variável dependente y é derivada apenas em relação à variável independente x.
+
+Na tabela \ref{tabelaEDP} é possível observar que a variável dependente u é dependente das variáveis x e t independentes.
+
+
+\subsection[Ordem]{Ordem}
+
+Uma EDO pode ser classificada de ordem 1 até n. A ordem é um número inteiro que representa o número máximo de derivadas de uma função. Abaixo seguem exemplos de diferente ordem das EDOs. 
+
+\begin{center}
+\begin{table}[h!]
+\centering
+\begin{tabular}{l  p{0.4\linewidth}}
+
+\toprule
+$  y'' - (10y')^4 + 37y = 0  $ & Exemplo de EDO de segunda ordem \\
+\\
+$ dy/dx + sen(x) - y = 1 $ & Exemplo de EDO de primeira ordem \\ 
+\\
+ $
+\dfrac{\partial^2u}{\partial x^2} + 5 \dfrac{\partial u}{\partial y} - 3x = 0 \quad \textrm{,} \quad   u = f(x,y)
+$
+ &  
+ Exemplo de EDP de segunda ordem 
+ \\
+ 
+\bottomrule
+
+
+\end{tabular}
+\caption{Ordem de equações diferenciais}
+\label{tabelaOrdem}
+\end{table}
+\end{center}
+
+Na tabela \ref{tabelaOrdem} o primeiro exemplo é uma EDO de ordem 2, tendo em vista que $(10y')^4$ é uma derivada de primeira ordem elevado à quarta potência.
+O segundo exemplo é uma EDO de primeira ordem, pois a maior quantidade de derivadas presente é 1.
+No terceiro exemplo temos uma EDP, pois a variável dependente u está derivada 2 vezes em relação à variável independente x e derivada 1 vez em relação à independente y. Portanto como o maior número de derivadas é 2, nos dá uma derivada de segunda ordem.
+
+\subsection[Linearidade]{Linearidade}
+As equações diferenciais podem ser classificadas em linear e não-linear.
+Uma equação linear é aquela que possui apenas funções lineares no lado esquerdo e direito da igualdade. A seguir um exemplo da forma geral de uma equação linear.
+\begin{center}
+\begin{equation} \label{formaGeral}
+ \operatorname{a}_{n}(x) \dfrac{d^ny}{dx^n} + \operatorname{a}_{n-1}(x)\dfrac{d^{n-1}y}{dx^{n-1}} + ... + \operatorname{a}_{1}(x)\dfrac{dy}{dx} + \operatorname{a}_{0}(x)y = g(x) 
+\end{equation}
+\end{center}
+
+Para ser linear, é necessário cumprir 2 condições. 
+\begin{itemize}
+	\item{}A variável dependente y e todas as suas derivadas devem ter grau 1 (elevado a 1)
+	\item{}Cada coeficiente é dependente apenas de 1 variável independente x.
+\end{itemize}
+
+\begin{center}
+\begin{table}[h!]
+\centering
+\begin{tabular}{p{1.2cm} l  p{0.4\linewidth}}
+
+\toprule
+1) & $  -x^2y''' + 3xy'' + 2y = 0  $ &  ED linear \\
+\\
+2) &  $ 2x\frac{d^3y}{dx^3} + (x- 4)y = 0 $  &  ED linear  \\
+\\
+3) & $ yy'' - (2x -3)y' - 1y  = 3x $ & ED não linear \\ 
+\\
+4) & $ x\frac{d^3y}{dx^3} + (\frac{d^2y}{dx^2})^2 = 0 $ & ED não linear \\ 
+\\
+5) & $ xdy + (y - xy - e^x)dx = 0 $ & ED linear \\ 
+ 
+\bottomrule
+
+\end{tabular}
+\caption{ED lineares e não lineares}
+\label{tabelaLinearidade}
+\end{table}
+\end{center}
+
+Na tabela \ref{tabelaLinearidade} é possível ver exemplos de ED lineares e não lineares.
+O primeiro e o segundo exemplo são ED lineares pois cumprem as 2 propriedades, já que o termo independente y e todas suas derivadas tem grau 1 e todos os seus coeficientes estão apenas em função da variável independente x.
+
+O terceiro exemplo da tabela \ref{tabelaLinearidade} apesar de ter o termo independente y e todas suas derivadas de grau 1, apresenta um coeficiente em função da variável dependente y, no termo $ yy''$
+
+O quarto exemplo da tabela \ref{tabelaLinearidade} também é não-linear pois apresenta a derivada de ordem 2 elevado ao grau 2, descumprindo com a propriedade de ter apenas termos lineares.
+
+O quinto exemplo da tabela \ref{tabelaLinearidade}, apesar de não estar escrito na mesma forma de \ref{formaGeral} também é uma ED linear. A equação $ xdy + (y - xy - e^x)dx = 0 $ pode ser reescrita para a forma \ref{formaGeral}, quando dividida a equação por dx,
+\begin{center}
+$ x\frac{dy}{dx} + (y - xy - e^x) = 0 $ 
+\end{center}
+e colocando y em evidência e somando $e^x$ de ambos os lados:
+\begin{center}
+$ x \frac{dy}{dx} + (1 - x)y =  e^x $
+\end{center}
+
+Então é possível notar que a variável y dependente e todas suas derivadas tem grau 1 e os coeficientes estão função da variável independente x, caracterizando-a como linear.
+
+Para uma ED não ser linear basta que não cumpra 1 das duas propriedades citadas.
+
+\section[Solução de ED]{Solução de ED}
+
+Resolver uma ED significa encontrar a função que satisfaça a equação diferencial. É necessário integrar uma diferencial para encontrar a solução.
+Para dizer que uma equação soluciona uma EDO, basta que qualquer função f definida em algum intervalo I ao ser substituída na equação diferencial reduza a equação a uma identidade \cite{explicacaoEDO}.
+
+\begin{flushleft}
+Por exemplo, considere a equação diferencial abaixo e a sua solução 
+\end{flushleft}
+
+\begin{equation} \label{edExemplo} y' = 25 + y^2 \end{equation}  \begin{equation} y = 5tg(5x) \end{equation} A equação y é considerada solução, pois ao se substituir y e sua derivada na ED \ref{edExemplo} é encontrada a identidade 0 = 0.
+
+\begin{center}
+
+\begin{flushleft}
+Como y = 5tg(5x), então \begin{equation}  y' = 5 * sec^2(5x) * 5,  \end{equation} 
+\end{flushleft}
+
+\begin{flushleft}
+que é igual a \begin{equation} y' = 25sec^2(5x).  \end{equation}
+\end{flushleft}
+
+\begin{flushleft}
+Substituindo y e y' na equação teremos: \begin{equation} 25sec^2(5x) = 25 + (5tg(5x))^2. \end{equation}
+
+Utilizando uma propriedade da trigonometria a qual nos mostra que: \begin{equation} 1 + tg^2(t) = sec^2(t). \end{equation}
+Então podemos substituir \begin{equation} sec^2(5x) \quad  \textrm{por} \quad 1 + tg^2(5x). \end{equation}
+Com isso, temos a equação da seguinte maneira \begin{equation} 25(1 + tg^2(5x)) = 25 + (5tg(5x))^2 \end{equation} aplicando a distributiva no lado esquerdo e abrindo o quadrado do lado direito temos \begin{equation} 25 + 25tg^2(5x) = 25 + 25tg^2(5x), \end{equation} o que nos dá uma identidade, sendo mais visível na simplificação, resultando em 1 = 1
+\cite{explicacaoEDO}.
+
+\end{flushleft}
+\end{center}
+
+\subsection[Tipos de solução]{Tipos de solução}
+Existem três tipos de solução de uma EDO, a \textbf{geral}, a \textbf{particular} e a \textbf{singular}.
+\begin{itemize}
+	\item{geral:} Onde o número de possíveis constantes é n. Com n da ordem da EDO, a mesma quantidade das unidades da ordem de integração. 
+	\item{particular:} É a solução deduzida da solução geral, atribuindo valores particulares a constante, ou seja, o número máximo possível de constantes é 1, com um valor específico.
+	\item{singular:} Não é uma solução deduzida da solução geral e só existe em alguns casos.
+\end{itemize}
+
+A seguir será mostrado um exemplo de solução geral de uma ED.  \linebreak
+
+			$ \dfrac{dy}{dx} = x \quad  \textrm{é o mesmo que} \quad y' = x, \quad \textrm{com y em função de x => y(x)} \\
+			$
+			
+
+			integrando dos dois lados, temos que: \linebreak
+			
+			\begin{equation}
+				\int y' dy = \int x dx => y + c1 = \dfrac{x^2}{2} + c2 
+			\end{equation}
+			
+			\begin{center}
+				c2 - c1 = C, então temos a solução geral  \\
+			\end{center}
+			
+			\begin{equation}
+				y = \frac{x^2}{2} + C
+			\end{equation}
+		
+	
+	
+
+Relacionado à solução específica temos os problemas de valor inicial (PVI), onde após encontrar a solução geral, deve-se substituir o valor inicial (VI) na equação para determinar o valor específico da constante.
+
+Exemplo: É fornecido que 
+	\begin{equation}y = Ae^{-2x}
+	\end{equation}
+	é solução para a equação diferencial y' + 2y = 0 e a condição inicial (ou VI) é y(0) = 3 
+
+É possível ver que y realmente é solução da ED.
+		Derivando y, temos \begin{equation} y'= -2Ae^{-2x} \end{equation} Substituindo na ED, vemos que: 
+		\begin{equation} -2Ae^{-2x} + 2(Ae^{-2x}) = 0  \quad \textrm{ou} \quad 0 = 0\end{equation} sendo assim reduzimos a equação à uma identidade, solucionando a equação.
+
+		Tendo visto que y é solução da ED y'. Vamos agora descobrir a solução particular, substituindo o VI. 
+
+		\begin{equation}
+		y(0) = 3 \quad \textrm{e} \quad  y = Ae^{-2x} \newline 
+		\end{equation}
+
+		\begin{equation}
+		3 = Ae^{-2 * 0}  \quad \textrm{então} \quad
+		3 = A
+		\end{equation}
+		
+		Da solução geral \begin{equation} y = Ae^{-2x}  \end{equation}
+		\begin{flushleft}temos a solução particular\end{flushleft}  \begin{equation}  y = 3e^{-2x}  \end{equation}
+		
+
+\subsection[Equação de variáveis separáveis]{Equação de variáveis separáveis}
+São as equações em que um lado da igualdade pode-se separar uma variável e do outro lado a outra variável mais uma constante arbitrária (C). 
+Para obter a solução geral de equações separáveis é necessário isolar os termos e integrar os dois lados. Em caso de ser fornecido valor inicial, é possível obter a solução particular.
+
+Exemplo: 
+\begin{center}
+ Mdx = -Ndy 
+\end{center}
+
+Com M = M(x) e N = N(y) podendo assumir funções de uma variável, produto de uma só variável ou constante. 
+Abaixo são mostrados exemplos de EDO separáveis:
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{c | c | c}
+\toprule
+$
+xdx = ydy + C 
+$ & 
+\begin{tabular}{@{}c@{}c@{}} $ x^2y'y -2xy^3 = 0 $  é igual a \\ $ x^2yy' = 2xy^3 $ e também é igual a \\ $ \dfrac{x^2}{2x} = \dfrac{y^3}{yy'} $\end{tabular} & 
+$ xdx + sen(x) = \frac{1}{y}dy - 6y $ \\
+
+\bottomrule
+\end{tabular}
+\caption{EDO de variáveis separáveis}
+\label{edseparaveis}
+\end{table}
+
+
+
+Abaixo são mostrados exemplos de EDO não separáveis:
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{c|c|c}
+\toprule
+\begin{tabular}{@{}c@{}c@{}} $ x^2 -3xy+5y^2 = 0, $ \\ tentando separar, obtemos \\ $ x(x - 3y) = y^2 $\end{tabular}
+ & 
+ $ (x^2 + y^2 )dx + (x^2 -xy)dy = 0 $
+& 
+\begin{tabular}{@{}c@{}c@{}} $ x^3 + x^2y +y^3  = 0, $ \\ tentando separar, obtemos \\ $ x^3 + (x^2y) = -y^3 $\end{tabular}  \\
+
+\bottomrule
+\end{tabular}
+\caption{ED de variáveis não separáveis}
+\label{edsnaoeparaveis}
+\end{table}
+
+Na tabela \ref{edsnaoeparaveis} vemos que não é tão trivial separar a equações para integrar ambos os lados. Devido às equações de variáveis não separáveis, temos as equações homogêneas para tentar contornar esse problema não separação.
+
+\subsection[Equação Homogênea]{Equação Homogênea}
+Algumas EDOs não separáveis podem se tornar separáveis fazendo uma troca de variável. Uma EDO é chamada de homogênea se for satisfeita a seguinte relação:
+\begin{equation}
+f(kx,ky) = k^m * f(x,y) 
+\end{equation}
+\begin{center}
+com m sendo o grau da homogeneidade.
+\end{center}
+
+
+Equações homogêneas podem ser escritas na forma 
+
+\begin{equation}
+Mdx + Ndy = 0  \quad \textrm{,} \quad M(x)\quad  e  \quad N(y)
+\end{equation}
+\begin{center}
+com M e N sendo homogêneas do  mesmo grau.
+\end{center}
+
+A seguir um exemplo de EDO não separável e homogênea sendo transformada em uma separável após uma troca de variáveis.
+\begin{equation}
+f(x,y) = (2x - y )dx - (x + 4y)dy, 
+\end{equation}
+vamos substituir x por kx e y por ky para verificar que a equação é homogênea
+
+\begin{center}
+$ f(kx,ky) = (2kx - ky)dx  - (kx + 4ky)dy$ \\
+$ f(kx,ky) = k(2x - y)dx - k(x + 4y)dy  $ \\
+$ f(kx,ky) = k[(2x - y) - (x + 4y)] $ 
+\end{center}
+\begin{equation}
+f(kx,ky) = k^1 * f(x,y).
+\end{equation}
+
+É uma função homogênea de grau 2
+
+Agora que vimos que é uma função homogênea, podemos fazer uma troca de variável para transformar a função em uma equação de variáveis separáveis. Vamos dizer que y = ux, assumindo que u é uma função diferenciável de x e então $ dy/dx = u + \dfrac{xdu}{dx} $
+
+Então substituindo y e dy na solução e fazendo as manipulações necessárias, temos que: 
+
+\begin{center}
+$
+	(2x - y )dx - (x + 4y)dy = 0 \linebreak
+$
+\\
+$
+	(2x-y)dx = (x+4y)dy  \linebreak
+$
+\\
+$
+	\dfrac{(2x-y)}{(x+4y)} = \dfrac{dy}{dx}  \linebreak
+$
+\\
+$
+	\dfrac{(2x-(ux))}{(x+4(ux))} = u + \dfrac{xdu}{dx}   \linebreak
+$
+\\
+$
+	\dfrac{x(2-u)}{x(1+4u)} = u + \dfrac{xdu}{dx}   \linebreak
+$
+\\
+$
+	\dfrac{2-u}{1+4u} - u =  \dfrac{xdu}{dx}   \linebreak
+$
+\\
+$
+	\dfrac{\dfrac{2-u}{1+4u} - u}{du} =  \dfrac{x}{dx}   \linebreak
+$
+\end{center}
+
+Sendo assim, vimos um exemplo de como transformar uma EDO de variáveis não separáveis em uma EDO de variáveis separáveis, agora basta integrar os lados da igualdade.
+
+
+\subsection[Equação Exata]{Equação Exata}
+
+Uma EDO é denominada exata se puder satisfazer duas condições: 
+
+\begin{itemize}
+\item{1ª:} ser escrita na forma de: 
+\begin{equation}
+Mdx + Ndy = 0;
+\end{equation}
+Com M = M(x,y) e N = N(x,y).
+\item{2ª:} estabelecer a seguinte igualdade:
+\end{itemize}
+
+\begin{center}
+$ \dfrac{ \partial M}{ \partial y} =  \dfrac{ \partial  N}{ \partial x} $
+\end{center}
+
+Algumas vezes, uma função não exata pode ser transformada em exata, multiplicando-a por um fator de integração $\mu(x)$, que resulta em : 
+
+\begin{center}
+$ \mu M(x,y)dx + \mu N(x,y)dy = 0 $
+\end{center}
+
+\subsection[Equação Linear 1ª ordem]{Equação Linear 1ª ordem}
+Uma equação linear de 1ª ordem pode ser definida da forma geral como: 
+
+\begin{equation} \label{formaLinear}
+  \operatorname{a}_{1}(x)\dfrac{dy}{dx} + \operatorname{a}_{0}(x)y = g(x) 
+\end{equation}
+
+dividindo toda a equação por a1, teremos   $ \operatorname{a}_{0}(x)/\operatorname{a}_{1}(x) $  uma função P(x)  e $ g(x)/\operatorname{a}_{1}(x) $ uma função f(x). 
+Reescrevendo a equação, teremos dy/dx + P(x)y = f(x). Multipliquemos agora toda a equação por dx e passemos o termo f(x) para o lado esquerdo da equação e teremos
+\begin{center}
+dy + (P(x)y - f(x))dx = 0
+\end{center}
+
+Multiplique a equação por $\mu(x)$
+
+\begin{center}
+$\mu(x)$dy + $\mu(x)$(P(x)y - f(x))dx
+\end{center}
+
+Pelo critério para ser uma ED exata citado em \cite{explicacaoEDO}, a equação é uma diferencial exata se 
+
+\begin{center}
+$ \dfrac{\partial}{\partial x}\mu(x) = \dfrac{\partial}{\partial y}\mu(x)(P(x)y - f(x))  $ 
+\end{center}
+
+
+Do lado esquerdo temos uma derivada ordinária e do lado direito derivamos em y. 
+
+\begin{center}
+$ \dfrac{d\mu(x)}{dx} = \mu(x)P(x) $
+\end{center}
+
+Agora vamos multiplicar a equação por $ \dfrac{dx}{\mu} $ para obter uma ED separável
+
+\begin{center}
+$ \dfrac{d\mu}{\mu} = P(x)dx $
+\end{center}
+
+
+Para resolver a equação separável, integramos ambos os lados
+
+\begin{center}
+$ \bigints \dfrac{d\mu}{\mu} = \bigints P(x)dx $
+\end{center}
+
+Como resultado, obtemos
+
+\begin{center}
+$ ln|u| =  \bigints P(x)dx $
+\end{center}
+
+Multiplicando por e de ambos os lados
+
+\begin{center}
+$ e^{ln|\mu|} = e^{\bigints P(x)dx} $
+\end{center}
+
+Dessa maneira encontramos o fator integrante como sendo
+
+\begin{center}
+$ \mu(x) = e^{\bigints P(x)dx} $
+\end{center}
+
+Dessa maneira podemos resolver equações diferenciais exatas e equações diferenciais de primeira ordem

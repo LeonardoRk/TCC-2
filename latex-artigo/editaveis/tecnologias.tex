@@ -1,0 +1,15 @@
+\chapter[Tecnologias]{Tecnologias}
+
+\section[Plataformas mobile]{Plataformas mobile}
+Existem diversas maneiras de se construir APP para mobiles. Algumas apenas para celulares Android, outras para sistemas iOS e outras para ambas plataformas. Existes estratégias de desenvolvimento onde o código gerado já é nativo da própria plataforma alvo e outras onde o código é transformado para a plataforma nativa.
+Existe um  projeto chamado kivy, onde é escrito código Python e o kivy converte o código para gerar aplicações para Android e iOS.
+
+Outra estratégia é o react native, onde o código é escrito utilizando HTML, CSS e JavaScript com o react e parte desse código é convertido em nativo para rodar com maior eficiência nos celulares.
+
+\section[Ambiente de desenvolvimento]{Ambiente de desenvolvimento}
+
+Será usado o \textit{docker} para criar ambiente virtual e portável.
+Será usado uma imagem ubuntu no container, com as dependências do react native     e node js. Para baixar os pacotes utilizará o nvm. 
+O WolfranAlpha será utilizado para fazer requisições de EDO's para serem utiliz    adas nas fases do jogo. Com uma chave de teste gratuita serão baixados os metad    ados em formato JSON através de uma API.
+A API baixada do wolfran na linguagem javascript foi baixada no endereço \url{h    ttps://products.wolframalpha.com/api/libraries/javascript/}.
+A chave gratuita permite 2000 requisições em um mês, com o código de série: 3GG    QAT-98EG4KV6VL. A estratégia é baixar os metadados das requisições de EDO's com     equações e respostas, para comprimir e utilizar no jogo sem que a internet seja um requisito.
