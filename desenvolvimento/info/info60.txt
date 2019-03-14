@@ -1,0 +1,9 @@
+pergunta:sim
+resposta:não qtd_solucoes:undefined
+ed:true
+tipo_ed:parcial
+ordem:ordem 4 ou superior
+linearidade:linear
+ed_separavel:false
+ed_exata:false
+ed_homogenea:false

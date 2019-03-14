@@ -1,9 +1,9 @@
 pergunta:sim
 resposta:sim qtd_solucoes:1
 ed:true
-tipo_ed:ordinária
+tipo_ed:parcial
 ordem:primeira ordem
-linearidade:não-linear
-ed_separavel:true
+linearidade:linear
+ed_separavel:false
 ed_exata:false
 ed_homogenea:false

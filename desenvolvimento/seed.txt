@@ -1,7 +1,105 @@
+y' = y / (2(x + y))
+y' = (x-y) / (x+y)
+y' = (x^2 + y^2) / (2xy)
+y' = xy / (x^2 - y^2)
+(x^2 - 3y^2)dx + 2xydy = 0
+(x + 2y)dy/dx + (y - 4x) = 0
+dy/dx = (x -y) / (x+y)
+dy/dx = (x^2 + y^2) / (xy)
+y' = cos(x+y)
+dy/dx = (x/y)^2
+dy/dx = arctan(y/x)
+dy/dx = x^2/ y^2
+xdx + 2ydy = 0
+y'''' - y = -1
+y'''' + y' = 1
+y'''' + 3y = 0
+y'' -5y' + 6y = 0
+y''''' + 3y''' = -1
+y'''' - sin(x) = 0
+y'''' - 2sin(x) = 0
+y'''' + sin(x) = 0
+y'''' + sin(x/y) = 0
+y'''' + x*sin(x/y) = 0
+y'''' + x*cos(x/y) = 0
+y'''' + cos(x/y) = 0
+(y + sqrt(x^2 + y^2))dx - xdy = 0
+3ydy + 5x^2dx = 0
+(x^2 - 3y^2)dx + 2xydy = 0
+y''' + 4y'' + 2y = 4
+y''' + 4y' - y = -1
+y''' - y = -1
+y''' - y' = 1
+y''' - y'' = 3
+(y + sqrt(x^2 + y^2)dx - xdy = 0
+d^4y/dx^4 = -x^2/ycos(x/y)
+d^4y/dx^4 = y^2/xcos(x/y)
+d^3y/dx^3 = -y^2/xsin(x/y)
+4y''' + y'' + 2y = 3, y(0)= 2, 
+d^2u/dx^2 + d^2u/dy^2 + u(x,y) = 0
+d^2u(x,y)/dx^2 + sin(x)d^2u/dy^2 + cos(x) = 0
+d^2u(x,y)/dx^2 + (e^x)d^2u/dy^2 + 6 = 0
+d^2u(x,y)/dydx = 0
+4y''' + 2y'' + 2y = 1, y(0)= 2, 
+d^3y/dx^3 = -x^2/ysin(x/y)
+-ydx + (x + sqrt(xy))dy = 0
+4y''' + 12y' + 9y = 0, y(0)= -2, y'(0)=-1
+4y''' + 12y'' - 9y = 0, y(0)= -2, y'(0)=2
+d^2u(x,y)/dx^2 - d^2u(x,y)/dy^2=0
+7*d[u(x,y)]/dx + 3du/dy = 0
+7*d[u(x,y)]/dx - 4du/dy = 0
+(6xy^3 + cos(y))dx + (9x^2y^2 - xsin(y))dy = 0
+(6xy^3)dx + (4y^3 + 9x^2y^2)dy = 0
+(2x + y^2)dx + 2xydy=0
+x^2y^3dx  + x^3y^2dy = 0
+(ycos(x) + 2xe^y)dx + (sin(x) + x^2e^y -1)dy = 0
+(1 - 2x^2 - 2y)dy/dx = 4x^3 + 4xy
+5/3*d[u(x,y)]/dx + 2du/dy = 0
+3*d[u(x,y)]/dx - 2d^2u/dy^2 = 0
+3*d[u(x,y)]/dx - 2d^4u/dy^4 = 0
+d[u(x,y)]/dx + 2/3d^4u/dy^4 = 0
+d[u(x,t)]/dt = 2d^2u/dx^2 
+d[u(x,t)]/dt = 2d^5u/dx^5
+d[u(x,t)]/dt = - 2d^6u/dx^6
+2/3d[u(x,t)]/dt = - 1d^3u/dx^3
+[(d[u(x,t)]/dt)^5 ]= - 1d^3u/dx^3
+[(d[u(x,t)]/dt)^4 ]= 1d^3u/dx^3
+[d^3u/dx^3]^4 - d[u(x,y)]/dy = 0
+[d^3u/dx^3]^4 - d[u(x,y)]/dy = 2
+[d^4u/dx^4]^2 - d[u(x,y)]/dy = 2
+[d^3u/dx^3]^5 + d[u(x,y)]/dy = -1
+x*[d^3u/dx^3]^5 + y*d[u(x,y)]/dy = -1
+xy*[d^3u/dx^3]^5 + y*d[u(x,y)]/dy = -1
+xy*d^3u/dx^3 + y*d[u(x,y)]/dy = 2
+d^2u/dx^2 + d^2u(x,y)/dy^2 = 0
+(y^2 + yx)dx + x^2dy = 0
+dy/dx = (x + 3y)/(3x + y)
+xdx + (y -2x)dy = 0
+[x - y arctan(y/x)]dx + x arctan(y/x)dy = 0
+[ycos(y/x) + xsin(y/x)]dx = x cos(y/x)dy
+xdy/dx = y + sqrt(x^2 + y^2)
+ydx + x(ln(x) - ln(y) - 1)dy = 0, y(1) = e
+(x^2 + 2y^2)dx - xydy = 0, y(-1) = 1
+(2x-1)dx + (3y + 7)dy = 0
+(5x + 4y)dx + (4x -8y^3)dy = 0
+(1 -2x^2 -2y)dy/dx = 4x^3 + 4xy
+(x + y)^2dx + (2xy + x^2 -1)dy = 0, y(1)=1
+d^3y/dx^3 = (x + 3y)/(3x + y)
+d^3y/dx^3 = (x + 3y)/(x - y)
+d^4y/dx^4 = (2x + 3y)/(x + 4y)
+d^4y/dx^4 = (2x + 3y)/(x - 2y)
+d^4y/dx^4 = (x + y)/(x + 4y)
+d^5y/dx^5 = (x - 3y)/(2x + 4y)
+d^4y/dx^4 = (x - y)/(4y)
+y' = (3x + 2y) / x
+-y^2dx + x(x+y)dy=0, y(1)=1
+(xsec(y/x)+y)dx - xdy = 0, y(1)=0
+(y- sqrt(x^2 - y^2))dx - xdy = 0, y(1)=0
+(2x -5y)dx + (-5x + 3y^2)dy = 0
+x^2y^3dx + x^3y^2dy = 0
 y' = xy, y(0) = 1
 xy'' - y' = 2
 2ydy =(x^2+1)dx
-sin(y)dy = -cos(x)dx
 d^2y/dx^2 - dy/dx = 2
 xy'' - y' = 2
 xdy - ydx = 0
@@ -48,3 +146,5 @@ dy/dx = (1 + y^2) / [(1+x^2)xy]
 dy/dx + ycos(x) = 0
 sec^2(x)tg(y)dx + sec^2(y)tg(x)dy = 0
 (x^2 + a^2)(y^2 + b^2)dx + (x^2 - a^2)(y^2 - b^2)dy = 0
+y' = (x + y) / (2x)
+y' = x^2 + 1

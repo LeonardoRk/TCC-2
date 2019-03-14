@@ -1,0 +1,9 @@
+pergunta:sim
+resposta:sim qtd_solucoes:3
+ed:true
+tipo_ed:ordinária
+ordem:primeira ordem
+linearidade:não-linear
+ed_separavel:false
+ed_exata:true
+ed_homogenea:false
