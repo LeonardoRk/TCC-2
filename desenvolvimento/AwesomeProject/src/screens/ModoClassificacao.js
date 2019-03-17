@@ -17,7 +17,7 @@ const carregaMundo = async (nomeMundo) =>{
                 perguntas: agregacaoClassificacao.perguntasAleatorias,
                 respostasCorretas: agregacaoClassificacao.respostasCorretas,
                 faseEmbaralhada: agregacaoClassificacao.faseEmbaralhada,
-                perguntaAtual:1
+                totalQuestoes:20
             }
         },
     });
@@ -110,6 +110,9 @@ const styles = StyleSheet.create({
         textAlignVertical:'center',
         textAlign:'center',
         height:height/10,
-        width:width/3
+        width:width/3,
+        fontSize: 25,
+        fontWeight: 'bold',
+        fontFamily: 'Arial',
     }
 });
