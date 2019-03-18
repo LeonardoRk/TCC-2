@@ -4,4 +4,8 @@ tecnologia/jdk-8u181-linux-x64.rpm
 tecnologia/sdk-tools-linux-4333796.zip
 latex-artigo/tcc.aux
 latex-artigo/tcc.log
+latex-artigo/tcc.brf
+latex-artigo/tcc.lof
+latex-artigo/tcc.lot
+latex-artigo/tcc.toc
 latex-artigo/tcc.synctex.gz
