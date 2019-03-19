@@ -1,22 +1,54 @@
 \chapter[Metodologia]{Metodologia}
-A metodologia a ser seguida será a pesquisa bibliográfica. Este tipo de metodologia visa pesquisar e conhecer a literatura existente para levantar um referencial teórico a respeito do tema a ser tratado. Serão utilizados a pesquisa de artigos nas bases de dados da CAPES com as credenciais de aluno da UnB para acessar os estudos. Não serão aceitos artigos pagos. 
-Como referência para escolher artigos foi utilizado o artigo \cite{howtoread} para evitar gastar tempo desnecessário em artigos que podem não estar relacionados ao tema da pesquisa.
-Com o referencial teórico consolidado para o apoio de jogos e tecnologias ao ensino de matemática, será explicado o funcionamento do jogo e como jogar cada nível. Com o jogo definido, protótipo desenhado, features e requisitos definidos, será explicado e explicitado as tecnologias a serem utilizadas e como será o método de população das equações para que seja possível existir o jogo.
-Após a fase de planejamento aprovada inicia-se o desenvolvimento do jogo com entregas ágeis e contínuas no decorrer das \textit{sprints}.
-Tendo o jogo pronto para uso, será aplicado em uma turma de cálculo 2 no 1º semestre de 2019 para fazer um comparativo com outra turma de C2 e avaliar se houve alguma melhoria de desempenho. As medições serão feitas através de um questionário que ainda não foi decidido se será qualitativo ou quantitativo e também através dos dados estatísticos compartilhados pelos jogadores do jogo.
+A primeira parte da metodologia seguida foi a pesquisa bibliográfica e a segunda parte do trabalho foi um estudo de caso. A pesquisa bibliógráfica visa pesquisar e conhecer a literatura existente para levantar um referencial teórico a respeito do tema a ser tratado. Foi utilizada para levantar o referencial teórico a respeito do auxílio de mapas conceituais, a contribuição efetiva de jogos e seu sucesso no ensino.
+Como referência para escolher artigos foi utilizado o artigo de \cite{howtoread} que explica como ler um artigo para saber se vamos utilizar um estudo, ou abandonar o estudo no primeiro passo, que já é possível identificar se o estudo será ou não relevante para a pesquisa. São 3 passos progressivos onde ao final de cada passo é possível decidir se o estudo está ou não relacionado com o seu tema de escrita. Os passos são:
+
+\begin{enumerate}
+\item{Passo 1:} Dar uma lida atenciosa no título do trabalho, no resumo, na introdução, na conclusão e nas referências utilizadas no trabalho. Passar o olho por cada seção para conhecer a estrutura ignorando o conteúdo. Nas referências, deve-se prestar atenção nos estudos que já foram vistos anteriormente à leitura. Nesta etapa deve-se utilizar aproximadamente 15 minutos, a depender do tamanho do artigo.
+
+\item{Passo 2:} Ler o artigo inteiro porém não dando muita atenção para as 'provas' no artigo. Se atentar às imagens, tabelas e gráficos, observando se os eixos dos gráficos foram bem escolhidos e estão bem explicados. Este passo faz compreender o conteúdo do artigo mas não em maiores detalhes. Nesta etapa deve-se anotar as referências para futuras leituras. Para leitores inexperientes demora aproximadamente 1 hora o passo 2, porém varia dependendo do tamanho do artigo.
+
+\item{Passo 3:} Repetir o experimento lido se atentando bem a cada detalhe, percebendo erros que o escritor do artigo pode ter experienciado e detalhes ou proposições que o autor assumiu no experimento. Este passo te faz compreender toda a profundidade do artigo. Lembre-se de anotar ideias para trabalhos futuros. O tempo utilizado é aproximadamente 4 a 5 horas para iniciantes e aproximadamente 1 hora para pesquisadores experientes. No fim deste passo deve-se ser possível replicar toda a estrutura do trabalho de memória.
+\end{enumerate}
+
+Estes passos foram utilizados para a escolha dos estudos do referencial teórico.
+A segunda parte da metodologia foi o estudo de caso aplicado em alunos de C2 na universidade do Gama, utilizando o mapa conceitual e estatísticas levantadas do aprEnDO para avaliar o impacto do aplicativo como ferramenta de suporte ao aprendizado em EDO de 1º nível.
+
+Serão solicitados aos alunos interessados para realizar um mapa conceitual a respeito do domínio do conteúdo de equações diferenciais. Espera-se que eles desenhem em grupos de 3 ou 4 pessoas os seus conhecimentos até o momento sobre equações diferenciais. Após a 1ª leva de desenhos será ministrado o conteúdo da matéria para os alunos que durará cerca de 1 mês. Um grupo de alunos sorteados usará o aplicativo e outra parte da turma não jogará. Durante os dias que estará sendo ensinado a matéria o grupo escolhido estará treinando com o jogo também e enviando suas estatísticas do jogo para um servidor central hospedado no heroku. Após o ensino do conteúdo será solicitado novamente aos grupos para desenharem um mapa conceitual sobre o mesmo conteúdo. Para analisar a evolução dos mapas conceituais, será necessário comparar os mapas do grupo que utilizou o jogo com os do grupo que não utilizou.
+Espera-se encontrar no mapa os conceitos de ordem de ED, tipo, linearidade, homogeneidade e técnicas de solução de uma EDO de 1ª ordem separável, exata, não exata, homogênea e não homogênea. Estes são os temas abordados no jogo e exigido de conhecimento para poder avançar na fases dos módulos.
+
+A análise dos mapas conceituais se dará qualitativamente, pois fica subjetivo a maneira como os alunos selecionam os conceitos, as palavras de enlace e suas proposições, e também faz-se necessário avaliar se as proposições estão corretas e se as ligações criadas são verdadeiras.
+
+A análise de estatísticas enviadas do jogo será quantitativa e exibirá um gráfico de análise. A respeito do jogo, como colher dados? Os dados são colhidos quando o jogador está utilizando o jogo. Porém o dados são mantidos apenas no dispositivo. A pessoa pode enviar a estatística quando desejar, o professor solicitará o envio constante dos dados dos alunos.
+
+Como enviar estatísticas? Haverá um botão responsável de enviar estatísticas, que podem ser enviadas para o servidor através do jogo em apenas um clique e uma confirmação do jogador. Assim que enviadas, as estatísticas armazenadas no celular se apagam para que no próximo envio não hajam informações repetidas.
+
+Que dados estão sendo colhidos e enviados? As informações levantadas do jogo são separadas por pergunta, fase e módulos.
+
+Por pergunta:
+	- Qual é a pergunta alvo
+	- Número das 4 EDs
+	- Quantas tentativas foram necessárias para acertar a pergunta. **para saber se clicam aleatório ou escolhem antes de clicar **
+	- Tempo gasto em cada pergunta  **para saber se a tela não ficou parada e o celular sem atenção**
+
+	Algumas observações são: o clique pode demorar para acontecer ou acontecer muito rápido e as consequências podem ser acertar de primeira ou não acertar de primeira.
+	Algumas inferências são: 
+	cliques muito rápidos e não acertar de primeira == PODE significar chute aleatório
+	cliques muito rápidos e acertar de primeira == pode ser um robô? alunos muito bem preparados?
+	cliques devagar e não acertar de primeira == tá muito difícil? O celular está parado? 
+	cliques devagar e acertar de primeira == estava pensando? Estava resolvendo? O celular estava parado?
+
+Por fase:
+	- Quanto tempo durou cada fase (de 20 perguntas)
+
+Dentro de cada módulo:
+	- Quantas vezes clickou para jogar em uma fase(linear,exata,etc..) de classificação e saiu? (após 3 segundos)
+	- Quantas vezes clickou para jogar em uma fase(homog, exata, etc) de resolução e saiu? (após 3 segundos)
+	- Tempo total no módulo de classificação
+	- Tempo total no módulo de resolução
+	- Quantas vezes entrou e saiu de cada módulo (considerar que saiu é após 3 segundos)
 
 
+Quantas vezes cada módulo foi clickado para jogar, e quantas ficaram sendo jogados mesmo.
 
-
-\begin{comment}
- Podem ser seguidos até 3 passos para utilizar um estudo, ou abandonar o estudo no primeiro passo que já é possível identificar se o estudo será ou não relevante para a pesquisa. 
-}
-\begin{itemize}
-\item{Passo 1:} Dar uma lida atenciosa no título do trabalho, no resumo, na introdução, na conclusão e nas referências utilizadas no trabalho. Passar o olho por cada seção ignorando o conteúdo. Nas referências, deve-se prestar atenção nos estudos que já foram vistos. Nesta etapa deve-se utilizar aproximadamente 15 minutos, a depender do tamanho do artigo.
-
-\item{Passo 2:} Ler o artigo inteiro porém não dando muita atenção para as 'provas' no artigo. Se atentar às imagens, tabelas e gráficos, observando se os eixos dos gráficos foram bem escolhidos e estão bem explicados. Este passo faz compreender o conteúdo do artigo mas não em detalhes. Nesta etapa deve-se anotar as referências para futuras leituras. Para leitores inexperientes demora aproximadamente 1 hora o passo 2, varia dependendo do tamanho do artigo.
-
-\item{Passo 3:} Repetir o experimento se atentando bem a cada detalhe, percebendo erros que o escritor do artigo pode ter experienciado, e detalhes que o autor assumiu no experimento. Este passo te faz compreender toda a profundidade do artigo. Lembre-se de anotar ideias para trabalhos futuros. O tempo utilizado é aproximadamente 4 a 5 horas para iniciantes e aproximadamente 1 hora para pesquisadores experientes. No fim deste passo deve-se ser possível replicar toda a estrutura do trabalho de memória.
-\end{itemize}
-\end{comment}
-
+Será avaliado dos mapas conceituais se houve evolução significativa entre os mapas conceituais dos alunos participantes em relação aos não participantes do jogo.
+As estatísticas do jogo será para avaliar o desempenho dos alunos e qual a aceitação do jogo pelos participantes, para saber se é uma estratégia que pode ser levada adiante ou não.
