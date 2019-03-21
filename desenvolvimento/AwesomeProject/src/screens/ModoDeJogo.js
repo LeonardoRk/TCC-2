@@ -67,9 +67,7 @@ export default class ModoDeJogo extends Component {
               <Text style={styles.textButton}>Resolução</Text>
             </TouchableOpacity>
           </View>
-          <Button onPress={() => {goEstatisticas("App")}}>
-              title = "Enviar estatísticas"
-          </Button>
+         
         </View>
     );
   }

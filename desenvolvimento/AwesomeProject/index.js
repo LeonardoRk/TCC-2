@@ -9,7 +9,7 @@ import ModoDeJogo from './src/screens/ModoDeJogo';
 import ModoClassificacao from './src/screens/ModoClassificacao';
 import ModoResolucao from './src/screens/ModoResolucao';
 import Mundo from './src/screens/Mundo';
-import Mail from './src/Mail';
+import MundoResolucao from './src/screens/MundoResolucao';
 
 //AppRegistry.registerComponent(appName, () => App);
 Navigation.registerComponent('App', () => App);
@@ -18,6 +18,7 @@ Navigation.registerComponent('ModoClassificacao', () => ModoClassificacao);
 Navigation.registerComponent('ModoResolucao', () => ModoResolucao);
 Navigation.registerComponent('Mundo', () => Mundo );
 Navigation.registerComponent('Mail', () => Mail);
+Navigation.registerComponent('MundoResolucao', ()=> MundoResolucao);
 
 Navigation.events().registerAppLaunchedListener(() => {
     Navigation.setRoot({
@@ -27,15 +28,20 @@ Navigation.events().registerAppLaunchedListener(() => {
             children: [
               {
                 component: {
-                  name: 'ModoResolucao',
-                },
-                component: {
                   name: 'App',
                   id:'App'
                 },
                 component:{
+                  name:'MundoResolucao',
+                  id:'MundoResolucao'
+                },
+                component:{
                   name:'Mundo',
                   id:'Mundo'
+                },
+                component: {
+                  name: 'ModoResolucao',
+                  id: 'ModoResolucao'
                 },
                 component: {
                   name: 'ModoClassificacao',
@@ -44,10 +50,6 @@ Navigation.events().registerAppLaunchedListener(() => {
                 component: {
                   name: 'ModoDeJogo',
                   id: 'ModoDeJogo'
-                },
-                component: {
-                  name: 'Mail',
-                  id: 'Mail'
                 },
               }
             ],

@@ -12,7 +12,7 @@ export default class Mundo extends Component {
     
     checaSeAcerto = (numeroTentativa) => {
         if(this.state.perguntaAtual == this.props.totalQuestoes){
-            Alert.alert("Parabéns,", "você terminou a fase", [
+            Alert.alert("Parabéns,", "você está preparado para classificar EDO's", [
                 {text: 'Okay', onPress: () =>  carregaPaginaAnterior()},
             ], {cancelable:false});
         }else{
