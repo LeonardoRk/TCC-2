@@ -59,6 +59,7 @@ function mostraArquivosInfo(){
 			mostrarEstatisticas(qtd_total_arquivos, metadados_equacao);
 			salvarDadosGerais(qtd_total_arquivos, metadados_equacao);
 			criarIndexImagensPergunta(qtd_total_arquivos);
+			criarIndexImagensResposta(qtd_total_arquivos);
 		}else{
 			console.log("Incompatibilidade de quantidade de arquivos lidos");
 		}
@@ -68,12 +69,28 @@ function mostraArquivosInfo(){
 
 async function criarIndexImagensPergunta(qtd_total_arquivos){
 	const FILE_NAME = "./pergunta/index.js";
-	var stringPreparada = preparaDadosIndex(qtd_total_arquivos);
+	var stringPreparada = preparaDadosIndexPergunta(qtd_total_arquivos);
 	var retorno = await fs.writeFileSync(FILE_NAME, stringPreparada);
 	console.log('\nIndex de perguntas criados com sucesso\n\n');
 }
 
-function preparaDadosIndex(qtd_total_arquivos){
+async function criarIndexImagensResposta(qtd_total_arquivos){
+	const FILE_NAME = "./resposta/index.js";
+	var stringPreparada = preparaDadosIndexResposta(qtd_total_arquivos);
+	var retorno = await fs.writeFileSync(FILE_NAME, stringPreparada);
+	console.log('\nIndex de respostas criados com sucesso\n\n');
+}
+
+function preparaDadosIndexResposta(qtd_total_arquivos){
+	var stringPreparada = "const images = {\n";
+	for(var i = 0 ; i < qtd_total_arquivos; i++){
+		stringPreparada = stringPreparada + "    " + (i+1) + ": " +"require('./solução" + (i+1) + "_a.gif'),\n";
+	}
+	stringPreparada = stringPreparada + "};\n\nexport default respostas;";
+	return stringPreparada;
+}
+
+function preparaDadosIndexPergunta(qtd_total_arquivos){
 	var stringPreparada = "const images = {\n";
 	for(var i = 0 ; i < qtd_total_arquivos; i++){
 		stringPreparada = stringPreparada + "    " + (i+1) + ": " +"require('./pergunta" + (i+1) + ".gif'),\n";
