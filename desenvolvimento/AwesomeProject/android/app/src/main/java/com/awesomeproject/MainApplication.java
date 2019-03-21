@@ -16,8 +16,6 @@ import com.reactnativenavigation.react.ReactGateway;
 import java.util.Arrays;
 import java.util.List;
 
-import com.chirag.RNMail.*;
-
 public class MainApplication extends NavigationApplication {
 
         @Override
@@ -41,7 +39,6 @@ public class MainApplication extends NavigationApplication {
             // No need to add RnnPackage and MainReactPackage
             return Arrays.<ReactPackage>asList(
                     // eg. new VectorIconsPackage()
-                    new RNMail()
             );
         }
 
