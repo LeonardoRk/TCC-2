@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
 import LinhaCampo from './LinhaCampo';
 
 export default class Telao extends Component {
@@ -8,13 +8,21 @@ export default class Telao extends Component {
         return(
             <View>
                 <View style={{height:this.props.alturaTelao/2, borderColor:'yellow', borderWidth:3}}>
-                    <Text> Eq. 1</Text>
+                    <Image source={this.props.img1} style={styles.image} />
                 </View>
                 <View style={{height:this.props.alturaTelao/2, borderColor:'yellow', borderWidth:3}}>
-                    <Text> Eq. 2</Text>
+                    <Image source={this.props.img2} style={styles.image} />
                 </View>
             </View>
 
         );
     }
 }
+
+const styles = StyleSheet.create({
+    image:{
+        resizeMode:"contain",
+        height:'100%',
+        width:'100%',
+    }
+});

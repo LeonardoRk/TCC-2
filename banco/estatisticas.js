@@ -59,7 +59,7 @@ function mostraArquivosInfo(){
 			mostrarEstatisticas(qtd_total_arquivos, metadados_equacao);
 			salvarDadosGerais(qtd_total_arquivos, metadados_equacao);
 			criarIndexImagensPergunta(qtd_total_arquivos);
-			criarIndexImagensResposta(qtd_total_arquivos);
+			criarIndexImagensResposta(metadados_equacao["eds_com_resposta"]);
 		}else{
 			console.log("Incompatibilidade de quantidade de arquivos lidos");
 		}
@@ -74,17 +74,17 @@ async function criarIndexImagensPergunta(qtd_total_arquivos){
 	console.log('\nIndex de perguntas criados com sucesso\n\n');
 }
 
-async function criarIndexImagensResposta(qtd_total_arquivos){
+async function criarIndexImagensResposta(arrayRespostas){
 	const FILE_NAME = "./resposta/index.js";
-	var stringPreparada = preparaDadosIndexResposta(qtd_total_arquivos);
+	var stringPreparada = preparaDadosIndexResposta(arrayRespostas);
 	var retorno = await fs.writeFileSync(FILE_NAME, stringPreparada);
 	console.log('\nIndex de respostas criados com sucesso\n\n');
 }
 
-function preparaDadosIndexResposta(qtd_total_arquivos){
-	var stringPreparada = "const images = {\n";
-	for(var i = 0 ; i < qtd_total_arquivos; i++){
-		stringPreparada = stringPreparada + "    " + (i+1) + ": " +"require('./solução" + (i+1) + "_a.gif'),\n";
+function preparaDadosIndexResposta(arrayRespostas){
+	var stringPreparada = "const respostas = {\n";
+	for(var i = 0 ; i < arrayRespostas.length; i++){
+		stringPreparada = stringPreparada + "    '" + (arrayRespostas[i]) + "a': " +"require('./solução" + (arrayRespostas[i]) + "_a.gif'),\n";
 	}
 	stringPreparada = stringPreparada + "};\n\nexport default respostas;";
 	return stringPreparada;
