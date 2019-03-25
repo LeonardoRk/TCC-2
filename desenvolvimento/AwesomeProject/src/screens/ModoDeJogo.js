@@ -49,24 +49,59 @@ const goResolucao = (id) => {
 };
 
 export default class ModoDeJogo extends Component {
+  enviarEstatisticas = () => {
+    Alert.alert('enviando');
+    fetch('http://servidor-aprendo.herokuapp.com/estatisticas', {
+      method: 'POST',
+      //headers: {
+      //  Accept: 'application/json',
+      //  'Content-Type': 'application/json',
+      //},
+      body:"reactNative:enviando1"
+    }).then((response) =>{this.mostraResposta(response)}).
+    catch(function(error) {
+      console.log('There has been a problem with your fetch operation: ' + error.message);
+       // ADD THIS THROW error
+        throw error;
+    });;
+  }
+
+  mostraResposta = (response) => {
+    var keys = Object.keys(response);
+    for (var i = 0; i < keys.length; i++) {
+      console.log(response[keys[i]]);
+    }
+  }
+
   render() {
     return (
         <View>
           <Text style={styles.welcome}>Seja bem vindo, jogador(a)!</Text>
           <Text style={styles.sub_welcome}>O que deseja resolver?</Text>
-          <View style={styles.containerPai}>
-            <TouchableOpacity onPress={() => {
-                goClassificacao("App");
-              }}
-                style={styles.container}>
-              <Text style={styles.textButton}>Classificação</Text>
-            </TouchableOpacity>
-          
-            <TouchableOpacity onPress={() => {goResolucao("App")} }
-                style={[styles.container, styles.overrideColor]}>
-              <Text style={styles.textButton}>Resolução</Text>
-            </TouchableOpacity>
-          </View>
+            <View style={styles.containerPai}>
+              <TouchableOpacity onPress={() => {
+                  goClassificacao("App");
+                }}
+                  style={styles.container}>
+                <Text style={styles.textButton}>Classificação</Text>
+              </TouchableOpacity>
+            
+              <TouchableOpacity onPress={() => {goResolucao("App")} }
+                  style={[styles.container, styles.overrideColor]}>
+                <Text style={styles.textButton}>Resolução</Text>
+              </TouchableOpacity>
+            </View>
+            <Button title="Estatísticas" 
+                    onPress={() => Alert.alert('Estatísticas', 
+                                              'Confirma que deseja enviar dados ao servidor?', 
+                                    [{
+                                      text: 'Cancelar',
+                                      onPress: () => console.log('Cancel Pressed'),
+                                    },
+                                    {text: 'OK', onPress: () => this.enviarEstatisticas()},
+                                    ]
+                    )}>
+            </Button>
          
         </View>
     );
