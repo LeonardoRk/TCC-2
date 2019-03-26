@@ -106,6 +106,7 @@ const respostas = {
     '8a': require('./solução8_a.gif'),
     '94a': require('./solução94_a.gif'),
     '95a': require('./solução95_a.gif'),
+    '96a': require('./solução96_a.gif'),
     '97a': require('./solução97_a.gif'),
     '98a': require('./solução98_a.gif'),
     '99a': require('./solução99_a.gif'),

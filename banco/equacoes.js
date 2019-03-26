@@ -1,9 +1,9 @@
 const fs = require('fs');
 var fileName = "./seed.txt";
 var lines = [];
-fs.readFile(fileName, (err, data) => { 
+fs.readFile(fileName, (err, seeds) => { 
 	if (err) throw err; 
-    lines = data.toString().split('\n');
+    lines = seeds.toString().split('\n');
 	start(lines);
 });
 
@@ -17,20 +17,20 @@ const start = async function pegaOutput(lines){
 		try{
 			console.log("a linha: " + lines[i]);
 			output = await waApi.getFull(lines[i]);
+			equacao = pegaDados(output);
+			if(Object.keys(equacao).length >= 1){
+				console.log(equacao);
+				console.log("\n");
+				var infos_prontas = trataEquacao(equacao);
+				dados_salvos_com_sucesso = await salvaDados(equacao, infos_prontas, nmr_equacao);
+				nmr_equacao++;
+				equacao = [];
+			}else{
+				throw console.log("equações não retornou nada");
+			}
 		}catch(error){
+			console.log("Erro em tentativa de esperar resposta da API");
 			throw console.error(error);
-		}
-
-		equacao = pegaDados(output);
-		if(Object.keys(equacao).length >= 1){
-			console.log(equacao);
-			console.log("\n");
-			var infos_prontas = trataEquacao(equacao);
-			dados_salvos_com_sucesso = await salvaDados(equacao, infos_prontas, nmr_equacao);
-			nmr_equacao++;
-			equacao = [];
-		}else{
-			throw console.log("equações não retornou nada");
 		}
 	}
 
