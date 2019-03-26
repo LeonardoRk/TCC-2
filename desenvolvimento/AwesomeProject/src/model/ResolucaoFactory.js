@@ -15,10 +15,13 @@ recuperaValorDadosGerais = (chave) =>{
     }
 }
 
-pegaTodasEd = () =>{
+pegaEdOrdem1 = () =>{
     const CHAVE_TODAS_ED = "QTD_ED";
+    const ORDEM_1 = "ED_ORDEM_1";
     let todasEd = DadosGerais[CHAVE_TODAS_ED];
-    return todasEd;
+    let ordem_1 = DadosGerais[ORDEM_1];
+    let resultante = presenteNosDois(todasEd, ordem_1);
+    return resultante;
 }
 
 pegaEdsComResposta = () => {
@@ -76,10 +79,12 @@ encontraEdsNaoHomogeneas =  (eds, homogeneas) => {
 
 naoHomogeneaPreparada = () => {
     console.log("click na NAO homogenea");
-    let todasEds = pegaTodasEd();
+    let edsOrdem1 = pegaEdOrdem1();
+    let edsComResposta = pegaEdsComResposta();
+    let todasComResposta = presenteNosDois(edsOrdem1, edsComResposta);
     let homogeneas = pegaEdsHomogeneasDeControle();
     let equacoes = [];
-    equacoes = encontraEdsNaoHomogeneas(todasEds, homogeneas);
+    equacoes = encontraEdsNaoHomogeneas(todasComResposta, homogeneas);
     console.log("equacoes NÃO homogeneas com respostas: " + equacoes);
     return new resolucaoModel(equacoes);
 }
@@ -108,10 +113,12 @@ encontraEdsNaoExatas =  (eds, exatas) => {
 
 naoExataPreparada = () => {
     console.log("click na NAO EXAATA");
-    let todasEds = pegaTodasEd();
+    let edsOrdem1 = pegaEdOrdem1();
+    let edsComResposta = pegaEdsComResposta();
+    let todasComResposta = presenteNosDois(edsOrdem1, edsComResposta);
     let exatas = pegaEdsExatasDeControle();
     let equacoes = [];
-    equacoes = encontraEdsNaoExatas(todasEds, exatas);
+    equacoes = encontraEdsNaoExatas(todasComResposta, exatas);
     console.log("equacoes NÃO exatas com respostas: " + equacoes);
     return new resolucaoModel(equacoes);
 }
