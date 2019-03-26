@@ -7,6 +7,7 @@ import Respostas from '../../resource/img/resposta/index';
 import Perguntas from '../../resource/img/pergunta/index';
 
 
+
 const QTD_LINHAS = 4;
 
 requisitaImagens = (perguntas) => {
@@ -42,7 +43,8 @@ export default class Campo extends Component {
         linha3:[],
         linha4:[],
         qtdCartasViradas:0,
-        cartasVirada:[null, null]
+        cartasVirada:[null, null],
+        qtdPares:10
     };
 
     componentDidMount(){
@@ -103,6 +105,15 @@ export default class Campo extends Component {
             }
         }else{
             throw new Error("Sem outra opção");
+        }
+        if(par){
+            this.setState({qtdPares: this.state.qtdPares-1},()=>{
+                if(this.state.qtdPares == 0){
+                    Alert.alert("Parabéns", "Você resolveu todas as EDOs de 1ª ordem", [
+                        {text: 'Okay', onPress: () =>  this.props.pagAnt()},
+                    ], {cancelable:false});
+                }
+            });
         }
         return par;
     }

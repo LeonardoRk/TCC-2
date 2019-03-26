@@ -98,7 +98,6 @@ export default class ModoDeJogo extends Component {
                                     ]
                     )}>
             </Button>
-         
         </View>
     );
   }
