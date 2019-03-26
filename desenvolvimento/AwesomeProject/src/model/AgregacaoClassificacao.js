@@ -177,22 +177,11 @@ juntaCorretoErrado = (object) => {
     return juntos;
 }
 
-embaralha = (array) => {
-    let i = array.length - 1;
-    for (; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        const temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
-    return array;
-}
-
 juntaEmbaralhado = (faseInteira) => {
     embaralhado = [];
     for(let i = 0 ; i < QTD_TOTAL_PERGUNTA; i++){
         //console.log(i + '  ' + faseInteira[i]);
-        embaralhado.push(embaralha(juntaCorretoErrado(faseInteira[i])));
+        embaralhado.push(service.embaralha(juntaCorretoErrado(faseInteira[i])));
     }
     console.log("Fase inteira embaralhada: " + embaralhado);
     return embaralhado;

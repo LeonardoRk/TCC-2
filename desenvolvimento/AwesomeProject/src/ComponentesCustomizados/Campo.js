@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, Alert, Dimensions, StyleSheet} from 'react-native';
 import LinhaCampo from './LinhaCampo';
+import service from '../Service'
 
 import Respostas from '../../resource/img/resposta/index';
 import Perguntas from '../../resource/img/pergunta/index';
@@ -23,7 +24,8 @@ requisitaImagens = (perguntas) => {
         arrayImagens.push(imagemPergunta);
         arrayImagens.push(imagemResposta);
     }
-    return arrayImagens;
+    let embaralhado = service.embaralha(arrayImagens);
+    return embaralhado;
 }
 
 export default class Campo extends Component {
