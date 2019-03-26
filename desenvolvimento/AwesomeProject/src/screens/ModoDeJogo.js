@@ -50,7 +50,6 @@ const goResolucao = (id) => {
 
 export default class ModoDeJogo extends Component {
   enviarEstatisticas = () => {
-    Alert.alert('enviando');
     fetch('http://servidor-aprendo.herokuapp.com/estatisticas', {
       method: 'POST',
       //headers: {
@@ -67,10 +66,7 @@ export default class ModoDeJogo extends Component {
   }
 
   mostraResposta = (response) => {
-    var keys = Object.keys(response);
-    for (var i = 0; i < keys.length; i++) {
-      console.log(response[keys[i]]);
-    }
+    console.log(response);
   }
 
   render() {
