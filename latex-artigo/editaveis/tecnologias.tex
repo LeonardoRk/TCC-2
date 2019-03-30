@@ -1,5 +1,17 @@
 \chapter[Tecnologias]{Tecnologias}
 
+\section[Requisitos de Software]{Requisitos de Software}
+Os requisitos de software foram levantados e utilizados na hora do desenvolvimento para alcançar os objetivos elencados para o jogo. 
+
+\section[Diagrama de Classe]{Diagrama de Classe}
+O diagrama de classe foi modelado de modo a facilitar o desenvolvimento, pois deu uma guiada no que precisava ser feito e como as classes do jogo e os componentes se relacionam. 
+
+\section[Empacotamento]{Empacotamento}
+O jogo é empacotado para criar um arquivo .apk, e este que é instalado nos celulares. Para submeter o jogo ao Google Play para os jogadores poderem baixá-lo é necessário criar o .apk. O mesmo só é criado sempre que tem alguma nova atualização no jogo, seja no banco de equações ou manutenção corretiva ou evolutiva do jogo.
+
+O empacotamento do jogo ocorre dentro da pasta do projeto react native. É utilizado o comando 'npm run android'.
+
+
 \section[Plataformas mobile]{Plataformas mobile}
 Existem diversas maneiras de se construir APP para mobiles. Algumas apenas para celulares Android, outras para sistemas iOS e outras para ambas plataformas. Existes estratégias de desenvolvimento onde o código gerado já é nativo da própria plataforma alvo e outras onde o código é transformado para a plataforma nativa.
 Existe um  projeto chamado kivy, onde é escrito código Python e o kivy converte o código para gerar aplicações para Android e iOS.
@@ -12,6 +24,6 @@ A linguagem de programação utilizada é o nodejs com o framework react native 
 
 O ambiente de desenvolvimento usa um emulador para simular a tela.
 
-O WolfranAlpha será utilizado para fazer requisições de EDO's para serem utiliz    adas nas fases do jogo. Com uma chave de teste gratuita serão baixados os metad    ados em formato JSON através de uma API.
+O WolfranAlpha será utilizado para fazer requisições de EDO's para serem utilizadas nas fases do jogo. Com uma chave de teste gratuita serão baixados os metad    ados em formato JSON através de uma API.
 A API baixada do wolfran na linguagem javascript foi baixada no endereço \url{h    ttps://products.wolframalpha.com/api/libraries/javascript/}.
-A chave gratuita permite 2000 requisições em um mês, com o código de série: 3GG    QAT-98EG4KV6VL. A estratégia é baixar os metadados das requisições de EDO's com     equações e respostas, para comprimir e utilizar no jogo sem que a internet seja um requisito.
+A chave gratuita permite 2000 requisições em um mês, com o código de série: 3GGQAT-98EG4KV6VL. A estratégia é baixar os metadados das requisições de EDO's com     equações e respostas, para comprimir e utilizar no jogo sem que a internet seja um requisito.
