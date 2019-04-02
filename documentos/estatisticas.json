@@ -1,0 +1,113 @@
+storage:{
+	primeira_vez: true, // ou false
+
+	mod_1:{
+		tipo:{
+			completo:true, // ou false
+			qtd_vezes_completo: 1, // ou 2 ou 3, ou 4, ou 5 e etc
+			vez1:{
+				questoes:[],
+				tempoTotal:[]
+			},
+			vez2:{
+				quetoes:[],
+				tempoTotal:12.23
+			}			
+		},
+		ordem:{
+			completo:true, // ou false
+			qtd_vezes_completo: 1, // ou 2 ou 3, ou 4, ou 5 e etc
+			vez1:{
+				questoes:[],
+				tempoTotal:[]
+			},
+			vez2:{
+				quetoes:[],
+				tempoTotal:12.23
+			}
+		},
+		homogeneidade:{
+			completo:true, // ou false
+			qtd_vezes_completo: 1, // ou 2 ou 3, ou 4, ou 5 e etc
+			vez1:{
+				questoes:[],
+				tempoTotal:[]
+			},
+			vez2:{
+				quetoes:[],
+				tempoTotal:12.23
+			}
+		},
+		linearidade:{
+			completo:true, // ou false
+			qtd_vezes_completo: 1, // ou 2 ou 3, ou 4, ou 5 e etc
+			vez1:{
+				questoes:[],
+				tempoTotal:[]
+			},
+			vez2:{
+				quetoes:[],
+				tempoTotal:12.23
+			}
+		},
+		separavel:{
+			completo:true, // ou false
+			qtd_vezes_completo: 1, // ou 2 ou 3, ou 4, ou 5 e etc
+			vez1:{
+				questoes:[],
+				tempoTotal:[]
+			},
+			vez2:{
+				quetoes:[],
+				tempoTotal:12.23
+			}
+		},
+		exata:{
+			completo:true, // ou false
+			qtd_vezes_completo: 1, // ou 2 ou 3, ou 4, ou 5 e etc
+			vez1:{
+				questoes:[],
+				tempoTotal:[]
+			},
+			vez2:{
+				quetoes:[],
+				tempoTotal:12.23
+			}			
+		}
+	},
+
+	mod_2:{
+		homogeneo:{
+			completo:true, // ou false
+			qtd_vezes_completo: 34, // qlqr outro número
+			vez1:{
+				questoes:[],
+				tempoTotal: 32.11
+			}
+		},
+		nao_homogeneo:{
+			completo:true, // ou false
+			qtd_vezes_completo: 34, // qlqr outro número
+			vez1:{
+				questoes:[],
+				tempoTotal: 32.11
+			}
+		},
+		exato:{
+			completo:true, // ou false
+			qtd_vezes_completo: 34, // qlqr outro número
+			vez1:{
+				questoes:[],
+				tempoTotal: 32.11
+			}
+		},
+		nao_exato:{
+			completo:true, // ou false
+			qtd_vezes_completo: 34, // qlqr outro número
+			vez1:{
+				questoes:[],
+				tempoTotal: 32.11
+			}
+		}
+	}
+}

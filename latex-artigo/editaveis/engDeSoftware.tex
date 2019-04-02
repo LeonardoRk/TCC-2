@@ -42,7 +42,19 @@ Os requisitos de software foram levantados e utilizados na hora do desenvolvimen
 		\begin{itemize}
 			\item Identificar o aluno pela matrícula
 			\item Enviar estatísticas de classificação
+				\begin{itemize}
+					\item armazenar fases concluídas
+					\item armazenar quantidade de vezes que cada fase foi concluída
+					\item armazenar 20 questoes presentes na tentativa
+					\item armanezar tempo total gasto em cada conclusão
+				\end{itemize}
 			\item Enviar estatísticas de resolução
+				\begin{itemize}
+					\item armazenar fases concluídas
+					\item armazenar quantidade de vezes que cada fase foi concluída
+					\item armazenar 10 questoes presentes na tentativa
+					\item armanezar tempo total gasto em cada conclusão
+				\end{itemize}
 			\item Sinalizar ao usuário quando a estatística for enviada
 			\item Sinalizar ao usuário quando a estatística não for enviada
 				\begin{itemize}
@@ -61,6 +73,14 @@ Com todas as informações desejadas de cada equação é possível utilizar o a
 \section[Ambiente de desenvolvimento]{Ambiente de desenvolvimento}
 
 O diagrama de classe foi modelado de modo a facilitar o desenvolvimento, pois deu uma guiada no que precisava ser feito e como as classes do jogo e os componentes se relacionam. 
+
+\begin{figure}[H]
+\centering
+\caption{Diagrama de Classe do AprEnDO}
+\includegraphics[scale=0.4]{figuras/diagramaClasse0_2.png}
+
+\small{Fonte: do próprio autor}
+\end{figure}
 
 
 A linguagem de programação utilizada é o nodejs com o framework react native para gerar aplicação em código nativo android. Para baixar os pacotes e fazer o controle dos mesmos está sendo utilizado o nvm e o yarn.
