@@ -54,6 +54,9 @@ Navigation.events().registerAppLaunchedListener(() => {
               }
             ],
           }
+        },
+        layout: {
+          orientation: ['portrait']
         }
       })
 });
@@ -63,5 +66,8 @@ Navigation.setDefaultOptions({
     visible: false,
     drawBehind: true,
     animate: false,
+  },
+  layout: {
+    orientation: ['portrait']
   }
 });
