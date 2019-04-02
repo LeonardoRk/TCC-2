@@ -1,4 +1,4 @@
-\chapter[Tecnologias]{Tecnologias}
+\chapter[Engenharia de Software]{Engenharia de Software}
 
 \section[Requisitos de Software]{Requisitos de Software}
 Os requisitos de software foram levantados e utilizados na hora do desenvolvimento para alcançar os objetivos elencados para o jogo. 
@@ -11,12 +11,13 @@ O jogo é empacotado para criar um arquivo .apk, e este que é instalado nos cel
 
 O empacotamento do jogo ocorre dentro da pasta do projeto react native. É utilizado o comando 'npm run android'.
 
+\section[Banco de dados]{Banco de dados} 
+Na pasta banco existe um arquivo chamado \textbf{seeds.txt} que é o arquivo com as equações diferenciais para alimentar o banco de dados da aplicação aprEnDO. O script \textbf{equações.js} lê o arquivo de seeds equação por equação, faz a requisição para o Wolfran Alpha utilizando os códigos da pasta wolfran\_api e requisita todos os pod disponíveis (pod são os arrays de informação disponibilizados). Após ter os pods são filtradas as informações desejadas e salvas em arquivos de informações localizadas na pasta \textbf{info}. Os pods apresentam as\textit{urls} das imagens de pergunta e das equações de resposta, quando existe resposta. Equações sem solução só podem ser utilizadas no primeiro módulo do jogo, o de classificação e não são incluídas no módulo de resolução. As imagens de perguntas baixadas são salvas na pasta \textbf{pergunta} e as imagens de respostas salvas na pasta \textbf{resposta}.
 
-\section[Plataformas mobile]{Plataformas mobile}
-Existem diversas maneiras de se construir APP para mobiles. Algumas apenas para celulares Android, outras para sistemas iOS e outras para ambas plataformas. Existes estratégias de desenvolvimento onde o código gerado já é nativo da própria plataforma alvo e outras onde o código é transformado para a plataforma nativa.
-Existe um  projeto chamado kivy, onde é escrito código Python e o kivy converte o código para gerar aplicações para Android e iOS.
+Com todas as informações desejadas de cada equação é possível utilizar o arquivo \textbf{estatisticas.js} que lê todos os arquivos de informação para contabilizar as informações da quantidade de equações diferenciais, quais tem resposta e quais não, quais são homogêneas, exatas, separáveis, linear, não linear, ordem1, ordem2, ordem3, ordem de 4 para cima são consideradas ordem superior, além de fazer a contagem total,também são indicados o número da equação. Essas informações são escritas num arquivo de controle para que possa ser lido pelo aplicativo aprEnDO e fazer a seleção das equações correta para renderizar, a depender do nível que a pessoa está jogando. O nome do arquivo de controle é \textbf{DADOS\_GERAIS.json}.
 
-Outra estratégia é o react native, onde o código é escrito utilizando HTML, CSS e JavaScript com o react e parte desse código é convertido em nativo para rodar com maior eficiência nos celulares.
+
+
 
 \section[Ambiente de desenvolvimento]{Ambiente de desenvolvimento}
 
@@ -26,4 +27,4 @@ O ambiente de desenvolvimento usa um emulador para simular a tela.
 
 O WolfranAlpha será utilizado para fazer requisições de EDO's para serem utilizadas nas fases do jogo. Com uma chave de teste gratuita serão baixados os metad    ados em formato JSON através de uma API.
 A API baixada do wolfran na linguagem javascript foi baixada no endereço \url{h    ttps://products.wolframalpha.com/api/libraries/javascript/}.
-A chave gratuita permite 2000 requisições em um mês, com o código de série: 3GGQAT-98EG4KV6VL. A estratégia é baixar os metadados das requisições de EDO's com     equações e respostas, para comprimir e utilizar no jogo sem que a internet seja um requisito.
+A chave gratuita permite 2000 requisições em um mês, com o código de série: 3GGQAT-98EG4KV6VL. A estratégia é baixar os metadados das requisições de EDO's com     equações e respostas, para comprimir e utilizar no jogo sem que a internet seja um requisito para jogar, porém para enviar dados ao servidor será necessário o acesso à internet.
