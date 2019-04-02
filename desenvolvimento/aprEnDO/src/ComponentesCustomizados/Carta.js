@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  Text,
   View,
   TouchableOpacity,
   Animated,
   Dimensions,
-  Image,
-  Alert
+  Image
 } from 'react-native';
 
 const width = Dimensions.get('screen').width;
@@ -78,8 +76,9 @@ export default class Carta extends Component {
             this.esconde();
         }else{
             throw new Error("Caso indesejado");
-        }  
+        } 
         this.props.handle(this, this.state.mostrar);
+            
     }
 
     desabilita = () => {

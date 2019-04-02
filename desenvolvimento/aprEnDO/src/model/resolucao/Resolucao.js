@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import {Component} from 'react';
 import Service from '../../Service';
 
 export default class Resolucao extends Component { 

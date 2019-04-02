@@ -39,19 +39,7 @@ const goModoDeJogo = (id) => {
 export default class App extends Component {
   render() {
     return (
-      <View style={styles.mainView}>
-        <Text style={styles.welcome}>Seja bem vindo, jogador(a)!</Text>
-        <View style={{marginTop:70, marginHorizontal:30}}>
-          <Button
-            title="Jogar"
-            color="#841584"
-            accessibilityLabel="Learn more about this purple button"
-            onPress={() => {
-              goModoDeJogo(this.props.componentId);
-            }}
-          />
-          
-        </View>
+      <View>
       </View>
     );
   }

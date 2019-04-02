@@ -6,8 +6,6 @@ import service from '../Service'
 import Respostas from '../../resource/img/resposta/index';
 import Perguntas from '../../resource/img/pergunta/index';
 
-
-
 const QTD_LINHAS = 4;
 
 requisitaImagens = (perguntas) => {
@@ -128,14 +126,13 @@ export default class Campo extends Component {
                     }else if(this.state.qtdCartasViradas == 2){
                         //Alert.alert("validar");
                         this.props.img2(carta.props.imgSrc);
-                        
+
                         this.setState({cartasVirada:[this.state.cartasVirada[0], carta]}, ()=>{
-                            let paresGemeos = this.validarJogo();
-                            console.log("paresGemeos: " + paresGemeos);
-                            this.lidaComPares(paresGemeos);
-                            this.resetaCampo();
+                                let paresGemeos = this.validarJogo();
+                                console.log("paresGemeos: " + paresGemeos);
+                                this.lidaComPares(paresGemeos);
+                                this.resetaCampo();
                         });
-                       
                     }
                 }
             );

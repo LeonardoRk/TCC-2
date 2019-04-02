@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
-import {TouchableHighlight, StyleSheet, Image, Modal, View, Text, Alert} from 'react-native';
+import {TouchableHighlight, StyleSheet, Dimensions, Image, Modal, View, Text, Alert} from 'react-native';
 import Mundo from './screens/Mundo'
+
+const width = Dimensions.get('screen').width;
+const heigth = Dimensions.get('screen').height;
 
 export default class Equacao extends Component {
 
@@ -59,10 +62,14 @@ export default class Equacao extends Component {
 
 const styles = StyleSheet.create({
     imageModal:{
-        alignSelf:'center',
-        borderWidth:2,
-        borderColor:'green',
-        borderRadius:35,
+        resizeMode:'contain',
+        transform:[{rotate:'90deg'}],
+        borderRadius:1,
+        flex:1,
+        width:width,
+        height:heigth,
+
+        alignItems:'center',
     },
     modal:{
         backgroundColor:'#adff2f',
