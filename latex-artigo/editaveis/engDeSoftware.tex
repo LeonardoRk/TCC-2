@@ -64,7 +64,52 @@ Os requisitos de software foram levantados e utilizados na hora do desenvolvimen
 		\end{itemize}
 \end{itemize}
 
-\section[Banco de dados]{Banco de dados} 
+\section[Prototipação]{Prototipação}
+
+A prototipação não seria utilizada, até deparar-se com o problema de não saber como seria a imagem final das telas, então optou-se por utilizar a prototipagem de baixa fidelidade, onde o importante seria ter uma noção geral de como seriam as telas. Desenhou-se então no papel um exemplo de como imaginava-se que seria a tela final do jogo. O primeiro desenho foi o seguinte
+
+\begin{figure}[H]
+\centering
+\caption{Prototipação das telas iniciais do jogo}
+\label{prot0}
+\includegraphics[scale=0.4]{figuras/prot0.jpg}
+
+Na figura \ref{prot0} no primeiro retângulo é possível ver escrito "Gamisk", que seria o primeiro nome do jogo e a primeira tela a ser apresentada ao clicar no ícone do APP. Ao lado do retângulo Gamisk é possível ver escrito "Jogar" e "Fechar" que seria a segunda tela do jogo. Porém percebeu-se que não haveria necessidade das duas telas e então decidiu-se pular direto para a que apresenta "RECONHECIMENTO" E "RESOLUÇÃO". A necessidade da tela gamisk seria em caso do jogo demorar para carregar recursos, o que não acontece. A necessidade da segunda tela era para ter o botão fechar, para o jogador poder sair do jogo, porém os celulares android apresentam o botão "Home" para sair da aplicação, então viu-se desnecessário criar a funcionalidade de sair do jogo. Então ao abrir o APP o usuário já será redirecionado para escolher o módulo de jogo que deseja jogar.
+
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\caption{Prototipação das telas dos módulos}
+\includegraphics[scale=0.4]{figuras/prot2.jpg}
+\label{prot2}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\caption{Prototipação das telas dos módulos}
+\includegraphics[scale=0.4]{figuras/prot1.jpg}
+\label{prot1}
+\end{figure}
+
+A \ref{prot2} retrata como seria o jogo enquanto pensava-se que existiria os níveis de dificuldades fácil, médio e difícil. Depois houve o mapeamento dos níveis de dificuldade para o indicado na figura \ref{prot1}.
+
+
+\section[Banco de dados]{Banco de dados}
+
+Antes de existir o modelo definitivo dos arquivos de seeds, foi modelado a primeira versão do modelo relacional.
+Este modelo tinha 5 entidades, cada uma com seus atributos. As entidades modeladas foram: 
+\begin{itemize}
+	\item EQUAÇÃO\_DIFERENCIAL com os atributos linearidade, separável, homogênea, exata e o id como chave primária.
+	\item ORDEM com os atributos primeira, segunda, terceira, ordem superior
+	\item DIFICULDADE com os atributos fácil, facilmedio, medio, mediodificil e difícil
+	\item TIPO com os atributos ordinária e parcial
+	\item PERGUNTA com os atributos img\_src, largura e comprimento
+	\item RESPOSTA com os atributos img\_src, largura e comprimento
+\end{itemize}
+
+Houve a reflexão de criar uma entidade comum para pergunta e resposta como por exemplo IMAGEM, onde PERGUNTA e RESPOSTA herdariam as propriedades. Após outra reflexão, optou-se por não utilizar o modelo do banco porque foi julgado que o problema não era tão complexo e os dados poderiam estar guardados em pastas organizadas ao invés de um banco.
+
 Na pasta banco existe um arquivo chamado \textbf{seeds.txt} que é o arquivo com as equações diferenciais para alimentar o banco de dados da aplicação aprEnDO. O script \textbf{equações.js} lê o arquivo de seeds equação por equação, faz a requisição para o Wolfran Alpha utilizando os códigos da pasta wolfran\_api e requisita todos os pod disponíveis (pod são os arrays de informação disponibilizados). Após ter os pods são filtradas as informações desejadas e salvas em arquivos de informações localizadas na pasta \textbf{info}. Os pods apresentam as\textit{urls} das imagens de pergunta e das equações de resposta, quando existe resposta. Equações sem solução só podem ser utilizadas no primeiro módulo do jogo, o de classificação e não são incluídas no módulo de resolução. As imagens de perguntas baixadas são salvas na pasta \textbf{pergunta} e as imagens de respostas salvas na pasta \textbf{resposta}.
 
 Com todas as informações desejadas de cada equação é possível utilizar o arquivo \textbf{estatisticas.js} que lê todos os arquivos de informação para contabilizar as informações da quantidade de equações diferenciais, quais tem resposta e quais não, quais são homogêneas, exatas, separáveis, linear, não linear, ordem1, ordem2, ordem3, ordem de 4 para cima são consideradas ordem superior, além de fazer a contagem total,também são indicados o número da equação. Essas informações são escritas num arquivo de controle para que possa ser lido pelo aplicativo aprEnDO e fazer a seleção das equações correta para renderizar, a depender do nível que a pessoa está jogando. O nome do arquivo de controle é \textbf{DADOS\_GERAIS.json}.
@@ -97,7 +142,21 @@ O jogo é empacotado para criar um arquivo .apk, e este que é instalado nos cel
 O empacotamento do jogo ocorre dentro da pasta do projeto react native. É utilizado o comando 'npm run android'.
 
 \section[Servidor aprEnDO]{Servidor aprEnDO}
-O servidor aprendo hospedado no heroku serve para receber estatísticas dos aplicativos enviados pelos alunos. Os alunos para enviar a estatística precisam informar o número da matrícula. As informações são enviadas em formato JSON e armazenadas em arquivos no servidor. 
+O servidor aprendo hospedado no heroku serve para receber estatísticas dos aplicativos enviados pelos alunos. Os alunos para enviar a estatística precisam informar o número da matrícula. As informações são enviadas em formato JSON e armazenadas no banco de dados integrado com o servidor.
+
+O jogo aprEnDO além do aplicativo de celular tem um servidor para contabilizar dados do jogo.
+O servidor está hospedado no heroku utilizando uma contra free que esteve disponível durante a fase de teste dos alunos, apesar de gratuito comparado com a necessidade que era necessário deu para suprir todas as expectativas. Junto com a aplicação foi adicionado um plugin de banco de dados mongodb. Este banco armazenou em um documento os metadados do jogo. O mongodb é um add-on no mLab que permite integração com o heroku, ele permite uma conta temporária com uma quantidade limitada de capacidade de dados, mas para o necessário que são apenas arquivo json. O único problema é que  o mLab não indica utilizar a conta free para a produção por não produzir replicação, porém o banco estava sendo acompanhado muitas vezes por dia para coletar os dados recebidos dos alunos. 
+O servidor foi escrito em node.js. O script index.js do servidor cria uma rota /estatísticas que é a utilizada pelos aplicativos para enviar a requisição POST. 
+
+O servidor está hospedado no github do heroku, pela interface da linha de comando (CLI) pode ser clonado o projeto com o comando 'heroku git:clone -a servidor-aprendo'.
+Para desenvolvimento foi utilizado uma única branch, que foi o necessário. Mais branches seriam criadas, caso fosse necessário. Tendo em vista que o servidor deveria estar pronto até o dia 10 de maio, que era o início da data de aplicação do jogo com os alunos, até esta data o servidor estava sendo desenvolvido e testado, o único problema crucial que poderia ocorrer seria não realizar os commits dos códigos adicionados e removidos. Assim que o servidor estivesse pronto, a expectativa era não precisar alterar mais código nele, apenas se o servidor quebrasse por algum caso inesperado, aí sim o servidor teria de entrar no ar novamente e novas branches de correção seriam criadas para não impedir o funcionamento parcial do servidor. Porém como os logs do servidor estavam sendo acompanhados muitas vezes por dia durante o período de aplicação e o servidor não caiu nenhuma vez, não foi necessário criar branches adicionais para a correção de erros. 
+
+Ao receber os dados json enviados do aplicativo do celular para o servidor, o mesmo concatena todos os dados que chegam em uma variável apenas. Ao terminar a leitura dos dados de chegada eles são formatados é escrito uma resposta de sucesso verdadeiro, a função ‘lê histórico’ é chamada e a resposta é encerrada.
+
+A função ‘lê histórico’ recupera o documento existente no banco de dados heroku\_41w8651l hospedado no mLab, da coleção chamada histórico. A função analisa checa se a matrícula recebida pela requisição já havia alguma vez enviado estatísticas ou se é uma matrícula nova. Em caso de matrícula nova, uma nova linha é adicionada com chave primária a matrícula do aluno e salva no banco. Em caso de matrícula existente é iterado sobre classificação e resolução e todas suas fases e incrementado a quantidade de vitórias a mais que foi concluído das fases no jogo e em seguida o arquivo é atualizado no banco do mLab.
+
+
+ 
 
 
 \begin{comment}
