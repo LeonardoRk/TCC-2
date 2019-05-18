@@ -1,8 +1,8 @@
 pergunta:sim
 resposta:sim qtd_solucoes:1
 ed:true
-tipo_ed:parcial
-ordem:primeira ordem
+tipo_ed:ordinária
+ordem:ordem 4 ou superior
 linearidade:linear
 ed_separavel:false
 ed_exata:false

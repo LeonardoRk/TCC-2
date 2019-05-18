@@ -2,7 +2,7 @@ pergunta:sim
 resposta:não qtd_solucoes:undefined
 ed:true
 tipo_ed:ordinária
-ordem:terceira ordem
+ordem:ordem 4 ou superior
 linearidade:não-linear
 ed_separavel:false
 ed_exata:false

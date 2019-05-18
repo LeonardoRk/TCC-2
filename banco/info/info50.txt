@@ -1,7 +1,7 @@
 pergunta:sim
 resposta:sim qtd_solucoes:1
 ed:true
-tipo_ed:parcial
+tipo_ed:ordinária
 ordem:primeira ordem
 linearidade:linear
 ed_separavel:false

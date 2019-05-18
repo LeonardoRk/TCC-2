@@ -34,7 +34,7 @@ export default class MundoResolucao extends Component {
         return(
             <View style={{flex:1}}>
                 <Telao img1={this.state.img1} img2={this.state.img2} alturaTelao={alturaTelao} />
-                <Campo pagAnt={carregaPaginaAnterior} img1={this.setaImagem1} img2={this.setaImagem2} perguntas={this.props.todasPerguntas} alturaCampo={alturaCampo} />
+                <Campo mundo={this.props.nome} pagAnt={carregaPaginaAnterior} img1={this.setaImagem1} img2={this.setaImagem2} perguntas={this.props.todasPerguntas} alturaCampo={alturaCampo} />
             </View>
         );
     }

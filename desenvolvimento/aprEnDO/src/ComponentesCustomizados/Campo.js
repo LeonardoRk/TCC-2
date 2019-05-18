@@ -5,6 +5,7 @@ import service from '../Service'
 
 import Respostas from '../../resource/img/resposta/index';
 import Perguntas from '../../resource/img/pergunta/index';
+import AsyncStorage from '@react-native-community/async-storage';
 
 const QTD_LINHAS = 4;
 
@@ -105,8 +106,20 @@ export default class Campo extends Component {
             throw new Error("Sem outra opção");
         }
         if(par){
-            this.setState({qtdPares: this.state.qtdPares-1},()=>{
+            this.setState({qtdPares: this.state.qtdPares-1}, async()=>{
                 if(this.state.qtdPares == 0){
+                    nomeModulo = this.props.mundo
+                    estat = await AsyncStorage.getItem('estatisticas');
+                    estat = JSON.parse(estat);
+                    if(estat['resolucao'][nomeModulo] == false ){
+                        estat['resolucao'][nomeModulo] = [true,1];
+                    }else{
+                        estat['resolucao'][nomeModulo][1] = estat['resolucao'][nomeModulo][1] +1; 
+                    }
+                    await AsyncStorage.setItem('estatisticas',JSON.stringify(estat));
+                    a = await AsyncStorage.getItem('estatisticas');
+                    console.log('incrementado mais uma vitória de resolução');
+                    console.log(a);
                     Alert.alert("Parabéns", "Você resolveu todas as EDOs de 1ª ordem", [
                         {text: 'Okay', onPress: () =>  this.props.pagAnt()},
                     ], {cancelable:false});

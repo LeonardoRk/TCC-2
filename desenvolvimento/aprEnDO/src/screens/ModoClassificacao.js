@@ -3,6 +3,7 @@ import {View, Text, StyleSheet, ScrollView, Dimensions,
     TouchableOpacity, Alert} from 'react-native';
 import AgregacaoClassificacao from '../model/AgregacaoClassificacao';
 import {Navigation} from 'react-native-navigation';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 const width = Dimensions.get('screen').width;
 const height = Dimensions.get('screen').height;
@@ -17,7 +18,8 @@ const carregaMundo = async (nomeMundo) =>{
                 perguntas: agregacaoClassificacao.perguntasAleatorias,
                 respostasCorretas: agregacaoClassificacao.respostasCorretas,
                 faseEmbaralhada: agregacaoClassificacao.faseEmbaralhada,
-                totalQuestoes:20
+                totalQuestoes:20,
+                nome:nomeMundo
             }
         },
     });
@@ -29,7 +31,7 @@ export default class ModoClassificacao extends Component{
         return(
             <ScrollView horizontal="true" style={styles.containerFilho}>
                 <Text style={styles.fundo}>
-                </Text>
+                </Text> 
                 <TouchableOpacity style={styles.item}
                                   onPress={() => {carregaMundo("tipo") }}
                 >
@@ -91,7 +93,7 @@ const styles = StyleSheet.create({
         flex:1,
         margin:1,
         borderRadius:1,
-        width:width * 3,
+        width:width * 4,
         height:height/19,
         borderWidth: 10,
         borderColor: '#cccccc',
@@ -110,9 +112,6 @@ const styles = StyleSheet.create({
         textAlignVertical:'center',
         textAlign:'center',
         height:height/10,
-        width:width/3,
-        fontSize: 25,
-        fontWeight: 'bold',
-        fontFamily: 'Arial',
+        width:width/3
     }
 });

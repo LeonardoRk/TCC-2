@@ -1,5 +1,5 @@
 pergunta:sim
-resposta:sim qtd_solucoes:2
+resposta:sim qtd_solucoes:1
 ed:true
 tipo_ed:ordinária
 ordem:primeira ordem

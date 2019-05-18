@@ -4,6 +4,6 @@ ed:true
 tipo_ed:ordinária
 ordem:primeira ordem
 linearidade:não-linear
-ed_separavel:false
-ed_exata:false
+ed_separavel:true
+ed_exata:true
 ed_homogenea:true

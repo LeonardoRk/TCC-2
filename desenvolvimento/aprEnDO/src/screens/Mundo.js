@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image, TouchableHighlight, Modal, Alert} from 'react-native';
+import {View, Text, StyleSheet, Alert} from 'react-native';
 import IMAGES from '../../resource/img/pergunta/index';
 import Equacao from '../Equacao';
 import {Navigation} from 'react-native-navigation';
+import AsyncStorage from '@react-native-community/async-storage';
 
 const carregaPaginaAnterior = () =>{
     Navigation.pop("App");
@@ -10,9 +11,24 @@ const carregaPaginaAnterior = () =>{
 
 export default class Mundo extends Component {
     
-    checaSeAcerto = (numeroTentativa) => {
-        if(this.state.perguntaAtual == this.props.totalQuestoes){
-            Alert.alert("Parabéns,", "você está preparado para classificar EDO's", [
+    checaSeAcerto = async (numeroTentativa) => {
+        if(this.state.perguntaAtual == this.props.totalQuestoes && 
+            numeroTentativa == this.state.numeroPerguntaCorreta){
+            console.log("jogo vencido");
+            nomeModulo = this.props.nome;
+            estat = await AsyncStorage.getItem('estatisticas');
+            estat = JSON.parse(estat);
+            if(estat['classificacao'][nomeModulo] == false ){
+                estat['classificacao'][nomeModulo] = [true,1];
+            }else{
+                estat['classificacao'][nomeModulo][1] = estat['classificacao'][nomeModulo][1] + 1; 
+            }
+            await AsyncStorage.setItem('estatisticas', JSON.stringify(estat));
+            b = await AsyncStorage.getItem('estatisticas');
+            console.log('As estatísticas atualizadas: ' + nomeModulo);
+            console.log(b);
+            console.log('incrementado mais uma vitória');
+            Alert.alert("Parabéns,", "você está preparado(a) para classificar EDO's", [
                 {text: 'Okay', onPress: () =>  carregaPaginaAnterior()},
             ], {cancelable:false});
         }else{
@@ -59,7 +75,6 @@ export default class Mundo extends Component {
                     imgSrc={IMAGES[this.props.faseEmbaralhada[this.state.perguntaAtual-1][2]]}/>
                 <Equacao handleClick={this.checaSeAcerto}
                     imgSrc={IMAGES[this.props.faseEmbaralhada[this.state.perguntaAtual-1][3]]}/>
-                
             </View>
         );
     }

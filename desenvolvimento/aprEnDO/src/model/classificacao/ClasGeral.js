@@ -4,7 +4,8 @@ import service from '../../Service';
 
 export default class ClassGeral extends Component { 
 
-    constructor(nomeClassificacao){
+    constructor (nomeClassificacao)
+    {
         if(nomeClassificacao == undefined){
             throw new Error("Nome de classificação indefinido");
         }else{
@@ -17,8 +18,8 @@ export default class ClassGeral extends Component {
         console.log("Dados gerais: " + this.props.dadosGerais);
         console.log("criando classificação: " + this.props.classificacao);
     }
-
-    escolheEquacao(arrayEquacoes){
+    
+    escolheEquacao (arrayEquacoes){
         console.log(arrayEquacoes);
         let value = service.itemAleatorio(arrayEquacoes);
         let index = arrayEquacoes.indexOf(value);

@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-import ClassGeral from './classificacao/ClasGeral';
+import {Component} from 'react';
 import ClassTipo from './classificacao/ClassTipo';
 import ClassSeparavel from './classificacao/ClassSeparavel';
 import ClassOrdem from './classificacao/ClassOrdem';
@@ -8,8 +7,8 @@ import ClassHomog from './classificacao/ClassHomog';
 import ClassExata from './classificacao/ClassExata';
 import service from '../Service';
 
-const QTD_TOTAL_PERGUNTA = 20;
 const TIPO = "tipo";
+const QTD_TOTAL_PERGUNTA = 20;
 const ORDEM = "ordem";
 const HOMOGENEIDADE = "homogeneidade";
 const LINEARIDADE = "linearidade";
@@ -112,7 +111,7 @@ classificacaoDoisTipos = (perguntasAleatorias) => {
     }
     console.log(faseInteira);
     return faseInteira;
-};
+}
 
 classificacaoQuatroTipos = (perguntasAleatorias) => {
     console.log(objetoConcretoClassificacao.props.classificacao);
@@ -217,6 +216,10 @@ export default class AgregacaoClassificacao extends Component{
             throw new Error("Nome de Criação agregação inválido");
         }
         objetoConcretoClassificacao.constructor(objetoConcretoClassificacao.props.classificacao);
+    }
+
+    nome(){
+        return "blue";
     }
 }
 

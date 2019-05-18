@@ -3,7 +3,7 @@ resposta:sim qtd_solucoes:1
 ed:true
 tipo_ed:ordinária
 ordem:primeira ordem
-linearidade:não-linear
+linearidade:linear
 ed_separavel:false
-ed_exata:true
+ed_exata:false
 ed_homogenea:false

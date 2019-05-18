@@ -14,7 +14,8 @@ const carregaMundoResolução = async (nomeMundo) =>{
         component: {
           name: 'MundoResolucao',
           passProps:{
-              todasPerguntas:agregacaoResolucao.todasAsPerguntas
+              todasPerguntas:agregacaoResolucao.todasAsPerguntas,
+              nome: nomeMundo 
           }
         }
       });

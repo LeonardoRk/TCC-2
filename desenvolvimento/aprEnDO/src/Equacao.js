@@ -29,7 +29,7 @@ export default class Equacao extends Component {
     render(){
         return(
             <View style={styles.equacao1}>
-                <TouchableHighlight style={styles.equacao} 
+                <TouchableHighlight underlayColor='green'  style={styles.equacao} 
                                     onLongPress={this._zoomImagem}
                                     onPressOut={this._desfazZoomImagem}
                                     onPress={() =>{this.props.handleClick(this.props.imgSrc)}}

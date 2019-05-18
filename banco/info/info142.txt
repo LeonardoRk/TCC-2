@@ -2,8 +2,8 @@ pergunta:sim
 resposta:sim qtd_solucoes:1
 ed:true
 tipo_ed:ordinária
-ordem:primeira ordem
+ordem:terceira ordem
 linearidade:linear
-ed_separavel:true
+ed_separavel:false
 ed_exata:false
-ed_homogenea:true
+ed_homogenea:false
