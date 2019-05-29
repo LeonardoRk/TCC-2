@@ -1,5 +1,5 @@
 const fs = require('fs');
-var fileName = "./seed.txt";
+var fileName = "./novo_seed.txt";
 var lines = [];
 fs.readFile(fileName, (err, seeds) => { 
 	if (err) throw err; 

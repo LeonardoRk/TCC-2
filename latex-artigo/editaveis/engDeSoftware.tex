@@ -156,9 +156,6 @@ Ao receber os dados json enviados do aplicativo do celular para o servidor, o me
 A função ‘lê histórico’ recupera o documento existente no banco de dados heroku\_41w8651l hospedado no mLab, da coleção chamada histórico. A função analisa checa se a matrícula recebida pela requisição já havia alguma vez enviado estatísticas ou se é uma matrícula nova. Em caso de matrícula nova, uma nova linha é adicionada com chave primária a matrícula do aluno e salva no banco. Em caso de matrícula existente é iterado sobre classificação e resolução e todas suas fases e incrementado a quantidade de vitórias a mais que foi concluído das fases no jogo e em seguida o arquivo é atualizado no banco do mLab.
 
 
- 
-
-
 \begin{comment}
 ////
 A respeito do jogo, como colher dados? Os dados são colhidos quando o jogador está utilizando o jogo. Porém o dados são mantidos apenas no dispositivo. A pessoa pode enviar a estatística quando desejar, o professor solicitará o envio constante dos dados dos alunos.
