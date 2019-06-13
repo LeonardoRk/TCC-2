@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1ptdcrt" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.1.0">
+  <bpmn:collaboration id="Collaboration_1o3knb4">
+    <bpmn:participant id="Participant_0ntjn04" name="GANHAR" processRef="Process_15c2kvl" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_15c2kvl" isExecutable="false">
+    <bpmn:exclusiveGateway id="ExclusiveGateway_0e1eszd" name="já tinha vencido ?">
+      <bpmn:incoming>SequenceFlow_0ws98md</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1f5w35a</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_1leuypa</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="Task_04w158h" name="incrementa quantidade de vitórias nesta fase">
+      <bpmn:incoming>SequenceFlow_1f5w35a</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_04m7mg6</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0kdhbul</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:dataStoreReference id="DataStoreReference_1xronm3" />
+    <bpmn:startEvent id="StartEvent_15f29l2" name="ganhar fase">
+      <bpmn:outgoing>SequenceFlow_0ws98md</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_06y1sju" name="seta módulo vencedor">
+      <bpmn:incoming>SequenceFlow_1leuypa</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_04m7mg6</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="EndEvent_190mvkg" name="retorna à tela de fases">
+      <bpmn:incoming>SequenceFlow_0kdhbul</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_0ws98md" sourceRef="StartEvent_15f29l2" targetRef="ExclusiveGateway_0e1eszd" />
+    <bpmn:sequenceFlow id="SequenceFlow_0kdhbul" sourceRef="Task_04w158h" targetRef="EndEvent_190mvkg" />
+    <bpmn:sequenceFlow id="SequenceFlow_04m7mg6" sourceRef="Task_06y1sju" targetRef="Task_04w158h" />
+    <bpmn:sequenceFlow id="SequenceFlow_1leuypa" name="NÃO" sourceRef="ExclusiveGateway_0e1eszd" targetRef="Task_06y1sju" />
+    <bpmn:sequenceFlow id="SequenceFlow_1f5w35a" name="SIM" sourceRef="ExclusiveGateway_0e1eszd" targetRef="Task_04w158h" />
+    <bpmn:textAnnotation id="TextAnnotation_1bu1k5e">
+      <bpmn:text>Salva no banco local do jogo *apenas no celular*</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1lbcodo" sourceRef="Task_04w158h" targetRef="TextAnnotation_1bu1k5e" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1o3knb4">
+      <bpmndi:BPMNShape id="Participant_0ntjn04_di" bpmnElement="Participant_0ntjn04" isHorizontal="true">
+        <dc:Bounds x="156" y="81" width="697" height="327" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1bu1k5e_di" bpmnElement="TextAnnotation_1bu1k5e">
+        <dc:Bounds x="597" y="101" width="99.99305040770942" height="67.99017790956265" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_0e1eszd_di" bpmnElement="ExclusiveGateway_0e1eszd" isMarkerVisible="true">
+        <dc:Bounds x="346" y="184" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="329" y="154" width="85" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_06y1sju_di" bpmnElement="Task_06y1sju">
+        <dc:Bounds x="321" y="289" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_04w158h_di" bpmnElement="Task_04w158h">
+        <dc:Bounds x="496" y="169" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataStoreReference_1xronm3_di" bpmnElement="DataStoreReference_1xronm3">
+        <dc:Bounds x="521" y="103" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_190mvkg_di" bpmnElement="EndEvent_190mvkg">
+        <dc:Bounds x="704" y="191" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="682" y="234" width="80" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_15f29l2_di" bpmnElement="StartEvent_15f29l2">
+        <dc:Bounds x="212" y="191" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="201" y="234" width="58" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_1lbcodo_di" bpmnElement="Association_1lbcodo">
+        <di:waypoint x="594" y="174" />
+        <di:waypoint x="600" y="169" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1f5w35a_di" bpmnElement="SequenceFlow_1f5w35a">
+        <di:waypoint x="396" y="209" />
+        <di:waypoint x="496" y="209" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="429" y="190" width="20" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1leuypa_di" bpmnElement="SequenceFlow_1leuypa">
+        <di:waypoint x="371" y="234" />
+        <di:waypoint x="371" y="289" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="338" y="243" width="25" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_04m7mg6_di" bpmnElement="SequenceFlow_04m7mg6">
+        <di:waypoint x="421" y="329" />
+        <di:waypoint x="546" y="329" />
+        <di:waypoint x="546" y="249" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0kdhbul_di" bpmnElement="SequenceFlow_0kdhbul">
+        <di:waypoint x="596" y="209" />
+        <di:waypoint x="704" y="209" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0ws98md_di" bpmnElement="SequenceFlow_0ws98md">
+        <di:waypoint x="248" y="209" />
+        <di:waypoint x="346" y="209" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

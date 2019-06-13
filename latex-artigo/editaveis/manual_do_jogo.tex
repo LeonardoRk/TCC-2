@@ -1,12 +1,11 @@
 \chapter[Manual do aprEnDO]{Manual do aprEnDO}
-O jogo é composto em 2 pacotes, o pacote de exercícios e o pacote de estatísticas.
-
-É na página inicial que você pode escolher o que deseja fazer.
+O jogo é composto em 2 pacotes, o pacote de exercícios e o pacote de estatísticas. É na página inicial que você pode escolher o que deseja fazer.
 
 \begin{figure}[H]
 \centering
 \caption{Tela inicial}
-\includegraphics[scale=0.72]{figuras/tela_inicial.png}
+\includegraphics[scale=0.32]{figuras/tela_inicial.png}
+\label{tela_inicial}
 
 \small{Fonte: do próprio autor}
 \end{figure}
@@ -14,23 +13,62 @@ O jogo é composto em 2 pacotes, o pacote de exercícios e o pacote de estatíst
 \input{editaveis/pacote1}
 
 \section[Pacote 2]{Pacote 2}
-O pacote de estatísticas está relacionado à coleta de dados para a avaliação da quantidade de erros nas questões, quais foram as questões mais erradas e qual fase os estudantes tem mais dificuldade. O envio das estatísticas para o servidor não ocorrerá de forma programada, depende do jogador enviar os dados de acordo com a sua vontade de colaboração através de um botão e a confirmação do envio.
+O pacote de estatísticas está relacionado à coleta de dados para a avaliação da quantidade de jogadores que usaram o jogos e dentre os que usaram, quais fases eles completaram e quantas vezes eles as completaram. O envio das estatísticas para o servidor não ocorrerá sem a ação do usuário, depende do jogador enviar os dados de acordo com a sua vontade de colaboração através de um botão na tela inicial e a confirmação do envio com a sua matrícula.
+
+Ao se clicar no botão para enviar estatísticas do jogo, deve-se redirecionar para a tela igual a figura \ref{envio_estatisticas}.
 
 
-Na tela principal do jogo, terá um botão para enviar sugestões do jogo e outro botão para notificar erros e bugs encontrados.
-O botão de enviar sugestões de jogo redirecionará a uma tela onde o jogador pode escrever x caracteres de sugestões e confirmar o envio para enviar ao servidor central de análise, essas sugestões podem se tornar \textit{issues} e/ou \textit{features} novas do jogo.
-O botão de erros e bugs encontrados redirecionará a uma nova tela onde é possível escrever e/ou anexar 1 foto do incidente ocorrido, para que este possa ser analisado.
+\begin{figure}[H]
+\centering
+\caption{Tela de envio de estatísticas}
+\includegraphics[scale=0.5]{figuras/estatisticas/envio_estatisticas.png}
 
-\begin{comment}
-No desafio do modo de jogo 1, o jogador corre contra o tempo para classificar o maior número de equações de possíveis. A cada 3 respostas consecutivas corretas serão adicionados 2 segundos de tempo. Ao fim do desafio ficará registrado o récorde de pontuação do jogador.
+\label{envio_estatisticas}
+\small{Fonte: do próprio autor}
+\end{figure}
 
-Na fase 2 que é o jogo da memória o jogador lidará com problemas de resolução de exercícios.
-Uma carta é uma equação e a sua carta gêmea é a resposta da equação.
-No início existem menos cartas e exercícios mais fáceis, conforme prossegue no nível de dificuldade aumentarão o número de cartas e a dificuldade dos exercícios.
+A figura \ref{matricula_incorreta} apresenta a mensagem de erro ao digitar a matrícula incorreta. A checagem é feita conferindo a quantidade de dígitos que deve ser igual a 8.
 
-No desafio do modo de jogo 2, é o jogo da memória ao inverso, todas as cartas mostram os seus valores   e ao clicar na carta ela vira de lado mostrando o desenho da estampa da carta. O objetivo a ser atingido é esconder o valor de todas as cartas sem cometer nenhum tropeço errando a combinação de pares. Ao fim do desafio ficará registrado a quantidade récorde do mínimo de tropeços do jogador.
 
-No modo 3 o jogo será em terceira pessoa, o jogador estará imerso no labirinto ao invés de 2D (visão superior) igual o modo de jogo 1 e 2. Neste modo o jogador possui um avatar que pode se locomover pelo labirinto. O labirinto possui mais de uma maneira de chegar à saída, porém existem caminhos mais longos que outros. No labirinto os jogadores irão se deparar com problemas no caminho, onde precisarão resolver problemas de aplicações para poder passar. A vantagem do labirinto é que existe mais de um caminho para chegar ao fim e o jogador pode escolher outro caminho caso não esteja satisfeito com o primeiro escolhido. As questões de aplicação serão a respeito de crescimento de bactérias atrapalhando o caminho, trajetórias de projeteis lançados no jogador, escoamento de fluidos, transferência de calor para derretimento de barreiras.
+\begin{figure}[H]
+\centering
+\caption{Alerta de matrícula inválida}
+\includegraphics[scale=0.5]{figuras/estatisticas/matricula_incorreta.png}
 
-\end{comment}
+\label{matricula_incorreta}
+\small{Fonte: do próprio autor}
+\end{figure}
 
+A figura \ref{sem_internet} apresenta a mensagem de erro quando não há conexão do celular com a internet para o envio dos dados ao servidor.
+
+\begin{figure}[H]
+\centering
+\caption{Alerta de falta de internet}
+\includegraphics[scale=0.5]{figuras/estatisticas/sem_internet.png}
+
+\label{sem_internet}
+\small{Fonte: do próprio autor}
+\end{figure}
+
+Ao ser digitado a matrícula correta e realizada a submissão do envio das estatísticas, um loader aparecerá enquanto o procedimento não termina, como mostra a figura \ref{loader} e ao terminar o envio, uma mensagem é apresentada, como mostra a figura \ref{estatisticas_sucesso_envio}
+
+\begin{figure}[H]
+\centering
+\caption{Loader visível enquanto envia estatísticas}
+\includegraphics[scale=0.5]{figuras/estatisticas/loader_estatisticas.png}
+
+\label{loader}
+\small{Fonte: do próprio autor}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\caption{Alerta de envio com sucesso}
+\includegraphics[scale=0.5]{figuras/estatisticas/estatisticas_enviadas.png}
+
+\label{estatisticas_sucesso_envio}
+\small{Fonte: do próprio autor}
+\end{figure}
+
+Ao fim do envio, é redirecionado para à tela inicial \ref{tela_inicial}.
