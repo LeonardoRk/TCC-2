@@ -1,0 +1,22 @@
+\section[Banco de equações]{Banco de equações}
+
+Antes de existir o modelo definitivo dos arquivos de seeds, foi modelado a primeira versão do modelo relacional.
+Este modelo tinha cinco entidades, cada uma com seus atributos. As entidades modeladas foram: 
+\begin{itemize}
+	\item EQUAÇÃO\_DIFERENCIAL com os atributos linearidade, separável, homogênea, exata e o id como chave primária.
+	\item ORDEM com os atributos primeira, segunda, terceira, ordem superior.
+	\item DIFICULDADE com os atributos fácil, facilmedio, medio, mediodificil e difícil.
+	\item TIPO com os atributos ordinária e parcial.
+	\item PERGUNTA com os atributos img\_src, largura e comprimento.
+	\item RESPOSTA com os atributos img\_src, largura e comprimento.
+\end{itemize}
+
+Houve a reflexão de criar uma entidade comum para pergunta e resposta como por exemplo IMAGEM, onde PERGUNTA e RESPOSTA herdariam as propriedades. Após outra reflexão, optou-se por não utilizar o modelo do banco porque foi julgado que o problema não era tão complexo e os dados poderiam estar guardados em pastas organizadas ao invés de um banco.
+
+O WolfranAlpha será utilizado para fazer requisições de EDO's para serem utilizadas nas fases do jogo. Com uma chave de teste gratuita serão baixados os metadados em formato JSON através de uma API.
+A API baixada do wolfran na linguagem javascript foi baixada no endereço \url{https://products.wolframalpha.com/api/libraries/javascript/}.
+A chave gratuita permite 2000 requisições em um mês, com o código de série: 3GGQAT-98EG4KV6VL. Foi desenvolvido um script alimentado por um arquivo de \textit{seeds} que realiza as requisições para a API do Wolfran Alpha para ler os metadados de cada EDO's e guardar/baixar os dados necessários. Os metadados são no formato \textit{JSON}. Eles fornecem a url para a imagem .gif das equações perguntas e respostas (quando disponível), estas são utilizadas no jogo, então é necessário mapeá-las em um arquivo index.js para adicionar na pasta resource do jogo no \textit{react native} para fazer com que a internet não seja um requisito para jogar, porém para enviar dados ao servidor será necessário o acesso à internet e quando não disponível, tem como requisito avisar o jogador para tentar novamente mais tarde e espera-se então que o procedimento de zerar as estatísticas não seja acionado.
+
+Na pasta banco existe um arquivo chamado \textbf{seeds.txt} que é o arquivo com as equações diferenciais para alimentar o banco de dados da aplicação aprEnDO. O script \textbf{equações.js} lê o arquivo de seeds equação por equação, faz a requisição para o Wolfran Alpha utilizando os códigos da pasta wolfran\_api e requisita todos os pod disponíveis (pod são os arrays de informação disponibilizados). Após ter os pods são filtradas as informações desejadas e salvas em arquivos de informações localizadas na pasta \textbf{info}. Os pods apresentam as \textit{urls} das imagens de equações de perguntas e respostas, quando existe resposta. Equações sem solução só podem ser utilizadas no primeiro módulo do jogo, o de classificação e não são incluídas no módulo de resolução. As imagens de perguntas baixadas são salvas na pasta \textbf{pergunta} e as imagens de respostas salvas na pasta \textbf{resposta}.
+
+Com todas as informações desejadas de cada equação é possível utilizar o arquivo \textbf{estatisticas.js} que lê todos os arquivos de informação para contabilizar as informações da quantidade de equações diferenciais, quais tem resposta e quais não, quais são homogêneas, exatas, separáveis, linear, não linear, ordem1, ordem2, ordem3, ordem de 4 para cima são consideradas ordem superior, além de fazer a contagem total,também são indicados o número da equação. Essas informações são escritas num arquivo de controle para que possa ser lido pelo aplicativo aprEnDO e fazer a seleção das equações correta para renderizar, a depender do nível que a pessoa está jogando. O nome do arquivo de controle é \textbf{DADOS\_GERAIS.json}.
