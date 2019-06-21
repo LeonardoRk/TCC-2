@@ -22,10 +22,10 @@ Teste de software é uma atividade importante do desenvolvimento de software poi
 
 
 \subsection[Plataformas mobile]{Plataformas mobile}
-Existem diversas maneiras de se construir APP para mobiles. Algumas apenas para celulares Android, outras para sistemas iOS e outras para ambas plataformas. Existes \textit{frameworks} de desenvolvimento onde o código gerado já é nativo da própria plataforma alvo (Android ou iOS) e outras onde o código é transformado em partes para a plataforma nativa.
+Existem diversas maneiras de se construir APP para mobiles. Algumas apenas para celulares Android, outras para sistemas iOS e outras para ambas plataformas. Existem \textit{frameworks} de desenvolvimento onde o código gerado já é nativo da própria plataforma alvo (Android ou iOS) e outras onde o código é transformado em partes para a plataforma nativa.
 Existe um  projeto chamado \textit{kivy}, onde é escrito código na linguagem \text{Python} e o \textit{kivy} com suas bibliotecas converte o código para gerar aplicações para Android e iOS.
 
-Outros \textit{frameworks}analisados que também geram código para ambas plataformas de celular são o \textit{Godot} e \textit{React Native}. Por maior familiaridade do autor com o \textit{HTML}, \textit{CSS} e \textit{JavaScript} optou-se por utilizar o framework \textit{React Native}.
+Outros \textit{frameworks} analisados que também geram código para ambas plataformas de celular são o \textit{Godot} e \textit{React Native}. Por maior familiaridade do autor com o \textit{HTML}, \textit{CSS} e \textit{JavaScript} optou-se por utilizar o framework \textit{React Native}.
 
 \subsubsection[React Native]{React Native}
 Aqui será explicado sucintamente o funcionamento do \textit{React Native}. O Framework trabalha com componentes e possibilita a composição e agregação de componentes. Para isso é necessário que as classes criadas extendam (herança) a classe \textit{React.Component}. Ao realizar a herança os componentes passam a ser obrigados a implementar o método \textit{render()} e também herdam dois tipos de dados: \textit{props} e \textit{states}. O método \textit{render()} faz parte do ciclo de vida da montagem e atualização de um componente é o que irá renderizar o objeto na tela mostrando a sua estilização. As props são características estáticas passadas pela classe pai que um objeto recebe ao ser criado e o state são propriedades que podem ser alteradas pelo próprio componente. Componentes extendidos da classe \textit{React.Native} passam a ter o ciclo de vida para montagem e atualização conforme descrito nas Figuras \ref{montagem} e \ref{atualizacao}.
@@ -44,7 +44,7 @@ Aqui será explicado sucintamente o funcionamento do \textit{React Native}. O Fr
 \centering
 \caption{Processo de atualização do componente React}
 \includegraphics[scale=0.2]{figuras/atualizacao.png}
-\label{atualização}
+\label{atualizacao}
 \\
 \small{Fonte: do próprio autor}
 \end{figure}
