@@ -211,7 +211,7 @@ A seguir uma explicação das funções desenvolvidas que estão na pasta SRC e 
 \textbf{PASTA:SRC/ComponentesCustomizados}
 \begin{itemize}
 \item ARQUIVO:Campo
-
+	\begin{itemize}
 	\item mapeiaCartas: recebe o array retornado da requisitaImagens o qual inicia-se com uma pergunta e sucessivamente sua solução. Um loop é feito no array para criar um dicionário com chaves as perguntas e valor as respostas. Por isso o loop é iterado apenas nas perguntas, que são as posições pares. Ao final da iteração e população do dicionário, o mesmo é retornado.
 	
 	\item requisitaImagens: recebe um array com o número das figuras aleatórias sorteadas para esta partida e faz o import através da função require procurando no arquivo index das perguntas e das respostas. O retorno é um array com vinte figuras, sendo dez perguntas e dez soluções das perguntas. OBS: o array de retorno é ordenado com uma pergunta e a sua solução sucessivamente.
