@@ -126,17 +126,21 @@ imgSrc
 \label{imgSrc}
 \end{comment}
 
-A seguir uma explicação das funções desenvolvidas que estão na pasta SRC.
+A seguir uma explicação das funções desenvolvidas que estão na pasta SRC e suas subpastas.
 
 \textbf{PASTA: SRC}
 \begin{itemize}
 \item ARQUIVO:Service
+	\begin{itemize}
+		\item copiarArrayValor: recebe um vetor como parâmetro e copia apenas os seus valores sem manter a referência. Para isso criar um vetor vazio, percorre o recebido e escreve seus valores no novo vetor que será retornado.
+
+		\item itemAleatorio: recebe um vetor como parâmetro. Em caso de não pelo menos um elemento, nulo é retornado. Caso contrário com o apoio da biblioteca Math de matemática, um número flutuante entre 0 e 1 é escolhido e multiplicado pelo comprimento do vetor. O número é arredondado para baixo e então o item nesta posição do vetor é retornado.
+
+		\item embaralha: recebe um vetor e aleatoriamente troca as posições dos valores
+
+	\end{itemize}
 \end{itemize}
-copiarArrayValor: recebe um vetor como parâmetro e copia apenas os seus valores sem manter a referência. Para isso criar um vetor vazio, percorre o recebido e escreve seus valores no novo vetor que será retornado.
 
-itemAleatorio: recebe um vetor como parâmetro. Em caso de não pelo menos um elemento, nulo é retornado. Caso contrário com o apoio da biblioteca Math de matemática, um número flutuante entre 0 e 1 é escolhido e multiplicado pelo comprimento do vetor. O número é arredondado para baixo e então o item nesta posição do vetor é retornado.
-
-embaralha: recebe um vetor e aleatoriamente troca as posições dos valores
 
 \begin{itemize}
 	\item ARQUIVO:Equacao
