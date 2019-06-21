@@ -28,4 +28,23 @@ Existe um  projeto chamado \textit{kivy}, onde é escrito código na linguagem \
 Outros \textit{frameworks}analisados que também geram código para ambas plataformas de celular são o \textit{Godot} e \textit{React Native}. Por maior familiaridade do autor com o \textit{HTML}, \textit{CSS} e \textit{JavaScript} optou-se por utilizar o framework \textit{React Native}.
 
 \subsubsection[React Native]{React Native}
+Aqui será explicado sucintamente o funcionamento do \textit{React Native}. O Framework trabalha com componentes e possibilita a composição e agregação de componentes. Para isso é necessário que as classes criadas extendam (herança) a classe \textit{React.Component}. Ao realizar a herança os componentes passam a ser obrigados a implementar o método \textit{render()} e também herdam dois tipos de dados: \textit{props} e \textit{states}. O método \textit{render()} faz parte do ciclo de vida da montagem e atualização de um componente é o que irá renderizar o objeto na tela mostrando a sua estilização. As props são características estáticas passadas pela classe pai que um objeto recebe ao ser criado e o state são propriedades que podem ser alteradas pelo próprio componente. Componentes extendidos da classe \textit{React.Native} passam a ter o ciclo de vida para montagem e atualização conforme descrito nas Figuras \ref{montagem} e \ref{atualizacao}.
 
+
+\begin{figure}[H]
+\centering
+\caption{Processo de montagem do componente React}
+\includegraphics[scale=0.2]{figuras/montagem.png}
+\label{montagem}
+\\
+\small{Fonte: do próprio autor}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\caption{Processo de atualização do componente React}
+\includegraphics[scale=0.2]{figuras/atualizacao.png}
+\label{atualização}
+\\
+\small{Fonte: do próprio autor}
+\end{figure}
