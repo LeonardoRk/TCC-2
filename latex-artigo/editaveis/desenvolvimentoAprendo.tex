@@ -206,6 +206,30 @@ A seguir uma explicação das funções desenvolvidas que estão na pasta SRC e 
 
 
 \textbf{PASTA:SRC/model}
+\begin{itemize}
+	\item ARQUIVO:AgregacaoClassificacao
+	\begin{itemize}
+		\item selecionaTodasPerguntas: este método recebe o parâmetro do nome da fase de classificação e retorna um array com a escolha aleatória de vinte perguntas da fase que será jogada.
+		\item classificacaoDoisTipos: esta função serve para todas as fases de classificação que tem apenas duas perguntas (tipo, homogeneidade, linearidade, separável e exata). Não serve apenas para "ordem". A função recebe o array de vinte perguntas aleatórias e para cada pergunta monta um dicionário com uma equação correta e três equações erradas. Esse conjunto é adicionado a um array. É retornado o array de dicionário com vinte conjuntos.
+		\item selecionaCorretas: Recebe como parâmetro o array de dicionários com os vinte conjuntos. Monta-se um array com o número das vinte equações corretas e este array é retornado.  
+		\item classificacaoQuatroTipos: esta função serve para todas as fases de classificação que tem apenas quatro perguntas, que no caso é apenas para "ordem". A função recebe o array de vinte perguntas aleatórias e para cada pergunta monta um dicionário com uma equação correta e três equações erradas. Esse conjunto é adicionado a um array. É retornado o array de dicionário com vinte conjuntos.
+		\item juntaCorretoErrado: recebe um dicionário como parâmetro que contém as chaves "correto" e "errado". O correto tem apenas um número de equação e o errado tem três números de equação. Todos os número de equação do dicionário são adicionados a um único array e este é retornado. 
+		\item  juntaEmbaralhado: recebe como parâmetro o array de dicionários e embaralha as quatro questôes de cada fase, de modo que a equação correta não fique sempre na mesma posição. É retornado o array com todas as equações da fase embaralhado.
+		\item resetaObjetoClassificacao: recebe como parâmetro um nome da fase e retorna um objeto especializado do norme da fase. Pode ser tipo, ordem, homogeneo, linearidade, separável ou exata.
+	\begin{itemize}
+\begin{itemize}
+
+\begin{itemize}
+	\item ARQUIVO:AgregacaoResolucao
+\begin{itemize}
+
+\begin{itemize}
+	\item ARQUIVO:ResolucaoFactory
+\begin{itemize}
+
+\textbf{PASTA:SRC/model/classificação}
+
+\textbf{PASTA:SRC/model/resolução}
 
 
 \textbf{PASTA:SRC/ComponentesCustomizados}
