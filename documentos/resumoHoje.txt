@@ -1,5 +1,0 @@
-Jogos são atividades lúdicas para as pessoas de divertirem e se motivarem
-Existem o uso de jogos no ensino para fazer com que as pessoas tenham mais vontade de aprender
-Já existem aplicações de jogos no ensino, tanto para crianças na escola quanto para adolescentes e adultos nas universidades. 
-Existem jogos para ensino de matemática no ensino superior, porém não foi encontrado para a área de equações diferenciais.
-A proposta deste trabalho é utilizar a engenharia de software para desenvolver um jogo de equações diferenciais e avaliar se houve a contribuição para o aprendizado dos alunos. A avaliação se dará pela aplicação de questionários, comparação do resultado de prova entre alunos participantes e não participantes e a análise de dados colhidos do jogo para ver se o jogo se difundiu entre os alunos. 
