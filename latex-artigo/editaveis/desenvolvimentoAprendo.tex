@@ -94,12 +94,22 @@ Zerar estatísticas percorre as fases de classificação e resolução verifican
 
 Outro artefato de documentação desenvolvido foi o diagrama de classes. Este foi modelado de modo a facilitar o desenvolvimento e o entendimento da pasta src, pois deu uma guiada no que precisava ser feito e como as classes do jogo e os componentes se relacionam. 
 
+
 \begin{figure}[H]
-\centering
-\caption{Diagrama de Classe do AprEnDO}
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{figuras/DC_novo2.png}
-\small{Fonte: do próprio autor}
+\caption{Diagrama de Pacote do AprEnDO}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{figuras/diagrama_pacote.jpg}
+\label{fig:diagramaDePacote}
 \end{figure}
+
+\begin{landscape}
+  \begin{figure}[H]
+  \caption{Diagrama de Classe do AprEnDO}
+  \includegraphics[width=247mm,height=170mm]{figuras/DC_novo2.png}
+  \label{fig:diagramaDeClasse}
+  \end{figure}
+\end{landscape}
+
+A imagem pode ser vista maior em \url{https://github.com/LeonardoRk/TCC-2/wiki/Diagramas#diagrama-de-classe-do-aprendo}
 
 A pasta src apresenta o código fonte escrito em React (node.js).
 A modelagem da aplicação é possível visualizar no diagrama de classe. Tem-se a pasta dos componentes customizados, a pasta model (que tem o modelo de perguntas e respostas e classes construtoras da agregação de perguntas e respostas para o jogo),  a pasta screens que contém as telas de jogo, sendo que algumas screens contém componentes que estão na pasta de componentes customizados. Tem o arquivo Service.js que realiza algumas tarefas auxiliares necessárias em partes misturadas do jogo, como por exemplo embaralhar um array (conjunto de dados homogêneos), realizar uma cópia de valores de um array e escolher um item aleatório.
