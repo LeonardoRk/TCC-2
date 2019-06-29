@@ -40,7 +40,8 @@ A primeira macro-atividade é a inicialização, indicada na Figura \ref{inic}.
 
 O processo \ref{inic} recupera a variável 'primeira\_vez' da memória, caso a variável exista e tenha o valor de 'falso' significa que o usuário já jogou outras vezes, então o processo termina. Caso seja realmente a primeira vez do usúário é necessário criar a variável 'primeira\_vez' para sinalizar que não é mais a primeira vez. Também é criado a estrutura de estatísticas para classificação e resolução e persistida no banco de dados do celular.
 
-A segunda macro\-atividade é o processo de jogar o módulo de classificação, nele o usuário precisa escolher alguma fase de classificação. A Figura \ref{class_proc} mostra quais são as possíveis ações a serem tomadas pelo jogador.
+A segunda macro\-atividade é o processo de jogar o módulo de classificação, nele o usuário precisa escolher alguma fase de classificação. A Figura \ref{class_proc} mostra quais são as possíveis ações a serem tomadas pelo jogador. O link a seguir mostra a imagem ampliada \url{https://raw.githubusercontent.com/wiki/LeonardoRk/TCC-2/image/processos/processo_classificacao.png}.  
+
 
 \begin{figure}[H]
 \centering
@@ -61,7 +62,7 @@ Ambos os módulos \ref{class_proc} e \ref{res_proc} podem ativar o processo da F
 \small{Fonte: do próprio autor}
 \end{figure}
 
-
+O link a seguir apresenta a Figura \ref{res_proc} ampliada \url{https://raw.githubusercontent.com/wiki/LeonardoRk/TCC-2/image/processos/processo_resolucao.png}
 \begin{figure}[H]
 \centering
 \caption{Processo de jogo de resolução}
@@ -70,17 +71,20 @@ Ambos os módulos \ref{class_proc} e \ref{res_proc} podem ativar o processo da F
 \small{Fonte: do próprio autor}
 \end{figure}
 
-A macro-atividade "GANHAR" presente nas Figuras \ref{class_proc} e \ref{res_proc} envolve o envio de estatísticas de jogo para um servidor de análise e coleta. O processo é detalhado na Figura \ref{envio_estatisticas}.
+A macro-atividade "GANHAR" presente nas Figuras \ref{class_proc} e \ref{res_proc} envolve o envio de estatísticas de jogo para um servidor de análise e coleta. O processo é detalhado na Figura \ref{envio_estatisticas}.  
+
+O link a seguir apresenta a Figura abaixo ampliada \url{https://raw.githubusercontent.com/wiki/LeonardoRk/TCC-2/image/processos/processo_enviar_estatisticas.png}.
 
 \begin{figure}[H]
 \centering
 \caption{Envio de estatísticas}
 \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{figuras/processos/processo_enviar_estatisticas.png}
 \label{envio_estatisticas}
+
 \small{Fonte: do próprio autor}
 \end{figure}
 
-É necessário que o jogador digite sua matrícula corretamenta, pois esta será validada com a quantidade de 8 algarismos. Caso a matrícula seja validada e haja a conexão com a internet ocorrerá o envio dos dados, qualquer erro pelo caminho haverá o aviso específico ao jogador. Após a persistência dos dados no servidor, os dados locais são zerados para que não sejam redundantes no próximo envio. O processo de zerar estatísticas é apresentado na Figura \ref{zerar_estatisticas}. 
+É necessário que o jogador digite sua matrícula corretamente, pois esta será validada com a quantidade de 8 algarismos. Caso a matrícula seja validada e haja a conexão com a internet ocorrerá o envio dos dados, qualquer erro pelo caminho haverá o aviso específico ao jogador. Após a persistência dos dados no servidor, os dados locais são zerados para que não sejam redundantes no próximo envio. O processo de zerar estatísticas é apresentado na Figura \ref{zerar_estatisticas}. O link a seguir apresenta a imagem ampliada \url{https://raw.githubusercontent.com/wiki/LeonardoRk/TCC-2/image/processos/processo_zerar_estatisticas.png}. 
 
 \begin{figure}[H]
 \centering
@@ -104,7 +108,7 @@ Outro artefato de documentação desenvolvido foi o diagrama de classes. Este fo
 \begin{landscape}
   \begin{figure}[H]
   \caption{Diagrama de Classe do AprEnDO}
-  \includegraphics[width=247mm,height=170mm]{figuras/DC_novo2.png}
+  \includegraphics[width=249mm,height=240mm, keepaspectratio]{figuras/diagrama_classe.jpg}
   \label{fig:diagramaDeClasse}
   \end{figure}
 \end{landscape}
@@ -240,17 +244,17 @@ A seguir uma explicação das funções desenvolvidas que estão na pasta SRC e 
 	\item ARQUIVO:ResolucaoFactory
 	\begin{itemize}
 		\item constroiResolucao: este método recebe como parâmetro o nome da fase para retornar o objeto com as equações possíveis do arquivo de controle 
-		\item pegaEdOrdem1: 
-		\item pegaEdsComResposta: 
-		\item pegaEdsHomogeneasDeControle:
-		\item pegaEdsExatasDeControle:
-		\item presenteNosDois: 
-		\item encontraEdsNaoHomogeneas:
-		\item homogeneaPreparada:
-		\item naoHomogeneaPreparada:
-		\item exataPreparada:
-		\item encontraEdsNaoExatas: 
-		\item naoExataPreparada: 
+		\item pegaEdOrdem1: pega as equações comum entre o array todas as equações diferenciais e as equações de ordem 1 para garantir. Retorna o array resultante.
+		\item pegaEdsComResposta: recupera do arquivo de controle todas EDs que tem resposta e retorna array formado. 
+		\item pegaEdsHomogeneasDeControle: a partir da chave de EDs homogêneas é lido o arquivo de controle e retornado o array com a referência das imagens.
+		\item pegaEdsExatasDeControle: a partir da chave de EDs exatas é lido o arquivo de controle e retornado o array com a referência das equações exatas.
+		\item presenteNosDois: é uma função de intersecção. Ela encontra equações presentes nos dois arrays recebidos como parâmetro e devolver um terceiro e novo array apenas com as equações em comum nos dois arrays. 
+		\item encontraEdsNaoHomogeneas: depende das equações homogêneas. A cada equação encontrada com a chave de equação diferencial e não estiver classificada como homogênea é adicionada às equações não homogêneas.
+		\item homogeneaPreparada: Para encontrar as equações homogêneas pega-se todas as EDs com resposta e as homogêneas do arquivo de controle. Para ter uma garantia filtra-se pegando somente as equações com resposta e homogênea. A partir desta nova variável é criado o modelo (objeto, model) de resolução. 
+		\item naoHomogeneaPreparada: Para criar o objeto de não homogêneas que são utilizados nos mundos é necessário de todas equações não homogêneas. Estas obtidas pelo arquivo de controle. Estão presente apenas EDs de ordem1 que tenham solução e que não sejam homogêneas.  
+		\item exataPreparada: EDs com resposta e presente em exatas para criar o objeto Model exatas.  
+		\item encontraEdsNaoExatas: Se as equações diferenciais não estiverem presente no array de exatas elas serão coletadas para não exatas.  
+		\item naoExataPreparada: todas EDs de primeira ordem que tem solução e não se apresentam no grupo das exatas são selecionadas para formar o modelo de resolução para o mundo de resolução.
 	\end{itemize}
 \end{itemize}
 
@@ -286,6 +290,11 @@ Se for um click para não mostrar a carta é acionada a função para esconder a
 
 \begin{itemize}
 \item ARQUIVO:Telao
+O arquivo é apenas reativo. Quando chamado apenas retorna o método de renderização do \textit{render()} com dois campos iguais para imagens diferentes. Sempre que suas \textit{props} propriedades são alteradas o componente cai no ciclo de vida do react e re-renderiza. 
+
+É passada como propriedade da classe que a chamou a altura que o telão tem para que as imagens presentes nas views ocupem o tamanho total da tela dividido para duas imagens. 
+Utiliza-se da classe \textit{Stylesheet} do \textit{RN} para aplicar a estilização e cada imagem de equação que está em \textit{sub-views}  ocupar o tamanho total do espaço que foi fornecido.
+
 \end{itemize}	
 
 
@@ -293,7 +302,7 @@ Se for um click para não mostrar a carta é acionada a função para esconder a
 \item ARQUIVO:LinhaCampo
 \end{itemize}
 
-	encaminha a função handle para cada carta do campo assim como o conteúdo da carta também, ou seja, a sua imagem, seja uma carta de pergunta, ou de resposta.
+	encaminha a função handle para cada carta do campo assim como o conteúdo da carta também, ou seja, a sua imagem, independente da carta ser uma ED ou sua solução.
  
 \begin{itemize}
 \item ARQUIVO:Carta
