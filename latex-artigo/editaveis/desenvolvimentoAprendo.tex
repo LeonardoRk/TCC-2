@@ -22,8 +22,6 @@ Foram desenhados processos para entender o fluxo do jogo. O primeiro processo é
 \caption{Processo geral do jogo aprEnDO}
 \includegraphics[scale=0.2]{figuras/processos/processo_geral.png}
 \label{pg}
-\\
-\small{Fonte: do próprio autor}
 \end{figure}
 
 Na Figura \ref{pg} mostra-se que ao entrar no APP a primeira atividade é um script do sistema, assim que este termina é carregada a tela inicial que permite ao usuário jogar o módulo de classificação, jogar o módulo de resolução, enviar estatatísticas ou simplesmente sair do jogo sem fazer nada.
@@ -35,7 +33,6 @@ A primeira macro-atividade é a inicialização, indicada na Figura \ref{inic}.
 \caption{Processo de inicialização do jogo aprEnDO}
 \includegraphics[scale=0.2]{figuras/processos/proccesso_inicializacao.png}
 \label{inic}
-\small{Fonte: do próprio autor}
 \end{figure}
 
 O processo \ref{inic} recupera a variável 'primeira\_vez' da memória, caso a variável exista e tenha o valor de 'falso' significa que o usuário já jogou outras vezes, então o processo termina. Caso seja realmente a primeira vez do usúário é necessário criar a variável 'primeira\_vez' para sinalizar que não é mais a primeira vez. Também é criado a estrutura de estatísticas para classificação e resolução e persistida no banco de dados do celular.
@@ -48,7 +45,6 @@ A segunda macro\-atividade é o processo de jogar o módulo de classificação, 
 \caption{Processo de jogo de classificação}
 \includegraphics[scale=0.15]{figuras/processos/processo_classificacao.png}
 \label{class_proc}
-\small{Fonte: do próprio autor}
 \end{figure}
 
 Ambos os módulos \ref{class_proc} e \ref{res_proc} podem ativar o processo da Figura \ref{ganhar_proc} que consiste em armazenar as estatísticas de mais uma vitória nos dados do celular para que possam ser enviados ao servidor de coleta.
@@ -59,7 +55,6 @@ Ambos os módulos \ref{class_proc} e \ref{res_proc} podem ativar o processo da F
 \caption{Processo de ganhar uma fase}
 \includegraphics[scale=0.23]{figuras/processos/processo_ganhar.png}
 \label{ganhar_proc}
-\small{Fonte: do próprio autor}
 \end{figure}
 
 O link a seguir apresenta a Figura \ref{res_proc} ampliada \url{https://raw.githubusercontent.com/wiki/LeonardoRk/TCC-2/image/processos/processo_resolucao.png}
@@ -68,7 +63,6 @@ O link a seguir apresenta a Figura \ref{res_proc} ampliada \url{https://raw.gith
 \caption{Processo de jogo de resolução}
 \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{figuras/processos/processo_resolucao.png}
 \label{res_proc}
-\small{Fonte: do próprio autor}
 \end{figure}
 
 A macro-atividade "GANHAR" presente nas Figuras \ref{class_proc} e \ref{res_proc} envolve o envio de estatísticas de jogo para um servidor de análise e coleta. O processo é detalhado na Figura \ref{envio_estatisticas}.  
@@ -80,8 +74,6 @@ O link a seguir apresenta a Figura abaixo ampliada \url{https://raw.githubuserco
 \caption{Envio de estatísticas}
 \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{figuras/processos/processo_enviar_estatisticas.png}
 \label{envio_estatisticas}
-
-\small{Fonte: do próprio autor}
 \end{figure}
 
 É necessário que o jogador digite sua matrícula corretamente, pois esta será validada com a quantidade de 8 algarismos. Caso a matrícula seja validada e haja a conexão com a internet ocorrerá o envio dos dados, qualquer erro pelo caminho haverá o aviso específico ao jogador. Após a persistência dos dados no servidor, os dados locais são zerados para que não sejam redundantes no próximo envio. O processo de zerar estatísticas é apresentado na Figura \ref{zerar_estatisticas}. O link a seguir apresenta a imagem ampliada \url{https://raw.githubusercontent.com/wiki/LeonardoRk/TCC-2/image/processos/processo_zerar_estatisticas.png}. 
@@ -91,7 +83,6 @@ O link a seguir apresenta a Figura abaixo ampliada \url{https://raw.githubuserco
 \caption{Zerar estatísticas após envio}
 \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{figuras/processos/processo_zerar_estatisticas.png}
 \label{zerar_estatisticas}
-\small{Fonte: do próprio autor}
 \end{figure}
 
 Zerar estatísticas percorre as fases de classificação e resolução verificando qual fase já foi completada ao menos uma vez e trocando o valor atual para 0. Após o loop nos módulos os dados são persistidos na memória do celular.
@@ -105,6 +96,8 @@ Outro artefato de documentação desenvolvido foi o diagrama de classes. Este fo
 \label{fig:diagramaDePacote}
 \end{figure}
 
+Abaixo é mostrado o diagrama de classe do AprEnDO. A imagem ampliada pode ser vista em \href{https://github.com/LeonardoRk/TCC-2/wiki/Diagramas#diagrama-de-classe-do-aprendo}{Diagrama de classe do AprEnDO}. Em seguida serão apresentados pacote por pacote com suas respectivas classes e uma breve explicação das funções contidas nos arquivos.
+
 \begin{landscape}
   \begin{figure}[H]
   \caption{Diagrama de Classe do AprEnDO}
@@ -113,36 +106,26 @@ Outro artefato de documentação desenvolvido foi o diagrama de classes. Este fo
   \end{figure}
 \end{landscape}
 
-A imagem pode ser vista maior em \url{https://github.com/LeonardoRk/TCC-2/wiki/Diagramas#diagrama-de-classe-do-aprendo}
+
+\begin{comment}
 
 A pasta src apresenta o código fonte escrito em React (node.js).
 A modelagem da aplicação é possível visualizar no diagrama de classe. Tem-se a pasta dos componentes customizados, a pasta model (que tem o modelo de perguntas e respostas e classes construtoras da agregação de perguntas e respostas para o jogo),  a pasta screens que contém as telas de jogo, sendo que algumas screens contém componentes que estão na pasta de componentes customizados. Tem o arquivo Service.js que realiza algumas tarefas auxiliares necessárias em partes misturadas do jogo, como por exemplo embaralhar um array (conjunto de dados homogêneos), realizar uma cópia de valores de um array e escolher um item aleatório.
 
-\begin{comment}
-VARIÁVEIS  
 
-agregaçãoResolução
-\label{agregaçãoResolução}
-
-agregacaoClassificação
-\label{agregacaoClassificação}
-
-primeira\_vez
-\label{primeira_vez}
-
-mundo\_resolucao
-\label{mundo_resolucao}
-
-todasPerguntas
-\label{todasPerguntas}
-
-imgSrc
-\label{imgSrc}
-\end{comment}
 
 A seguir uma explicação das funções desenvolvidas que estão na pasta SRC e suas subpastas.
 
-\textbf{PASTA: SRC}
+\textbf{PASTA: src}
+
+Esta pasta tem as classes apresentadas na Figura \ref{classesSrc}.
+
+\begin{figure}[H]
+  \caption{Arquivos da pasta src}
+  \includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{figuras/diagramas/classes_src.png}
+  \label{classesSrc}
+  \end{figure}
+
 \begin{itemize}
 \item ARQUIVO:Service
 	\begin{itemize}
@@ -172,6 +155,15 @@ A seguir uma explicação das funções desenvolvidas que estão na pasta SRC e 
 \end{itemize}
 
 \textbf{PASTA:SRC/screens}
+
+Esta pasta tem as classes apresentadas na Figura \ref{classesScreens}. A \href{https://raw.githubusercontent.com/wiki/LeonardoRk/TCC-2/image/pacote_screen.png}{url} apresenta a figura ampliada.  
+
+\begin{figure}[H]
+  \caption{Arquivos da pasta screens}
+  \includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{figuras/diagramas/pacote_screen.png}
+  \label{classesScreens}
+\end{figure}
+
 \begin{itemize}
 \item ARQUIVO:ModoDeJogo
 	\begin{itemize}
@@ -185,7 +177,7 @@ A seguir uma explicação das funções desenvolvidas que estão na pasta SRC e 
 
 	\item criaMontagem: a função é acionada apenas na primeira vez o que o jogador acessa o jogo para então criar o template das estatísticas de classificação e resolução e todas as suas fases e assim é salvo na memória do celular. O tipo de dado das estatísticas é um Json.
 
-	\item storeData: a função storeData é acionada toda vez que um jogador entra no jogo. É tentado recuperar da memória uma variável chamada \ref{primeira_vez}, caso esta variável seja nula significa que é a primeira vez do usuário no jogo, esta variável é então criada e salva na memória com valor falso para nas outras vezes não cair neste caso, chama-se a função \ref{criaMontagem} para gerar o template das estatísticas. Caso a variável \ref{primeira_vez} já exista e retorne o valor de falso, significa que não é a primeira vez do usuário no jogo e nada acontece.
+	\item storeData: a função storeData é acionada toda vez que um jogador entra no jogo. É tentado recuperar da memória uma variável chamada 'primeira\_vez', caso esta variável seja nula significa que é a primeira vez do usuário no jogo, esta variável é então criada e salva na memória com valor falso para nas outras vezes não cair neste caso, chama-se a função 'criaMontagem' para gerar o template das estatísticas. Caso a variável 'primeira\_vez' já exista e retorne o valor de falso, significa que não é a primeira vez do usuário no jogo e nada acontece.
 
 	\end{itemize}
 \end{itemize}
@@ -200,7 +192,7 @@ A seguir uma explicação das funções desenvolvidas que estão na pasta SRC e 
 \begin{itemize}
 \item ARQUIVO:ModoResolucao
 	\begin{itemize}	
-	\item carregaMundoResolucao: função assíncrona que recebe como parâmetro o nome do mundo para criar objeto agregaçãoResolução e passar para próxima \textit{screen} chamada \ref{mundo_resolução} junto com a propriedade \ref{todasPerguntas} que é um vetor provido pelo objeto agregaçãoResolução
+	\item carregaMundoResolucao: função assíncrona que recebe como parâmetro o nome do mundo para criar objeto agregaçãoResolução e passar para próxima \textit{screen} chamada 'mundo\_resolução' junto com a propriedade 'todasPerguntas' que é um vetor provido pelo objeto agregaçãoResolução
 	\end{itemize}	
 \end{itemize}	
 
@@ -219,7 +211,16 @@ A seguir uma explicação das funções desenvolvidas que estão na pasta SRC e 
 \end{itemize}
 
 
-\textbf{PASTA:SRC/model}
+\textbf{PASTA:SRC/model}  
+
+Esta pasta tem as classes apresentadas na Figura \ref{classesModel}. Na \href{https://raw.githubusercontent.com/wiki/LeonardoRk/TCC-2/image/pacote_model.jpg}{url} é possível ver a imagem ampliada.
+\begin{figure}[H]
+  \caption{Arquivos da pasta model}
+  \includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{figuras/diagramas/pacotes_model.png}
+  \label{classesModel}
+\end{figure}
+
+
 \begin{itemize}
 	\item ARQUIVO:AgregacaoClassificacao
 	\begin{itemize}
@@ -263,7 +264,17 @@ A seguir uma explicação das funções desenvolvidas que estão na pasta SRC e 
 \textbf{PASTA:SRC/model/resolução}
 
 
-\textbf{PASTA:SRC/ComponentesCustomizados}
+\textbf{PASTA:SRC/ComponentesCustomizados}  
+
+Esta pasta tem as classes apresentadas na Figura \ref{classesCustomizados}. Na \href{https://raw.githubusercontent.com/wiki/LeonardoRk/TCC-2/image/pacotes_componentes.png}{url} é possível ver a imagem ampliada.  
+
+\begin{figure}[H]
+  \caption{Arquivos da pasta ComponentesCustomizados}
+  \includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{figuras/diagramas/pacotes_componentes.png}
+  \label{classesCustomizados}
+\end{figure}
+
+
 \begin{itemize}
 \item ARQUIVO:Campo
 	\begin{itemize}
@@ -317,3 +328,4 @@ Utiliza-se da classe \textit{Stylesheet} do \textit{RN} para aplicar a estiliza�
 
 	\end{itemize}
 \end{itemize}
+\end{comment}
