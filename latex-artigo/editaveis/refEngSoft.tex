@@ -41,7 +41,7 @@ Primeiramente o jogo deve motivar o jogador. Caractarísticas de jogos que atrae
 Outras recomendações para os jogos educacionais é que devem estar aderidos a grandes programas educacionais e deve incorporar grandes elementos para ajudar os estudantes a construir novas estruturas de conhecimento ou completar as existentes \cite{jogoSuporteMat}.
 
 \subsection[Plataformas mobile]{Plataformas mobile}
-Existem diversas maneiras de se construir APP para mobiles. Algumas apenas para celulares Android, outras para sistemas iOS e outras para ambas plataformas. Existem \textit{frameworks} de desenvolvimento onde o código gerado já é nativo da própria plataforma alvo (Android ou iOS) e outras onde o código é transformado em partes para a plataforma nativa.
+Existem diversas maneiras de se construir um aplicativo para dispositivos móveis. Algumas apenas para celulares Android, outras para sistemas iOS e outras para ambas plataformas. Existem \textit{frameworks} de desenvolvimento onde o código gerado já é nativo da própria plataforma alvo (Android ou iOS) e outras onde o código é transformado em partes para a plataforma nativa.
 Existe um  projeto chamado \textit{kivy}, onde é escrito código na linguagem \text{Python} e o \textit{kivy} com suas bibliotecas converte o código para gerar aplicações para Android e iOS.
 
 Outros \textit{frameworks} analisados que também geram código para ambas plataformas de celular são o \textit{Godot} e \textit{React Native}. Por maior familiaridade do autor com o \textit{HTML}, \textit{CSS} e \textit{JavaScript} optou-se por utilizar o framework \textit{React Native}.
@@ -53,13 +53,15 @@ Aqui será explicado sucintamente o funcionamento do \textit{React Native}. O Fr
 \begin{figure}[H]
 \centering
 \caption{Processo de montagem do componente React}
-\includegraphics[scale=0.7]{figuras/montagem.png}
+\includegraphics[scale=0.4]{figuras/montagem.png}
 \label{montagem}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \caption{Processo de atualização do componente React}
-\includegraphics[scale=0.7]{figuras/atualizacao.png}
+\includegraphics[scale=0.4]{figuras/atualizacao.png}
 \label{atualizacao}
 \end{figure}
+
+Quando o método render é chamado para re-renderizar um componente, geralmente mudaram apenas algumas informações na árvore. O algoritmo compara as duas árvores alterando apenas as props e os estados que alteraram da antiga para a nova. A API do React deseja resolver problemas de transição efetiva no aplicativo para deixar que o usuário apenas se preocupe em pensar nas declarações (programar os estados dos componentes e suas respectivas funções) \href{https://reactjs.org/docs/reconciliation.html}{\textit{diffing}}. O React usa o processo reconciliation, onde as DOM Virtuais (VDOM) que ficam armazenadas na memória são mapeadas e sincronizadas com o Document Object Model (DOM) para que possam ser apresentados na tela \href{https://github.com/acdlite/react-fiber-architecture}{arquitetura reconcilliation}.
